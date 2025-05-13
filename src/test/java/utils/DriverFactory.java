@@ -1,21 +1,23 @@
 package utils;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
+
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
+
 public class DriverFactory {
     private static WebDriver driver;
+
     public static WebDriver initializeDriver(String platform) throws MalformedURLException {
         if (platform.equalsIgnoreCase("desktop")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        }
-        else if (platform.equalsIgnoreCase("mobile-browserstack")) {
+        } else if (platform.equalsIgnoreCase("mobile-browserstack")) {
             MutableCapabilities bstackOptions = new MutableCapabilities();
             //  DesiredCapabilities caps = new DesiredCapabilities();
             bstackOptions.setCapability("userName", "karunaarshakota1");
@@ -33,16 +35,16 @@ public class DriverFactory {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         return driver;
-
-
-
     }
+
     public static WebDriver getDriver() {
         return driver;
     }
+
     public static void setDriver(WebDriver driverInstance) {
         driver = driverInstance;
     }
+
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();

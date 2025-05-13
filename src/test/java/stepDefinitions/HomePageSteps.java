@@ -1,48 +1,46 @@
 package stepDefinitions;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.*;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjusters;
-import java.util.List;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
-
-import static org.junit.Assert.assertTrue;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import utils.ConfigReader;
+import utils.Data;
 import utils.DriverFactory;
 import utils.Helper;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomePageSteps {
-    private HomePage homePage;
-    private String platform;
-    @Before
-    public void setup() {
-        platform = ConfigReader.get("platform");
-    }
+    private final HomePage homePage;
+    private final String platform;
+    private WebDriver driver;
 
-    WebDriver driver;
+    public HomePageSteps() {
+        this.driver = DriverFactory.getDriver();
+        platform = ConfigReader.get("platform");
+        homePage = new HomePage(driver);
+    }
 
     @When("I navigate to {string}")
     public void i_navigate_to(String url) {
-        driver = DriverFactory.getDriver();
         driver.get(url);
-        homePage = new HomePage(driver);
         driver.manage().window().setSize(new Dimension(1512, 712));
+        Helper.waitForPageLoad(30);
     }
 
 
@@ -350,30 +348,41 @@ public class HomePageSteps {
 
     @When("I click on phone number button in offer banner CTA")
     public void iClickOnPhoneNumberButtonInOfferBannerCTA() {
-        Helper.clickElement(homePage.getOfferCTAPhoneNumberButton(), Duration.ofSeconds(15));
+        Helper.clickElement(homePage.getOfferCTAPhoneNumberButton(), Duration.ofSeconds(30));
     }
 
-    @When("I click on Explore Heating & Cooling, it opens {string}")
-    public void iClickOnExploreHeatingCoolingICanNavigateBackToHomePage(String url) {
-        Helper.clickElementUsingActions(homePage.getExploreHeatingCoolingButton(), Duration.ofSeconds(15));
-        Assert.assertEquals("Explore Heating & Cooling URL does not match ", url, driver.getCurrentUrl());
+    @When("I click on Explore Heating & Cooling, it opens Heating & Cooling webpage")
+    public void iClickOnExploreHeatingCoolingICanNavigateBackToHomePage() {
+        Helper.clickElementUsingActions(homePage.getExploreHeatingCoolingButton(), Duration.ofSeconds(20));
+        Assert.assertEquals("Explore Heating & Cooling URL does not match ",
+                Data.HEATING_COOLING_URL, driver.getCurrentUrl());
     }
 
-    @When("I click on Explore Plumbing, it opens {string}")
-    public void iClickOnExplorePlumbingICanNavigateBackToHomePage(String url) {
-        Helper.clickElementUsingActions(homePage.getExplorePlumbingButton(), Duration.ofSeconds(15));
-        Assert.assertEquals("Explore Plumbing URL does not match ", url, driver.getCurrentUrl());
+    @When("I click on Explore Plumbing, it opens Plumbing webpage")
+    public void iClickOnExplorePlumbingICanNavigateBackToHomePage() {
+        Helper.clickElementUsingActions(homePage.getExplorePlumbingButton(), Duration.ofSeconds(20));
+        Assert.assertEquals("Explore Plumbing URL does not match ", Data.PLUMBING_URL, driver.getCurrentUrl());
     }
 
-    @When("I click on Explore Electrical, it opens {string}")
-    public void iClickOnExploreElectricalICanNavigateBackToHomePage(String url) {
-        Helper.clickElementUsingActions(homePage.getExploreElectricalButton(), Duration.ofSeconds(15));
-        Assert.assertEquals("Explore Electrical URL does not match ", url, driver.getCurrentUrl());
+    @When("I click on Explore Electrical, it opens Electrical webpage")
+    public void iClickOnExploreElectricalICanNavigateBackToHomePage() {
+        Helper.clickElementUsingActions(homePage.getExploreElectricalButton(), Duration.ofSeconds(20));
+        Assert.assertEquals("Explore Electrical URL does not match ", Data.ELECTRICAL_URL, driver.getCurrentUrl());
     }
 
     @Then("I can navigate back to home page")
     public void iCanNavigateBackToHomePage() {
         driver.navigate().back();
+    }
+
+    @When("I click on Book Now button in Image on home screen")
+    public void iClickOnBookNowButtonInImageOnHomeScreen() {
+        Helper.clickElementUsingActions(homePage.getImageBookNowButton(), Duration.ofSeconds(15));
+    }
+
+    @When("I click on phone number button in in Image on home screen")
+    public void iClickOnPhoneNumberButtonInInImageOnHomeScreen() {
+        Helper.clickElement(homePage.getImagePhoneNumberButton(), Duration.ofSeconds(15));
     }
 }
 
