@@ -54,7 +54,7 @@ public class HomePageSteps {
     }
 
     @Then("all the links on the page should be valid")
-    public void all_the_links_on_the_page_should_be_valid() throws Exception {
+    public void all_the_links_on_the_page_should_be_valid() {
         driver = DriverFactory.getDriver();
         List<WebElement> links = driver.findElements(By.tagName("a"));
         System.out.println("Total links found: " + links.size());
