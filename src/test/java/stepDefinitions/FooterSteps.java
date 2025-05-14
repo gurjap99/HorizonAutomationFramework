@@ -24,12 +24,12 @@ public class FooterSteps {
 
     @When("I click on Book Now button in Peace of mind is on the way bar")
     public void iClickOnBookNowButtonInPeaceOfMindIsOnTheWayBar() {
-        Helper.clickElementUsingActions(footer.getPeaceOfMindBookNowButton(), Duration.ofSeconds(15));
+        Helper.clickElementUsingActions(driver, footer.getPeaceOfMindBookNowButton(), Duration.ofSeconds(15));
     }
 
     @When("I click on phone number button in Peace of mind is on the way bar")
     public void iClickOnPhoneNumberButtonInPeaceOfMindIsOnTheWayBar() {
-        Helper.clickElement(footer.getPeaceOfMindCallButton(), Duration.ofSeconds(15));
+        Helper.clickElement(driver, footer.getPeaceOfMindCallButton(), Duration.ofSeconds(15));
     }
 
     @Then("I should see the footer menu list in correct order")
