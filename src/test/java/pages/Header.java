@@ -13,7 +13,6 @@ public class Header {
         PageFactory.initElements(driver, this);
     }
 
-
     @FindBy(xpath = "//nav//ul[@class='flex md:gap-4 xlg:gap-8']")
     private WebElement menu;
 
@@ -118,12 +117,5 @@ public class Header {
     public WebElement getHeaderPhoneNumberButton() {
         return headerPhoneNumberButton;
     }
-
-
-
-
-
-
-
 
 }

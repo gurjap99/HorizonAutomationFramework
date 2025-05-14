@@ -5,7 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
@@ -388,31 +387,14 @@ public class HomePageSteps {
 
     @When("Click on Help my air conditioner won’t turn on! option")
     public void clickOnHelpMyAirConditionerWonTTurnOnOption() {
-        WebElement helpMyAirConditioner = homePage.getHelpMyAirConditioner();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(homePage.getHelpMyAirConditioner()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", helpMyAirConditioner);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(helpMyAirConditioner));
-        helpMyAirConditioner.click();
+        Helper.scrollToViewAndClickElement(driver, homePage.getHelpMyAirConditioner(), Duration.ofSeconds(15));
         System.out.println("Clicked on Help my air conditioner won’t turn on! option");
-
     }
 
     @Then("I should see and click on Book Now button on flashed air conditioner frame")
     public void iShouldSeeBookNowButtonOnFlasedFrame() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            WebElement bookNow = wait.until(ExpectedConditions.visibilityOf(homePage.getairConditionerBookNowButton()));
-            if (bookNow.isDisplayed()) {
-                System.out.println("Book Now is visible on a flashed frame");
-            } else {
-                throw new AssertionError("Book Now is not visible.");
-            }
-            Actions actions = new Actions(driver);
-            actions.moveToElement(bookNow).click().perform();
-            Thread.sleep(2000);
+            Helper.clickElementUsingActions(driver, homePage.getairConditionerBookNowButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Book Now: " + e.getMessage());
         }
@@ -423,23 +405,7 @@ public class HomePageSteps {
     @Then("I should see and click on phone number on flashed air conditioner frame")
     public void iShouldSeePhoneNumberOnFlashedFrame() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOf(homePage.getairConditionerPhoneNumberButton()));
-            Actions actions = new Actions(driver);
-            //actions.moveToElement(phoneNumber).click().perform();
-            if (phoneNumber.isDisplayed()) {
-                System.out.println("Phone number is visible on a flashed frame");
-            } else {
-                throw new AssertionError("Phone number is not visible.");
-            }
-//            Alert alert = driver.switchTo().alert();
-//            System.out.println("Alert text: " + alert.getText());
-//            alert.dismiss();
-//            Thread.sleep(1000);
-
-            WebElement closeCTA = driver.findElement(By.cssSelector("div[class='visible opacity-100'] div[role='Close'] svg"));
-            closeCTA.click();
-            Thread.sleep(100);
+            Helper.clickElementUsingActions(driver, homePage.getairConditionerPhoneNumberButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Phone number: " + e.getMessage());
         }
@@ -447,30 +413,14 @@ public class HomePageSteps {
 
     @When("Click on Do you install tankless water heaters option")
     public void clickOnDoYouInstallTanklessWaterHeatersOption() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement installTanklessWaterOption = wait.until(ExpectedConditions.visibilityOf(homePage.getInstallTanklessWaterHeater()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", installTanklessWaterOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(installTanklessWaterOption));
-        installTanklessWaterOption.click();
+        Helper.scrollToViewAndClickElement(driver, homePage.getInstallTanklessWaterHeater(), Duration.ofSeconds(15));
         System.out.println("Clicked on Do you install tankless water heaters option");
-
     }
 
     @Then("I should see and click on Book Now button on flashed water tank frame")
     public void iShouldSeeBookNowButtonOnFlashedWaterTankFrame() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            WebElement bookNow = wait.until(ExpectedConditions.visibilityOf(homePage.getwaterTankBookNowButton()));
-            if (bookNow.isDisplayed()) {
-                System.out.println("Book Now is visible on a flashed frame");
-            } else {
-                throw new AssertionError("Book Now is not visible.");
-            }
-            Actions actions = new Actions(driver);
-            actions.moveToElement(bookNow).click().perform();
-
+            Helper.clickElementUsingActions(driver, homePage.getwaterTankBookNowButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Book Now: " + e.getMessage());
         }
@@ -480,24 +430,7 @@ public class HomePageSteps {
     @Then("I should see and click on phone number on flashed water tank frame")
     public void iShouldSeePhoneNumberOnFlashedWaterTankFrame() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            WebElement phoneNumber = wait.until(ExpectedConditions.visibilityOf(homePage.getwaterTankPhoneNumberButton()));
-            Actions actions = new Actions(driver);
-            //actions.moveToElement(phoneNumber).click().perform();
-            if (phoneNumber.isDisplayed()) {
-                System.out.println("Phone number is visible on a flashed frame");
-            } else {
-                throw new AssertionError("Phone number is not visible.");
-            }
-//            Alert alert = driver.switchTo().alert();
-//            System.out.println("Alert text: " + alert.getText());
-//            alert.dismiss();
-//            Thread.sleep(1000);
-
-            WebElement close = new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.elementToBeClickable(homePage.getBookNowWindowCloseButton()));
-            close.click();
-            driver.switchTo().defaultContent();
+            Helper.clickElementUsingActions(driver, homePage.getwaterTankPhoneNumberButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Phone number: " + e.getMessage());
         }
@@ -505,13 +438,7 @@ public class HomePageSteps {
 
     @When("Click on emergency service option")
     public void clickOnEmergencyServiceOption() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement emergencyServiceOption = wait.until(ExpectedConditions.visibilityOf(homePage.getemergencyService()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", emergencyServiceOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(emergencyServiceOption));
-        emergencyServiceOption.click();
+        Helper.scrollToViewAndClickElement(driver, homePage.getemergencyService(), Duration.ofSeconds(15));
         System.out.println("Clicked on Help, I need 24/7 emergency service! option");
 
     }
