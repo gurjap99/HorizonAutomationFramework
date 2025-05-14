@@ -40,7 +40,6 @@ public class HomePageSteps {
     public void i_navigate_to(String url) {
         driver.get(url);
         driver.manage().window().setSize(new Dimension(1512, 712));
-        Helper.waitForPageLoad(30);
     }
 
 
@@ -253,7 +252,7 @@ public class HomePageSteps {
     }
 
     @Then("both CTAs with plus icons should be clickable and show Book Now button")
-    public void both_ctas_with_plus_icons_should_be_clickable_and_show_book_now_button() throws InterruptedException {
+    public void both_ctas_with_plus_icons_should_be_clickable_and_show_book_now_button() {
         String[] ctaCssSelectors = {
                 "body > div:nth-child(24) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > svg:nth-child(1)",
                 "body > div:nth-child(24) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > svg:nth-child(1)"
@@ -301,7 +300,7 @@ public class HomePageSteps {
 
     @When("I click on offer banner")
     public void iClickOnOfferBanner() {
-        Helper.alternateClick(homePage.getOfferBannerPlusIcon(), Duration.ofSeconds(15));
+        Helper.alternateClick(driver, homePage.getOfferBannerPlusIcon(), Duration.ofSeconds(15));
     }
 
     @Then("I can verify the Offer Banner CTA alignment")
@@ -333,7 +332,7 @@ public class HomePageSteps {
 
     @When("I click on Book Now button in offer banner CTA")
     public void iClickOnBookNowButtonInOfferCTA() {
-        Helper.clickElementUsingActions(homePage.getOfferCTABookNowButton(), Duration.ofSeconds(15));
+        Helper.clickElementUsingActions(driver, homePage.getOfferCTABookNowButton(), Duration.ofSeconds(15));
     }
 
     @Then("I should see Book Online Now Window and close it")
@@ -348,41 +347,42 @@ public class HomePageSteps {
 
     @When("I click on phone number button in offer banner CTA")
     public void iClickOnPhoneNumberButtonInOfferBannerCTA() {
-        Helper.clickElement(homePage.getOfferCTAPhoneNumberButton(), Duration.ofSeconds(30));
+        Helper.clickElement(driver, homePage.getOfferCTAPhoneNumberButton(), Duration.ofSeconds(30));
     }
 
     @When("I click on Explore Heating & Cooling, it opens Heating & Cooling webpage")
     public void iClickOnExploreHeatingCoolingICanNavigateBackToHomePage() {
-        Helper.clickElementUsingActions(homePage.getExploreHeatingCoolingButton(), Duration.ofSeconds(20));
+        Helper.clickElementUsingActions(driver, homePage.getExploreHeatingCoolingButton(), Duration.ofSeconds(20));
         Assert.assertEquals("Explore Heating & Cooling URL does not match ",
                 Data.HEATING_COOLING_URL, driver.getCurrentUrl());
     }
 
     @When("I click on Explore Plumbing, it opens Plumbing webpage")
     public void iClickOnExplorePlumbingICanNavigateBackToHomePage() {
-        Helper.clickElementUsingActions(homePage.getExplorePlumbingButton(), Duration.ofSeconds(20));
+        Helper.clickElementUsingActions(driver, homePage.getExplorePlumbingButton(), Duration.ofSeconds(20));
         Assert.assertEquals("Explore Plumbing URL does not match ", Data.PLUMBING_URL, driver.getCurrentUrl());
     }
 
     @When("I click on Explore Electrical, it opens Electrical webpage")
     public void iClickOnExploreElectricalICanNavigateBackToHomePage() {
-        Helper.clickElementUsingActions(homePage.getExploreElectricalButton(), Duration.ofSeconds(20));
+        Helper.clickElementUsingActions(driver, homePage.getExploreElectricalButton(), Duration.ofSeconds(20));
         Assert.assertEquals("Explore Electrical URL does not match ", Data.ELECTRICAL_URL, driver.getCurrentUrl());
     }
 
     @Then("I can navigate back to home page")
-    public void iCanNavigateBackToHomePage() {
+    public void iCanNavigateBackToHomePage() throws InterruptedException {
         driver.navigate().back();
+        Thread.sleep(1500);
     }
 
     @When("I click on Book Now button in Image on home screen")
     public void iClickOnBookNowButtonInImageOnHomeScreen() {
-        Helper.clickElementUsingActions(homePage.getImageBookNowButton(), Duration.ofSeconds(15));
+        Helper.clickElementUsingActions(driver, homePage.getImageBookNowButton(), Duration.ofSeconds(15));
     }
 
     @When("I click on phone number button in in Image on home screen")
     public void iClickOnPhoneNumberButtonInInImageOnHomeScreen() {
-        Helper.clickElement(homePage.getImagePhoneNumberButton(), Duration.ofSeconds(15));
+        Helper.clickElement(driver, homePage.getImagePhoneNumberButton(), Duration.ofSeconds(15));
     }
 }
 
