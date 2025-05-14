@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +13,7 @@ import java.time.Duration;
 
 import pages.Header;
 import utils.DriverFactory;
+import utils.Helper;
 
 
 public class HeaderSteps {
@@ -24,8 +24,6 @@ public class HeaderSteps {
         this.driver = DriverFactory.getDriver();
         header = new Header(driver);
     }
-
-    //WebDriver driver;
 
     @When("I get the Menu list")
     public void iGetTheMenuList() {
@@ -49,16 +47,9 @@ public class HeaderSteps {
 
     @When("I Click on Heating & Cooling")
     public void iClickOnHeatingAndCooling() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement heatingAndCoolingOption = wait.until(ExpectedConditions.visibilityOf(header.getHeatingAndCooling()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", heatingAndCoolingOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(heatingAndCoolingOption));
-        heatingAndCoolingOption.click();
+        Helper.clickElementUsingActions(driver, header.getHeatingAndCooling(), Duration.ofSeconds(15));
         System.out.println("Clicked on Heating and Cooling option menu");
     }
-
 
     @Then("I should see the Heating & Cooling Sub Menu order is displayed in correct order")
     public void iShouldSeeTheSubMenuOrderIsDisplayedInCorrectOrder() {
@@ -72,61 +63,31 @@ public class HeaderSteps {
 
     @When("I Click on Plumbing")
     public void iClickOnPlumbing() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement plumbingOption = wait.until(ExpectedConditions.visibilityOf(header.getPlumbing()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", plumbingOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(plumbingOption));
-        plumbingOption.click();
+        Helper.clickElementUsingActions(driver, header.getPlumbing(), Duration.ofSeconds(15));
         System.out.println("Clicked on Plumbing option menu");
     }
 
     @When("I Click on Electrical")
     public void iClickOnElectrical() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement electricalOption = wait.until(ExpectedConditions.visibilityOf(header.getElectrical()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", electricalOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(electricalOption));
-        electricalOption.click();
+        Helper.clickElementUsingActions(driver, header.getElectrical(), Duration.ofSeconds(15));
         System.out.println("Clicked on Electrical option menu");
     }
 
     @When("I Click on Ways to Save")
     public void iClickOnWaysToSave() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement waysToSaveOption = wait.until(ExpectedConditions.visibilityOf(header.getWaysToSave()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", waysToSaveOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(waysToSaveOption));
-        waysToSaveOption.click();
+        Helper.clickElementUsingActions(driver, header.getWaysToSave(), Duration.ofSeconds(15));
         System.out.println("Clicked on Ways to Save option menu");
     }
 
     @When("I Click on Learn")
     public void iClickOnLearn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement learnOption = wait.until(ExpectedConditions.visibilityOf(header.getLearn()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", learnOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(learnOption));
-        learnOption.click();
+        Helper.clickElementUsingActions(driver, header.getLearn(), Duration.ofSeconds(15));
         System.out.println("Clicked on Learn option menu");
     }
 
     @When("I Click on About Us")
     public void iClickOnAboutUs() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement aboutUsOption = wait.until(ExpectedConditions.visibilityOf(header.getAboutUs()));
-        // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", aboutUsOption);
-        // Wait until it's clickable
-        wait.until(ExpectedConditions.elementToBeClickable(aboutUsOption));
-        aboutUsOption.click();
+        Helper.clickElementUsingActions(driver, header.getAboutUs(), Duration.ofSeconds(15));
         System.out.println("Clicked on About Us option menu");
     }
 
