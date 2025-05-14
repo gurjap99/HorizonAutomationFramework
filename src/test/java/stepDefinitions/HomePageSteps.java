@@ -384,6 +384,65 @@ public class HomePageSteps {
     public void iClickOnPhoneNumberButtonInInImageOnHomeScreen() {
         Helper.clickElement(driver, homePage.getImagePhoneNumberButton(), Duration.ofSeconds(15));
     }
+
+    @When("Click on Help my air conditioner won’t turn on! option")
+    public void clickOnHelpMyAirConditionerWonTTurnOnOption() {
+        Helper.scrollToViewAndClickElement(driver, homePage.getHelpMyAirConditioner(), Duration.ofSeconds(15));
+        System.out.println("Clicked on Help my air conditioner won’t turn on! option");
+    }
+
+    @Then("I should see and click on Book Now button on flashed air conditioner frame")
+    public void iShouldSeeBookNowButtonOnFlasedFrame() {
+        try {
+            Helper.clickElementUsingActions(driver, homePage.getairConditionerBookNowButton(), Duration.ofSeconds(15));
+        } catch (Exception e) {
+            throw new AssertionError("Failed to click Book Now: " + e.getMessage());
+        }
+    }
+
+
+
+    @Then("I should see and click on phone number on flashed air conditioner frame")
+    public void iShouldSeePhoneNumberOnFlashedFrame() {
+        try {
+            Helper.clickElementUsingActions(driver, homePage.getairConditionerPhoneNumberButton(), Duration.ofSeconds(15));
+        } catch (Exception e) {
+            throw new AssertionError("Failed to click Phone number: " + e.getMessage());
+        }
+    }
+
+    @When("Click on Do you install tankless water heaters option")
+    public void clickOnDoYouInstallTanklessWaterHeatersOption() {
+        Helper.scrollToViewAndClickElement(driver, homePage.getInstallTanklessWaterHeater(), Duration.ofSeconds(15));
+        System.out.println("Clicked on Do you install tankless water heaters option");
+    }
+
+    @Then("I should see and click on Book Now button on flashed water tank frame")
+    public void iShouldSeeBookNowButtonOnFlashedWaterTankFrame() {
+        try {
+            Helper.clickElementUsingActions(driver, homePage.getwaterTankBookNowButton(), Duration.ofSeconds(15));
+        } catch (Exception e) {
+            throw new AssertionError("Failed to click Book Now: " + e.getMessage());
+        }
+
+    }
+
+    @Then("I should see and click on phone number on flashed water tank frame")
+    public void iShouldSeePhoneNumberOnFlashedWaterTankFrame() {
+        try {
+            Helper.clickElementUsingActions(driver, homePage.getwaterTankPhoneNumberButton(), Duration.ofSeconds(15));
+        } catch (Exception e) {
+            throw new AssertionError("Failed to click Phone number: " + e.getMessage());
+        }
+    }
+
+    @When("Click on emergency service option")
+    public void clickOnEmergencyServiceOption() {
+        Helper.scrollToViewAndClickElement(driver, homePage.getemergencyService(), Duration.ofSeconds(15));
+        System.out.println("Clicked on Help, I need 24/7 emergency service! option");
+
+    }
+
 }
 
 

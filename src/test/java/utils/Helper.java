@@ -35,4 +35,16 @@ public class Helper {
         System.out.println("Element is visible and clickable");
         driver.switchTo().defaultContent();
     }
+
+    public static void scrollToViewAndClickElement(WebDriver driver, WebElement element, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
+        // Scroll into view
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", webElement);
+        // Wait until it's clickable
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        webElement.click();
+        System.out.println("Element is visible and clickable");
+    }
+
 }
