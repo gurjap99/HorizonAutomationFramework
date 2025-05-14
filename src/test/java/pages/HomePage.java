@@ -77,6 +77,20 @@ public class HomePage {
     private WebElement exploreElectricalButton;
     @FindBy(xpath = "(//span[contains(text(), 'Explore Plumbing')])[1]")
     private WebElement explorePlumbingButton;
+    @FindBy(xpath = "//p[contains(text(),'Help, my air conditioner won’t turn on!')]")
+    private WebElement helpMyAirConditioner;
+    @FindBy(xpath = "(//span[contains(text(),'Book Now ')])[1]")
+    private WebElement airConditionerBookNowButton;
+    @FindBy(xpath = "(//span[contains(text(),'Book Now')])[28]")
+    private WebElement waterTankBookNowButton;
+    @FindBy(xpath = "(//span[@id='phoneNumber'])[6]")
+    private WebElement airConditionerPhoneNumberButton;
+    @FindBy(xpath = "//p[contains(text(),'Do you install tankless water heaters?')]")
+    private WebElement installTanklessWaterHeater;
+    @FindBy(xpath = "(//span[@id='phoneNumber'])[7]")
+    private WebElement waterTankPhoneNumberButton;
+    @FindBy(xpath = "//p[contains(text(),'Help, I need 24/7 emergency service!')]")
+    private WebElement emergencyService;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -220,5 +234,33 @@ public class HomePage {
 
     public WebElement getImagePhoneNumberButton() {
         return imagePhoneNumberButton;
+    }
+
+    public WebElement getHelpMyAirConditioner() {
+        return helpMyAirConditioner;
+    }
+
+    public WebElement getairConditionerBookNowButton() {
+        return airConditionerBookNowButton;
+    }
+
+    public WebElement getairConditionerPhoneNumberButton() {
+        return airConditionerPhoneNumberButton;
+    }
+
+    public WebElement getInstallTanklessWaterHeater() {
+        return installTanklessWaterHeater;
+    }
+
+    public WebElement getwaterTankBookNowButton() {
+        return waterTankBookNowButton;
+    }
+
+    public WebElement getwaterTankPhoneNumberButton() {
+        return waterTankPhoneNumberButton;
+    }
+
+    public WebElement getemergencyService() {
+        return emergencyService;
     }
 }
