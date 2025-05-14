@@ -254,7 +254,7 @@ public class HomePageSteps {
     }
 
     @Then("both CTAs with plus icons should be clickable and show Book Now button")
-    public void both_ctas_with_plus_icons_should_be_clickable_and_show_book_now_button() throws InterruptedException {
+    public void both_ctas_with_plus_icons_should_be_clickable_and_show_book_now_button() {
         String[] ctaCssSelectors = {
                 "body > div:nth-child(24) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > svg:nth-child(1)",
                 "body > div:nth-child(24) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > svg:nth-child(1)"
