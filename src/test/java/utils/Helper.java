@@ -6,8 +6,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.Instant;
+import java.util.function.Supplier;
 
 public class Helper {
+
+    private static final Duration DEFAULT_POLLING_INTERVAL = Duration.ofMillis(500);
 
     public static void alternateClick(WebDriver driver, WebElement element, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
@@ -47,4 +51,30 @@ public class Helper {
         System.out.println("Element is visible and clickable");
     }
 
+    // Retry methods
+    // Retry method with optional polling interval (default 500ms)
+    public static <T> T retry(Supplier<T> action, Duration timeout) {
+        return retry(action, timeout, DEFAULT_POLLING_INTERVAL);
+    }
+
+    public static <T> T retry(Supplier<T> action, Duration timeout, Duration pollingInterval) {
+        Instant endTime = Instant.now().plus(timeout);
+        Throwable lastException = null;
+
+        while (Instant.now().isBefore(endTime)) {
+            try {
+                return action.get();
+            } catch (Exception | Error e) {
+                lastException = e;
+                try {
+                    Thread.sleep(pollingInterval.toMillis());
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    throw new RuntimeException("Retry interrupted", ie);
+                }
+            }
+        }
+
+        throw new RuntimeException("Retry failed after timeout", lastException);
+    }
 }

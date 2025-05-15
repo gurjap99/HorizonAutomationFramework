@@ -1,12 +1,17 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.Footer;
+import pages.Header;
 import pages.HomePage;
 import utils.ConfigReader;
 import utils.Data;
@@ -22,13 +27,13 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class HomePageSteps {
     private final HomePage homePage;
     private final String platform;
     private WebDriver driver;
+    private String phoneNumber = null;
 
     public HomePageSteps() {
         this.driver = DriverFactory.getDriver();
@@ -277,8 +282,7 @@ public class HomePageSteps {
                     // clickable.click();
                     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(), 'Book Now')]")));
-                    WebElement closeCTA = driver.findElement(By.cssSelector("div[class='visible opacity-100'] div[role='Close'] svg"));
-                    closeCTA.click();
+                    homePage.getCloseCTAButton().click();
                     //  WebElement bookNow = driver.findElement(By.xpath("//button[contains(text(), 'Book Now')]"));
                     //if (bookNow.isDisplayed() && bookNow.isEnabled()) {
                     //  System.out.println("Book Now button is visible and clickable for CTA #" + (i + 1));
@@ -440,9 +444,98 @@ public class HomePageSteps {
     public void clickOnEmergencyServiceOption() {
         Helper.scrollToViewAndClickElement(driver, homePage.getemergencyService(), Duration.ofSeconds(15));
         System.out.println("Clicked on Help, I need 24/7 emergency service! option");
-
     }
 
+    @Given("I navigate to {string} with javaScript turned off, then I visible phone numbers should be same as static" +
+            " phone number")
+    public void iNavigateToWithJavaScriptTurnedOff(String url) {
+        if (platform.equalsIgnoreCase("desktop")) {
+            // turn javaScript off
+            ChromeOptions options = new ChromeOptions();
+            Map<String, Object> prefs = new HashMap<>();
+            prefs.put("profile.managed_default_content_settings.javascript", 2); // 2 = Block
+            options.setExperimentalOption("prefs", prefs);
+
+            WebDriver driver = new ChromeDriver(options);
+            HomePage homePage = new HomePage(driver);
+            Header header = new Header(driver);
+            Footer footer = new Footer(driver);
+            driver.get(url);
+            driver.manage().window().setSize(new Dimension(1512, 712));
+
+            String headerPhoneNumber = header.getHeaderPhoneNumberButton().getText();
+            String imagePhoneNumber = homePage.getImagePhoneNumberButton().getText();
+            String peaceOfMindPhoneNumber = footer.getPeaceOfMindCallButton().getText();
+
+            Assert.assertEquals("Header Phone number does not match static number ",
+                    Data.STATIC_PHONE_NUMBER, headerPhoneNumber);
+            Assert.assertEquals("homepage image number does not match static number ",
+                    Data.STATIC_PHONE_NUMBER, imagePhoneNumber);
+            Assert.assertEquals("Footer Phone number does not match static number ",
+                    Data.STATIC_PHONE_NUMBER, peaceOfMindPhoneNumber);
+            driver.quit();
+        }
+    }
+
+    @When("I update Zipcode {string} using eyebrow button")
+    public void iUpdateZipcodeUsingEyebrowButton(String zipcode) {
+        homePage.getEyebrowZipCode().click();
+        homePage.setEyebrowZipCodeInputField(zipcode);
+        homePage.setEyebrowZipCodeInputField(zipcode);
+    }
+
+    @Then("{string} appears, {string} Zipcode gets updates properly, Map and map zipcode input disappears")
+    public void appearsZipcodeGetsUpdatesProperlyMapAndMapZipcodeInputDisappears(String updateMessage, String zipcode) {
+        try {
+            Thread.sleep(2000);
+            String actualUpdateMessage = homePage.getEyebrowZipCodeMessage().getText();
+            Assert.assertEquals("message does not match", updateMessage, actualUpdateMessage);
+
+            Helper.retry(() -> {
+                homePage.getEyebrowZipCodeUpdateButton().click();
+                return null;
+            }, Duration.ofSeconds(10));
+
+            Thread.sleep(2000);
+            String eyeBrowZipcode = homePage.getEyebrowZipCode().getText();
+            Assert.assertEquals("zipcode does not match", eyeBrowZipcode, zipcode);
+            Assert.assertFalse("Map is visible", homePage.isMapDisplayed());
+            Assert.assertFalse("Map Input is visible", homePage.isInputFieldDisplayed());
+            if (!Objects.equals(zipcode, "27606") && !Objects.equals(zipcode, "28025")) {
+                phoneNumber = homePage.getImagePhoneNumberButton().getText();
+            }
+        } catch (Exception e) {
+            throw new AssertionError("Issue with zip code update: " + e.getMessage());
+        }
+    }
+
+    @Then("North Carolina phone number appears instead of existing phone number")
+    public void northCarolinaPhoneNumberAppearsInsteadOfExistingPhoneNumber() {
+        Header header = new Header(driver);
+        Footer footer = new Footer(driver);
+        if (phoneNumber != null) {
+            Assert.assertNotEquals("Phone number is not of NC", phoneNumber,
+                    homePage.getImagePhoneNumberButton().getText());
+            Assert.assertNotEquals("Phone number is not of NC", phoneNumber,
+                    header.getHeaderPhoneNumberButton().getText());
+            Assert.assertNotEquals("Phone number is not of NC", phoneNumber,
+                    footer.getPeaceOfMindCallButton().getText());
+        }
+        else {
+            Assert.fail("Phone number is null");
+        }
+    }
+
+    @Then("{string} appears and update Zipcode is disabled, Map and map zipcode Input is visible")
+    public void appearsAndUpdateZipcodeIsDisabled(String updateMessage) throws InterruptedException {
+        Thread.sleep(2000);
+        String actualUpdateMessage = homePage.getEyebrowZipCodeMessage().getText();
+        Assert.assertEquals("message does not match", updateMessage, actualUpdateMessage);
+        homePage.getCloseCTAButton().click();
+        Thread.sleep(2000);
+        Assert.assertTrue("Map is not visible", homePage.isMapDisplayed());
+        Assert.assertTrue("Map Input is not visible", homePage.isInputFieldDisplayed());
+    }
 }
 
 

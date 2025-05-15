@@ -55,7 +55,7 @@ public class Header {
     @FindBy(xpath = "(//span[contains(text(),'Book Now')])[22]")
     private WebElement headerBookNowBtn;
 
-    @FindBy(xpath = "(//span[@id='phoneNumber'])[5]")
+    @FindBy(xpath = "//div[contains(@class, 'relative') and contains(@class, 'border-b-1')]//span[@id='phoneNumber']")
     private WebElement headerPhoneNumberButton;
 
     public WebElement getMenu() {
@@ -117,5 +117,4 @@ public class Header {
     public WebElement getHeaderPhoneNumberButton() {
         return headerPhoneNumberButton;
     }
-
 }

@@ -13,7 +13,10 @@ public class Data {
     public static final String REVIEWS_URL = BASE_URL + "about-us/reviews";
     public static final String WORK_WITH_US_URL = BASE_URL + "about-us/work-with-us";
     public static final String CONTACT_US_URL = BASE_URL + "about-us/contact-us";
+
     public static final String[] FOOTER_MENU_ITEMS = {"Services", "Heating & Cooling", "Plumbing", "Electrical",
             "Quick Links", "Learn", "Financing", "Membership", "Offers & Rebates", "About Us", "Why Horizon", "Reviews",
             "Work With Us", "Contact Us"};
+
+    public static final String STATIC_PHONE_NUMBER = "1-800-642-4419";
 }
