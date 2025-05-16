@@ -106,6 +106,14 @@ public class HomePage {
     private WebElement map;
     @FindBy(css = "div[class='visible opacity-100'] div[role='Close'] svg")
     private WebElement closeCTAButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//" +
+            "span[contains(text(), 'Book Now')])[1]")
+    private WebElement mapBookNowButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//div)[4]" +
+            "//*[contains(@data-testid, 'search-icon')]")
+    private WebElement mapZipcodeInputSearchButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//label//div)[5]")
+    private WebElement mapZipcodeInputMessage;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -325,5 +333,17 @@ public class HomePage {
 
     public WebElement getCloseCTAButton() {
         return closeCTAButton;
+    }
+
+    public WebElement getMapBookNowButton() {
+        return mapBookNowButton;
+    }
+
+    public WebElement getMapZipcodeInputSearchButton() {
+        return mapZipcodeInputSearchButton;
+    }
+
+    public WebElement getMapZipcodeInputMessage() {
+        return mapZipcodeInputMessage;
     }
 }

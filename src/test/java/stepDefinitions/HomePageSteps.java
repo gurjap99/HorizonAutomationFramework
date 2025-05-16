@@ -536,6 +536,25 @@ public class HomePageSteps {
         Assert.assertTrue("Map is not visible", homePage.isMapDisplayed());
         Assert.assertTrue("Map Input is not visible", homePage.isInputFieldDisplayed());
     }
+
+    @When("I update Zipcode {string} using map zipcode input")
+    public void iUpdateZipcodeUsingMapZipcodeInput(String zipcode) {
+        homePage.setMapInputField(zipcode);
+        Helper.clickElementUsingActions(driver, homePage.getMapZipcodeInputSearchButton(), Duration.ofSeconds(20));
+    }
+
+    @Then("{string} appears, Zip code {string} should be update in the home page")
+    public void zipCodeShouldBeUpdateInTheHomePage(String message, String zipcode) {
+        String actualMessage = homePage.getMapZipcodeInputMessage().getText();
+        String actualEyebrowZipcode = homePage.getEyebrowZipCode().getText();
+        Assert.assertEquals("zipcode message does not match", message, actualMessage);
+        Assert.assertEquals("zipcode does not match with eyebrow zipcode", zipcode, actualEyebrowZipcode);
+    }
+
+    @When("I click map Input Book Now button")
+    public void iClickMapInputBookNowButton() {
+        Helper.clickElementUsingActions(driver, homePage.getMapBookNowButton(), Duration.ofSeconds(20));
+    }
 }
 
 

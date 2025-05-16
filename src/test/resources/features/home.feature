@@ -116,3 +116,10 @@ Feature: Horizon Services home page tests
     # Updating incorrect phone number
     When I update Zipcode "12345" using eyebrow button
     Then "Sorry, your home is not in our service area." appears and update Zipcode is disabled, Map and map zipcode Input is visible
+
+  Scenario: Validate Map Zipcode Input and Book Now
+    Given I navigate to "https://www.horizonservices.com"
+    When I update Zipcode "21244" using map zipcode input
+    Then "Your home is in our service area!" appears, Zip code "21244" should be update in the home page
+    When I click map Input Book Now button
+    Then I should see Book Online Now Window and close it
