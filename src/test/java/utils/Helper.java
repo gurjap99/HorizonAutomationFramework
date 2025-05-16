@@ -74,7 +74,6 @@ public class Helper {
                 }
             }
         }
-
         throw new RuntimeException("Retry failed after timeout", lastException);
     }
 }
