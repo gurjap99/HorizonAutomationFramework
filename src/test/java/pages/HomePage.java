@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -91,6 +92,28 @@ public class HomePage {
     private WebElement waterTankPhoneNumberButton;
     @FindBy(xpath = "//p[contains(text(),'Help, I need 24/7 emergency service!')]")
     private WebElement emergencyService;
+    @FindBy(xpath = "((//div[contains(@class, 'sm:pl-[2.65%]')])[2]//span)[19]")
+    private WebElement eyebrowZipCode;
+    @FindBy(xpath = "(//input)[3]")
+    private WebElement eyebrowZipCodeInputField;
+    @FindBy(xpath = "(//span[contains(text(), 'Update')])[9]")
+    private WebElement eyebrowZipCodeUpdateButton;
+    @FindBy(xpath = "((//div[contains(@class, 'sm:pl-[2.65%]')])[2]//label//div)[3]")
+    private WebElement eyebrowZipCodeMessage;
+    @FindBy(xpath = "(//input)[4]")
+    private WebElement mapInputField;
+    @FindBy(xpath = "//div[@aria-label='Map']")
+    private WebElement map;
+    @FindBy(css = "div[class='visible opacity-100'] div[role='Close'] svg")
+    private WebElement closeCTAButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//" +
+            "span[contains(text(), 'Book Now')])[1]")
+    private WebElement mapBookNowButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//div)[4]" +
+            "//*[contains(@data-testid, 'search-icon')]")
+    private WebElement mapZipcodeInputSearchButton;
+    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//label//div)[5]")
+    private WebElement mapZipcodeInputMessage;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -262,5 +285,65 @@ public class HomePage {
 
     public WebElement getemergencyService() {
         return emergencyService;
+    }
+
+    public WebElement getEyebrowZipCode() {
+        return eyebrowZipCode;
+    }
+
+    public WebElement getEyebrowZipCodeUpdateButton() {
+        return eyebrowZipCodeUpdateButton;
+    }
+
+    public boolean checkEyebrowZipCodeUpdateButtonEnabled() {
+        return eyebrowZipCodeUpdateButton.isEnabled();
+    }
+
+    public void setEyebrowZipCodeInputField(String ZipCode) {
+        eyebrowZipCodeInputField.sendKeys(Keys.CONTROL + "a");
+        eyebrowZipCodeInputField.sendKeys(Keys.DELETE);
+        eyebrowZipCodeInputField.sendKeys(ZipCode);
+        System.out.println("Entered Zip Code: " + ZipCode);
+    }
+
+    public WebElement getEyebrowZipCodeMessage() {
+        return eyebrowZipCodeMessage;
+    }
+
+    public Boolean isInputFieldDisplayed() {
+        try {
+            return mapInputField.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void setMapInputField(String ZipCode) {
+        mapInputField.sendKeys(ZipCode);
+        System.out.println("Entered Zip Code: " + ZipCode);
+    }
+
+    public Boolean isMapDisplayed() {
+        try {
+            return map.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public WebElement getCloseCTAButton() {
+        return closeCTAButton;
+    }
+
+    public WebElement getMapBookNowButton() {
+        return mapBookNowButton;
+    }
+
+    public WebElement getMapZipcodeInputSearchButton() {
+        return mapZipcodeInputSearchButton;
+    }
+
+    public WebElement getMapZipcodeInputMessage() {
+        return mapZipcodeInputMessage;
     }
 }
