@@ -585,12 +585,6 @@ public class HomePageSteps {
         }
     }
 
-    @When("I click on the second offer")
-    public void iClickOnTheSecondOffer() {
-        Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(15));
-        System.out.println("Clicked on the second offer details link");
-    }
-
     @When("I click on Book Now button in {string} offer detail CTA")
     public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
         if(offer.equalsIgnoreCase("first")) {
