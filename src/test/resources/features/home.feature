@@ -101,3 +101,25 @@ Feature: Horizon Services home page tests
     Then I should see Book Online Now Window and close it
     When I click on phone number from header part
     #Then I should see phone number popup
+
+  Scenario: Validate visibility of static phone number in home page
+    Given I navigate to "https://www.horizonservices.com" with javaScript turned off, then I visible phone numbers should be same as static phone number
+
+  Scenario: Validate Zipcode is getting updated properly in homepage
+    Given I navigate to "https://www.horizonservices.com"
+    When I update Zipcode "21244" using eyebrow button
+    Then "Your home is in our service area!" appears, "21244" Zipcode gets updates properly, Map and map zipcode input disappears
+    # Updating North Carolina Zipcode
+    When I update Zipcode "27606" using eyebrow button
+    Then "Your home is in our service area!" appears, "27606" Zipcode gets updates properly, Map and map zipcode input disappears
+    Then North Carolina phone number appears instead of existing phone number
+    # Updating incorrect phone number
+    When I update Zipcode "12345" using eyebrow button
+    Then "Sorry, your home is not in our service area." appears and update Zipcode is disabled, Map and map zipcode Input is visible
+
+  Scenario: Validate Map Zipcode Input and Book Now
+    Given I navigate to "https://www.horizonservices.com"
+    When I update Zipcode "21244" using map zipcode input
+    Then "Your home is in our service area!" appears, Zip code "21244" should be update in the home page
+    When I click map Input Book Now button
+    Then I should see Book Online Now Window and close it
