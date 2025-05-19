@@ -398,7 +398,7 @@ public class HomePageSteps {
     @Then("I should see and click on Book Now button on flashed air conditioner frame")
     public void iShouldSeeBookNowButtonOnFlasedFrame() {
         try {
-            Helper.clickElementUsingActions(driver, homePage.getairConditionerBookNowButton(), Duration.ofSeconds(15));
+            Helper.clickElementUsingActions(driver, homePage.getAirConditionerBookNowButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Book Now: " + e.getMessage());
         }
@@ -409,7 +409,7 @@ public class HomePageSteps {
     @Then("I should see and click on phone number on flashed air conditioner frame")
     public void iShouldSeePhoneNumberOnFlashedFrame() {
         try {
-            Helper.clickElementUsingActions(driver, homePage.getairConditionerPhoneNumberButton(), Duration.ofSeconds(15));
+            Helper.clickElementUsingActions(driver, homePage.getAirConditionerPhoneNumberButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Phone number: " + e.getMessage());
         }
@@ -424,7 +424,7 @@ public class HomePageSteps {
     @Then("I should see and click on Book Now button on flashed water tank frame")
     public void iShouldSeeBookNowButtonOnFlashedWaterTankFrame() {
         try {
-            Helper.clickElementUsingActions(driver, homePage.getwaterTankBookNowButton(), Duration.ofSeconds(15));
+            Helper.clickElementUsingActions(driver, homePage.getWaterTankBookNowButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Book Now: " + e.getMessage());
         }
@@ -434,7 +434,7 @@ public class HomePageSteps {
     @Then("I should see and click on phone number on flashed water tank frame")
     public void iShouldSeePhoneNumberOnFlashedWaterTankFrame() {
         try {
-            Helper.clickElementUsingActions(driver, homePage.getwaterTankPhoneNumberButton(), Duration.ofSeconds(15));
+            Helper.clickElementUsingActions(driver, homePage.getWaterTankPhoneNumberButton(), Duration.ofSeconds(15));
         } catch (Exception e) {
             throw new AssertionError("Failed to click Phone number: " + e.getMessage());
         }
@@ -442,7 +442,7 @@ public class HomePageSteps {
 
     @When("Click on emergency service option")
     public void clickOnEmergencyServiceOption() {
-        Helper.scrollToViewAndClickElement(driver, homePage.getemergencyService(), Duration.ofSeconds(15));
+        Helper.scrollToViewAndClickElement(driver, homePage.getEmergencyService(), Duration.ofSeconds(15));
         System.out.println("Clicked on Help, I need 24/7 emergency service! option");
     }
 
@@ -554,6 +554,95 @@ public class HomePageSteps {
     @When("I click map Input Book Now button")
     public void iClickMapInputBookNowButton() {
         Helper.clickElementUsingActions(driver, homePage.getMapBookNowButton(), Duration.ofSeconds(20));
+    }
+
+    @When("I go to bottom of the homepage")
+    public void iGoToBottomOfTheHomepage() {
+        WebElement element = homePage.getFirstOfferAtBottom();
+        // Scroll the element into view
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+    }
+
+    @Then("I should see two offer is displaying")
+    public void iShouldSeeTwoOfferIsDisplaying() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // Wait for the element to be visible
+        WebElement firstOffer = wait.until(ExpectedConditions.visibilityOf(homePage.getFirstOfferAtBottom()));
+        WebElement secondOffer = wait.until(ExpectedConditions.visibilityOf(homePage.getSecondOfferAtBottom()));
+        // Assert that the element is displayed
+        assert firstOffer.isDisplayed() : "First offer is not visible on the page";
+        assert secondOffer.isDisplayed() : "Second offer is not visible on the page";
+    }
+
+    @When("I click on the {string} offer")
+    public void iClickOnTheOffer(String offer) {
+        if(offer.equalsIgnoreCase("first")) {
+            Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(15));
+            System.out.println("Clicked on the first offer details link");
+        }else{
+            Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(15));
+            System.out.println("Clicked on the second offer details link");
+        }
+    }
+
+    @When("I click on Book Now button in {string} offer detail CTA")
+    public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
+        if(offer.equalsIgnoreCase("first")) {
+            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
+        } else{
+            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
+        }
+    }
+
+    @Then("I can verify the {string} Offer Detail CTA alignment at bottom of the Page")
+    public void iCanVerifyTheOfferDetailCTAAlignmentAtBottomOfThePage(String offer) {
+        WebElement ctaElement;
+        if(offer.equalsIgnoreCase("first")) {
+            ctaElement = homePage.getFirstOfferDetailCtaElement();
+        }else {
+            ctaElement = homePage.getSecondOfferDetailCtaElement();
+        }
+        int xCoordinate = ctaElement.getLocation().getX();
+        System.out.println("CTA Position - X: " + xCoordinate);
+
+        if (platform.equalsIgnoreCase("mobile-browserstack")) {
+            Assert.assertEquals("CTA alignment is not correct for Mobile ", 0, xCoordinate);
+            System.out.println("CTA is on the left side of the screen.");
+        } else if (platform.equalsIgnoreCase("desktop")) {
+            Assert.assertTrue("CTA alignment is not correct for Desktop ", xCoordinate > 0);
+            System.out.println("CTA is on the right side of the screen.");
+        } else {
+            Assert.fail("Platform is incorrect");
+        }
+    }
+
+    @And("I verify {string} Offer expiry date in offer detail CTA")
+    public void iVerifyOfferExpiryDateInOfferDetailCTA(String offer) {
+        WebElement actualDateElement;
+        if(offer.equalsIgnoreCase("first")){
+            actualDateElement = homePage.getFirstOfferDetailExpiryDate();
+        }else{
+            actualDateElement = homePage.getSecondOfferDetailExpiryDate();
+        }
+        LocalDate lastDayOfMonth = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
+        String formattedDate = lastDayOfMonth.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
+        String expectedFormattedDate = "Expires " + formattedDate + ".";
+        String actualDate = actualDateElement.getAttribute("textContent");
+        Assert.assertEquals(expectedFormattedDate, actualDate);
+    }
+
+    @When("I click on phone number button in {string} offer Details CTA")
+    public void iClickOnPhoneNumberButtonInOfferDetailsCTA(String offer) {
+        if(offer.equalsIgnoreCase("first")){
+            Helper.clickElement(driver, homePage.getFirstOfferDetailsCTAPhoneNumber(), Duration.ofSeconds(30));
+        }else{
+            Helper.clickElement(driver, homePage.getSecondOfferDetailsCTAPhoneNumber(), Duration.ofSeconds(30));
+        }
+    }
+
+    @Then("I close first bottom offer CTA")
+    public void iCloseFirstBottomOfferCTA() {
+        Helper.clickElement(driver, homePage.getCloseFirstOfferCTAButton(), Duration.ofSeconds(30));
     }
 }
 
