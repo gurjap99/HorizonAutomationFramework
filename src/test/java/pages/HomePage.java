@@ -114,6 +114,32 @@ public class HomePage {
     private WebElement mapZipcodeInputSearchButton;
     @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//label//div)[5]")
     private WebElement mapZipcodeInputMessage;
+    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'size-full')])[1]")
+    private WebElement firstOfferAtBottom;
+    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'size-full')])[2]")
+    private WebElement secondOfferAtBottom;
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')])[1]")
+    private WebElement firstOfferDetailsLink;
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')])[2]")
+    private WebElement secondOfferDetailsLink;
+    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
+    private WebElement firstOfferDetailCtaElement;
+    @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[3]")
+    private WebElement firstOfferDetailExpiryDate;
+    @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[4]")
+    private WebElement secondOfferDetailExpiryDate;
+    @FindBy(xpath = "(//span[contains(text(),'Book now')])[1]")
+    private WebElement firstOfferDetailCTABookNowButton;
+    @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[9]")
+    private WebElement firstOfferDetailsCTAPhoneNumber;
+    @FindBy(xpath = "(//div[@role= 'Close'])[9]")
+    private WebElement closeFirstOfferCTAButton;
+    @FindBy(xpath = "(//span[contains(text(),'Book now')])[4]")
+    private WebElement secondOfferDetailCTABookNowButton;
+    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
+    private WebElement secondOfferDetailCtaElement;
+    @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[10]")
+    private WebElement secondOfferDetailsCTAPhoneNumber;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -263,11 +289,11 @@ public class HomePage {
         return helpMyAirConditioner;
     }
 
-    public WebElement getairConditionerBookNowButton() {
+    public WebElement getAirConditionerBookNowButton() {
         return airConditionerBookNowButton;
     }
 
-    public WebElement getairConditionerPhoneNumberButton() {
+    public WebElement getAirConditionerPhoneNumberButton() {
         return airConditionerPhoneNumberButton;
     }
 
@@ -275,15 +301,15 @@ public class HomePage {
         return installTanklessWaterHeater;
     }
 
-    public WebElement getwaterTankBookNowButton() {
+    public WebElement getWaterTankBookNowButton() {
         return waterTankBookNowButton;
     }
 
-    public WebElement getwaterTankPhoneNumberButton() {
+    public WebElement getWaterTankPhoneNumberButton() {
         return waterTankPhoneNumberButton;
     }
 
-    public WebElement getemergencyService() {
+    public WebElement getEmergencyService() {
         return emergencyService;
     }
 
@@ -345,5 +371,55 @@ public class HomePage {
 
     public WebElement getMapZipcodeInputMessage() {
         return mapZipcodeInputMessage;
+    }
+
+    public WebElement getFirstOfferAtBottom() {
+        return firstOfferAtBottom;
+    }
+    public WebElement getSecondOfferAtBottom() {
+        return secondOfferAtBottom;
+    }
+
+    public WebElement getFirstOfferDetailsLink() {
+        return firstOfferDetailsLink;
+    }
+
+    public WebElement getSecondOfferDetailsLink() {
+        return secondOfferDetailsLink;
+    }
+
+    public WebElement getFirstOfferDetailCtaElement() {
+        return firstOfferDetailCtaElement;
+    }
+    public WebElement getFirstOfferDetailExpiryDate() {
+        return firstOfferDetailExpiryDate;
+    }
+
+    public WebElement getFirstOfferDetailCTABookNowButton() {
+        return firstOfferDetailCTABookNowButton;
+    }
+
+    public WebElement getFirstOfferDetailsCTAPhoneNumber() {
+        return firstOfferDetailsCTAPhoneNumber;
+    }
+
+    public WebElement getSecondOfferDetailsCTAPhoneNumber() {
+        return secondOfferDetailsCTAPhoneNumber;
+    }
+
+    public WebElement getCloseFirstOfferCTAButton() {
+        return closeCTAButton;
+    }
+
+    public WebElement getSecondOfferDetailCTABookNowButton() {
+        return secondOfferDetailCTABookNowButton;
+    }
+
+    public WebElement getSecondOfferDetailCtaElement() {
+        return secondOfferDetailCtaElement;
+    }
+
+    public WebElement getSecondOfferDetailExpiryDate() {
+        return secondOfferDetailExpiryDate;
     }
 }
