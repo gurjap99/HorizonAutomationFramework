@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.Footer;
@@ -405,7 +406,6 @@ public class HomePageSteps {
     }
 
 
-
     @Then("I should see and click on phone number on flashed air conditioner frame")
     public void iShouldSeePhoneNumberOnFlashedFrame() {
         try {
@@ -520,8 +520,7 @@ public class HomePageSteps {
                     header.getHeaderPhoneNumberButton().getText());
             Assert.assertNotEquals("Phone number is not of NC", phoneNumber,
                     footer.getPeaceOfMindCallButton().getText());
-        }
-        else {
+        } else {
             Assert.fail("Phone number is null");
         }
     }
@@ -576,10 +575,10 @@ public class HomePageSteps {
 
     @When("I click on the {string} offer")
     public void iClickOnTheOffer(String offer) {
-        if(offer.equalsIgnoreCase("first")) {
+        if (offer.equalsIgnoreCase("first")) {
             Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(15));
             System.out.println("Clicked on the first offer details link");
-        }else{
+        } else {
             Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(15));
             System.out.println("Clicked on the second offer details link");
         }
@@ -587,9 +586,9 @@ public class HomePageSteps {
 
     @When("I click on Book Now button in {string} offer detail CTA")
     public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
-        if(offer.equalsIgnoreCase("first")) {
+        if (offer.equalsIgnoreCase("first")) {
             Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
-        } else{
+        } else {
             Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
         }
     }
@@ -597,9 +596,9 @@ public class HomePageSteps {
     @Then("I can verify the {string} Offer Detail CTA alignment at bottom of the Page")
     public void iCanVerifyTheOfferDetailCTAAlignmentAtBottomOfThePage(String offer) {
         WebElement ctaElement;
-        if(offer.equalsIgnoreCase("first")) {
+        if (offer.equalsIgnoreCase("first")) {
             ctaElement = homePage.getFirstOfferDetailCtaElement();
-        }else {
+        } else {
             ctaElement = homePage.getSecondOfferDetailCtaElement();
         }
         int xCoordinate = ctaElement.getLocation().getX();
@@ -619,9 +618,9 @@ public class HomePageSteps {
     @And("I verify {string} Offer expiry date in offer detail CTA")
     public void iVerifyOfferExpiryDateInOfferDetailCTA(String offer) {
         WebElement actualDateElement;
-        if(offer.equalsIgnoreCase("first")){
+        if (offer.equalsIgnoreCase("first")) {
             actualDateElement = homePage.getFirstOfferDetailExpiryDate();
-        }else{
+        } else {
             actualDateElement = homePage.getSecondOfferDetailExpiryDate();
         }
         LocalDate lastDayOfMonth = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
@@ -633,9 +632,9 @@ public class HomePageSteps {
 
     @When("I click on phone number button in {string} offer Details CTA")
     public void iClickOnPhoneNumberButtonInOfferDetailsCTA(String offer) {
-        if(offer.equalsIgnoreCase("first")){
+        if (offer.equalsIgnoreCase("first")) {
             Helper.clickElement(driver, homePage.getFirstOfferDetailsCTAPhoneNumber(), Duration.ofSeconds(30));
-        }else{
+        } else {
             Helper.clickElement(driver, homePage.getSecondOfferDetailsCTAPhoneNumber(), Duration.ofSeconds(30));
         }
     }
@@ -643,6 +642,23 @@ public class HomePageSteps {
     @Then("I close first bottom offer CTA")
     public void iCloseFirstBottomOfferCTA() {
         Helper.clickElement(driver, homePage.getCloseFirstOfferCTAButton(), Duration.ofSeconds(30));
+    }
+
+    @Then("I should see Google review in the home page")
+    public void iShouldSeeGoogleReviewInTheHomePage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(homePage.getGoogleReview()));
+        Assert.assertTrue(element.isDisplayed());
+        System.out.println("Google Review is available on home page");
+        WebElement ratingElement = homePage.getGoogleRating();
+        String ratingText = ratingElement.getText();
+
+        if (!ratingText.isEmpty()) {
+            System.out.println("Rating is available: " + ratingText);
+        } else {
+            System.out.println("Rating is not available.");
+        }
+
     }
 }
 

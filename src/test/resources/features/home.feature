@@ -144,3 +144,8 @@ Feature: Horizon Services home page tests
     Then I should see Book Online Now Window and close it
     #When I click on phone number button in "second" offer Details CTA
     #Then I can verify Phone call popup
+
+  Scenario: Validate Google Review on homepage
+    Given I navigate to "https://www.horizonservices.com/"
+    Then I should see Google review in the home page
+

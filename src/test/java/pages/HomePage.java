@@ -140,6 +140,10 @@ public class HomePage {
     private WebElement secondOfferDetailCtaElement;
     @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[10]")
     private WebElement secondOfferDetailsCTAPhoneNumber;
+    @FindBy(xpath = "//img[@class= 'ti-logo-fb']")
+    private WebElement googleReview;
+    @FindBy(xpath = "//span[@class= 'ti-rating']")
+    private WebElement googleRating;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -391,6 +395,7 @@ public class HomePage {
     public WebElement getFirstOfferDetailCtaElement() {
         return firstOfferDetailCtaElement;
     }
+
     public WebElement getFirstOfferDetailExpiryDate() {
         return firstOfferDetailExpiryDate;
     }
@@ -421,5 +426,13 @@ public class HomePage {
 
     public WebElement getSecondOfferDetailExpiryDate() {
         return secondOfferDetailExpiryDate;
+    }
+
+    public WebElement getGoogleReview() {
+        return googleReview;
+    }
+
+    public WebElement getGoogleRating() {
+        return googleRating;
     }
 }
