@@ -8,19 +8,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
 import pages.Header;
+import utils.Data;
 import utils.DriverFactory;
 import utils.Helper;
 
+import java.time.Duration;
+
 
 public class HeaderSteps {
-    private Header header;
-    private WebDriver driver;
+    private final Header header;
+    private final WebDriver driver;
 
-    public HeaderSteps(){
+    public HeaderSteps() {
         this.driver = DriverFactory.getDriver();
         header = new Header(driver);
     }
@@ -31,7 +31,7 @@ public class HeaderSteps {
         String menuText = menu.getText();
         String[] actualOrder = menuText.split("\n");
         for (String item : actualOrder) {
-            System.out.println("Menu items are " +item);
+            System.out.println("Menu items are " + item);
         }
     }
 
@@ -53,7 +53,9 @@ public class HeaderSteps {
 
     @Then("I should see the Heating & Cooling Sub Menu order is displayed in correct order")
     public void iShouldSeeTheSubMenuOrderIsDisplayedInCorrectOrder() {
-        String[] expectedSubMenu = {"Overview", "Heating Maintenance", "Heating Repair", "Heating Installation", "AC Maintenance", "AC Repair", "AC Installation", "Ductless Mini-Splits", "HVAC Accessories", "Indoor Air Quality"};
+        String[] expectedSubMenu = {"Overview", "Heating Maintenance", "Heating Repair", "Heating Installation",
+                "AC Maintenance", "AC Repair", "AC Installation", "Ductless Mini-Splits", "HVAC Accessories",
+                "Indoor Air Quality"};
         WebElement subMenu = header.getHeatingAndCoolingSubMenu();
         String subMenuText = subMenu.getText();
         String[] actualSubMenu = subMenuText.split("\n");
@@ -170,5 +172,12 @@ public class HeaderSteps {
         } catch (Exception e) {
             throw new AssertionError("Failed to click Phone number: " + e.getMessage());
         }
+    }
+
+    @When("I click on Overview button in {string} header submenu")
+    public void iClickOnOverviewButtonInCategorySubmenu(String category) {
+        int index = Data.CATEGORY_LIST.indexOf(category);
+        header.getCategoryOverviewButton(index).click();
+        System.out.println("Clicked on " + category + " Overview button");
     }
 }

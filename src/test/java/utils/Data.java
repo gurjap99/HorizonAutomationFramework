@@ -1,5 +1,10 @@
 package utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Data {
     public static final String BASE_URL = "https://www.horizonservices.com/";
     public static final String ELECTRICAL_URL = BASE_URL + "electrical-services";
@@ -19,4 +24,27 @@ public class Data {
             "Work With Us", "Contact Us"};
 
     public static final String STATIC_PHONE_NUMBER = "1-800-642-4419";
+
+    public static final ArrayList<String> CATEGORY_LIST = new ArrayList<>(Arrays.asList("Heating & Cooling", "Plumbing",
+            "Electrical", "Ways To Save", "About Us"));
+
+
+    public static Map<String, ArrayList<String>> categoryServiceMap = new HashMap<>();
+    static {
+        categoryServiceMap.put("Heating & Cooling", new ArrayList<>(Arrays.asList(
+                "Heating Maintenance", "Heating Repair", "Heating Installation",
+                "AC Maintenance", "AC Repair", "AC Installation",
+                "Ductless Mini-Splits", "HVAC Accessories", "Indoor Air Quality"
+        )));
+        categoryServiceMap.put("Plumbing", new ArrayList<>(Arrays.asList(
+                "Water Heaters", "Kitchen & Bathroom", "Water Lines",
+                "Drains & Sewer Lines", "Gas Lines", "Sump Pumps", "Well Pumps",
+                "Water Treatment"
+        )));
+        categoryServiceMap.put("Electrical", new ArrayList<>(Arrays.asList(
+                "Lighting & Ceiling Fans", "Electrical Panels & Circuit Breakers", "Electrical Wiring",
+                "Electrical Remodeling", "Electric Vehicle Chargers", "Whole-House Generators",
+                "Whole-House Surge Protectors"
+        )));
+    }
 }

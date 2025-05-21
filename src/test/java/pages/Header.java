@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -116,5 +117,11 @@ public class Header {
 
     public WebElement getHeaderPhoneNumberButton() {
         return headerPhoneNumberButton;
+    }
+
+    public WebElement getCategoryOverviewButton(int index) {
+        String xpath = String.format("(//div[contains(@class, 'visible') and contains(@class, 'top-full')]" +
+                "//a[contains(text(), 'Overview')])[%s]", index + 1);
+        return this.driver.findElement(By.xpath(xpath));
     }
 }
