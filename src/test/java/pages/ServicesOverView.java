@@ -10,12 +10,10 @@ import java.util.List;
 
 public class ServicesOverView {
     WebDriver driver;
+    
     @FindBy(xpath = "//div[@data-testid='flyout-cta-list-view-container']" +
             "//div[contains(@data-testid, 'df-button')]")
     private List<WebElement> servicesListButtons;
-
-    @FindBy(xpath = "(//a[contains(text(), 'Overview')])[2]")
-    private WebElement plumbingOverviewLink;
 
     public ServicesOverView(WebDriver driver) {
         this.driver = driver;
@@ -80,10 +78,6 @@ public class ServicesOverView {
 
     public List<WebElement> getServicesListButtons() {
         return servicesListButtons;
-    }
-
-    public WebElement getPlumbingOverviewLink() {
-        return plumbingOverviewLink;
     }
 
     public WebElement getOverviewImgBookNowButton(String page) {
