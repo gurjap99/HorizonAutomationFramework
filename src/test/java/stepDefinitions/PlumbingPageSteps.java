@@ -2,9 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.PlumbingPage;
 import utils.DriverFactory;
 import utils.Helper;
@@ -18,10 +16,6 @@ public class PlumbingPageSteps {
     public PlumbingPageSteps(){
         this.driver = DriverFactory.getDriver();
         plumbingPage = new PlumbingPage(driver);
-    }
-
-    @Then("I should navigate to {string}")
-    public void iShouldNavigateTo(String arg0) {
     }
 
     @When("I click on Book Now button in Image on {string} Page")
