@@ -575,10 +575,10 @@ public class HomePageSteps {
     @When("I click on the {string} offer")
     public void iClickOnTheOffer(String offer) {
         if (offer.equalsIgnoreCase("first")) {
-            Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(100));
+            Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(15));
             System.out.println("Clicked on the first offer details link");
         } else {
-            Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(100));
+            Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(15));
             System.out.println("Clicked on the second offer details link");
         }
     }
@@ -586,9 +586,9 @@ public class HomePageSteps {
     @When("I click on Book Now button in {string} offer detail CTA")
     public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
         if (offer.equalsIgnoreCase("first")) {
-            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(100));
+            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(15));
         } else {
-            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(100));
+            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(15));
         }
     }
 

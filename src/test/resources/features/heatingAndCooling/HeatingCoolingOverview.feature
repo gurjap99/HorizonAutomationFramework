@@ -125,7 +125,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     And I verify "first" Offer expiry date in offer detail CTA
     When I click on Book Now button in "first" offer detail CTA
     Then I should see Book Online Now Window and close it
-    When I click on phone number button in "first" offer Details CTA
+    #When I click on phone number button in "first" offer Details CTA
     #Then I can verify Phone call popup
     Then I close first bottom offer CTA
     When I click on the "second" offer

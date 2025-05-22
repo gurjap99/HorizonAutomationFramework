@@ -14,6 +14,9 @@ public class ServicesOverView {
             "//div[contains(@data-testid, 'df-button')]")
     private List<WebElement> servicesListButtons;
 
+    @FindBy(xpath = "(//a[contains(text(), 'Overview')])[2]")
+    private WebElement plumbingOverviewLink;
+
     public ServicesOverView(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -77,6 +80,22 @@ public class ServicesOverView {
 
     public List<WebElement> getServicesListButtons() {
         return servicesListButtons;
+    }
+
+    public WebElement getPlumbingOverviewLink() {
+        return plumbingOverviewLink;
+    }
+
+    public WebElement getOverviewImgBookNowButton(String page) {
+        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(text(),'Book Now')])[1]", page);
+        WebElement bookNow = driver.findElement(By.xpath(xpathExpression));
+        return bookNow;
+    }
+
+    public WebElement getOverviewImgPhoneNumber(String page) {
+        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(@id,'phoneNumber')])[1]", page);
+        WebElement phoneNumber = driver.findElement(By.xpath(xpathExpression));
+        return phoneNumber;
     }
 
 }
