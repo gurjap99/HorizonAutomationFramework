@@ -20,11 +20,6 @@ public class PlumbingPageSteps {
         plumbingPage = new PlumbingPage(driver);
     }
 
-    @When("I click on plumbing overview")
-    public void iClickOnPlumbingOverview() {
-        Helper.clickElementUsingActions(driver, plumbingPage.getPlumbingOverviewLink(), Duration.ofSeconds(15));
-    }
-
     @Then("I should navigate to {string}")
     public void iShouldNavigateTo(String arg0) {
     }

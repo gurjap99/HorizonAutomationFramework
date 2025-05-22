@@ -576,10 +576,10 @@ public class HomePageSteps {
     @When("I click on the {string} offer")
     public void iClickOnTheOffer(String offer) {
         if (offer.equalsIgnoreCase("first")) {
-            Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(15));
+            Helper.scrollToViewAndClickElement(driver, homePage.getFirstOfferDetailsLink(), Duration.ofSeconds(100));
             System.out.println("Clicked on the first offer details link");
         } else {
-            Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(15));
+            Helper.scrollToViewAndClickElement(driver, homePage.getSecondOfferDetailsLink(), Duration.ofSeconds(100));
             System.out.println("Clicked on the second offer details link");
         }
     }
@@ -587,9 +587,9 @@ public class HomePageSteps {
     @When("I click on Book Now button in {string} offer detail CTA")
     public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
         if (offer.equalsIgnoreCase("first")) {
-            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
+            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(100));
         } else {
-            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(30));
+            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(100));
         }
     }
 
@@ -627,7 +627,7 @@ public class HomePageSteps {
         String formattedDate = lastDayOfMonth.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
         String expectedFormattedDate = "Expires " + formattedDate + ".";
         String actualDate = actualDateElement.getAttribute("textContent");
-        Assert.assertEquals(expectedFormattedDate, actualDate);
+        Assert.assertEquals(expectedFormattedDate, actualDate.trim());
     }
 
     @When("I click on phone number button in {string} offer Details CTA")

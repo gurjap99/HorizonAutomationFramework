@@ -128,17 +128,17 @@ public class HomePage {
     private WebElement firstOfferDetailExpiryDate;
     @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[4]")
     private WebElement secondOfferDetailExpiryDate;
-    @FindBy(xpath = "(//span[contains(text(),'Book now')])[1]")
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[1]")
     private WebElement firstOfferDetailCTABookNowButton;
-    @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[9]")
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[1]")
     private WebElement firstOfferDetailsCTAPhoneNumber;
     @FindBy(xpath = "(//div[@role= 'Close'])[9]")
     private WebElement closeFirstOfferCTAButton;
-    @FindBy(xpath = "(//span[contains(text(),'Book now')])[4]")
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
     private WebElement secondOfferDetailCTABookNowButton;
     @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
     private WebElement secondOfferDetailCtaElement;
-    @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[10]")
+    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[2]")
     private WebElement secondOfferDetailsCTAPhoneNumber;
     @FindBy(xpath = "//img[@class= 'ti-logo-fb']")
     private WebElement googleReview;

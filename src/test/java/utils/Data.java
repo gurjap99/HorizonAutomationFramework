@@ -46,5 +46,11 @@ public class Data {
                 "Electrical Remodeling", "Electric Vehicle Chargers", "Whole-House Generators",
                 "Whole-House Surge Protectors"
         )));
+        categoryServiceMap.put("Ways to Save", new ArrayList<>(Arrays.asList(
+                "Offers & Rebates", "Financing", "Membership Program"
+        )));
+        categoryServiceMap.put("About Us", new ArrayList<>(Arrays.asList(
+                "Why Horizon", "Reviews", "Work With Us", "Contact Us", "In the Community", "Preferred Brands"
+        )));
     }
 }
