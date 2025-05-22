@@ -19,9 +19,6 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
     When I click on "Heating Maintenance" button
     Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
     When I navigate back
-    When I click on "Heating Repair" button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
-    When I navigate back
     When I click on "Heating Installation" button
     Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
     When I navigate back
@@ -40,6 +37,5 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
     When I click on "HVAC Accessories" button
     Then it navigates to "https://www.horizonservices.com/heating-and-cooling/hvac-accessories"
     When I navigate back
-
-
-
+    When I click on "Indoor Air Quality" button
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
