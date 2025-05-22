@@ -10,6 +10,7 @@ import java.util.List;
 
 public class ServicesOverView {
     WebDriver driver;
+    
     @FindBy(xpath = "//div[@data-testid='flyout-cta-list-view-container']" +
             "//div[contains(@data-testid, 'df-button')]")
     private List<WebElement> servicesListButtons;
@@ -78,4 +79,17 @@ public class ServicesOverView {
     public List<WebElement> getServicesListButtons() {
         return servicesListButtons;
     }
+
+    public WebElement getOverviewImgBookNowButton(String page) {
+        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(text(),'Book Now')])[1]", page);
+        WebElement bookNow = driver.findElement(By.xpath(xpathExpression));
+        return bookNow;
+    }
+
+    public WebElement getOverviewImgPhoneNumber(String page) {
+        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(@id,'phoneNumber')])[1]", page);
+        WebElement phoneNumber = driver.findElement(By.xpath(xpathExpression));
+        return phoneNumber;
+    }
+
 }

@@ -60,4 +60,17 @@ public class ServicesOverViewSteps {
     public void itNavigatesTo(String url) {
         Assert.assertEquals("URL does not match ", url, driver.getCurrentUrl());
     }
+
+    @When("I click on Book Now button in Image on {string} Page")
+    public void iClickOnBookNowButtonInImageOnPage(String page) {
+        Helper.alternateClick(driver, servicesOverView.getOverviewImgBookNowButton(page), Duration.ofSeconds(15));
+
+    }
+
+    @When("I click on Phone Number in Image on {string} Page")
+    public void iClickOnPhoneNumberInImageOnPage(String page) {
+        Helper.alternateClick(driver, servicesOverView.getOverviewImgPhoneNumber(page), Duration.ofSeconds(20));
+    }
+
+
 }
