@@ -124,4 +124,10 @@ public class Header {
                 "//a[contains(text(), 'Overview')])[%s]", index + 1);
         return this.driver.findElement(By.xpath(xpath));
     }
+
+    public WebElement getCategoryServiceButton(String serviceName) {
+        String xpath = String.format("//div[contains(@class, 'visible') and contains(@class, 'top-full')]" +
+                "//a[contains(text(), '%s')]", serviceName);
+        return this.driver.findElement(By.xpath(xpath));
+    }
 }

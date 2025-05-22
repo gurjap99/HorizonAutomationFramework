@@ -180,4 +180,10 @@ public class HeaderSteps {
         header.getCategoryOverviewButton(index).click();
         System.out.println("Clicked on " + category + " Overview button");
     }
+
+    @When("I click on {string} button in category header submenu")
+    public void iClickOnButtonInCategoryHeaderSubmenu(String service) {
+        header.getCategoryServiceButton(service).click();
+        System.out.println("Clicked on " + service + " button");
+    }
 }
