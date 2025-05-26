@@ -2,7 +2,6 @@ package stepDefinitions;
 
 
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,11 +29,11 @@ public class LearnPageSteps {
         while (hasNextPage) {
             // Wait for links to load
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='grid gap-y-[2.56rem]']//a")));
+            wait.until(ExpectedConditions.visibilityOfAllElements(learnPage.getLearningHubLinks()));
             // Collect all links
-            List<WebElement> links = driver.findElements(By.xpath("//div[@class='grid gap-y-[2.56rem]']//a"));
+            List<WebElement> links = learnPage.getLearningHubLinks();
             for (int i = 0; i < links.size(); i++) {
-                links = driver.findElements(By.xpath("//div[@class='grid gap-y-[2.56rem]']//a")); // Re-locate to avoid stale element
+                links = learnPage.getLearningHubLinks(); // Re-locate to avoid stale element
                 WebElement link = links.get(i);
                 String expectedUrl = link.getAttribute("href");
                 String linkText = link.getText();
@@ -51,8 +50,7 @@ public class LearnPageSteps {
             }
             // Try to click the "Next" button if pagination exists
             try {
-                WebElement nextButton = driver.findElement(By.xpath(" //a[.//span[text()='Next']]"));
-                //WebElement nextButton = driver.findElement(By.xpath("//a[contains(text(),'Next')]"));
+                WebElement nextButton = learnPage.getLearnNextButton();
                 String styleAttr = nextButton.getAttribute("style");
 
                 if (styleAttr != null && !styleAttr.contains("pointer-events: none")) {
