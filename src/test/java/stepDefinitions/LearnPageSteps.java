@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -63,9 +62,5 @@ public class LearnPageSteps {
                 hasNextPage = false;
             }
         }
-
     }
-
-
-
 }
