@@ -12,7 +12,7 @@ public class LearnPage {
 
     @FindBy(xpath = "//div[@class='grid gap-y-[2.56rem]']//a")
     private List<WebElement> learningHubLinks;
-    @FindBy(xpath = "//div[@class='grid gap-y-[2.56rem]']//a")
+    @FindBy(xpath = "//a[.//span[text()='Next']]")
     private WebElement learnNextButton;
 
     public LearnPage(WebDriver driver) {
