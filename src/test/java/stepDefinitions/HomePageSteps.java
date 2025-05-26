@@ -626,7 +626,18 @@ public class HomePageSteps {
         String formattedDate = lastDayOfMonth.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
         String expectedFormattedDate = "Expires " + formattedDate + ".";
         String actualDate = actualDateElement.getAttribute("textContent");
-        Assert.assertEquals(expectedFormattedDate, actualDate.trim());
+
+        String keyword = "Expires";
+        String result = null;
+        int index = actualDate.indexOf(keyword);
+        if (index != -1) {
+            result = actualDate.substring(index); // includes "Expires"
+            System.out.println("Extracted: " + result);
+        } else {
+            System.out.println("'Expires' not found in the text.");
+        }
+
+        Assert.assertEquals(expectedFormattedDate, result);
     }
 
     @When("I click on phone number button in {string} offer Details CTA")

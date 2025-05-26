@@ -143,7 +143,6 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     Then I should see Google review in the home page
 
   Scenario: Validate Image Call and Book Now buttons on Heating & Cooling overview page
-
     Given I navigate to "https://www.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
@@ -151,4 +150,3 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     Then I should see Book Online Now Window and close it
     When I click on Phone Number in Image on "Horizon Services heating and cooling" Page
     #Then I can verify Phone call popup
-
