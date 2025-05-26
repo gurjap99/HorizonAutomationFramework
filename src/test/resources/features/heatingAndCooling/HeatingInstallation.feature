@@ -1,10 +1,10 @@
-Feature: Horizon Service Heating & Cooling Heating Repair Page tests
+Feature: Horizon Service Heating & Cooling Heating Installation Page tests
 
-  Scenario: Validate Book Now, call button, explore membership button in Heating Repair page
+  Scenario: Validate Book Now, call button, explore membership button in Heating Installation page
     Given I navigate to "https://www.horizonservices.com"
     When I Click on Heating & Cooling
-    When I click on "Heating Repair" button in category header submenu
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
+    When I click on "Heating Installation" button in category header submenu
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
     #When I click on service page Phone number button
@@ -12,18 +12,21 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
     When I click on Explore Membership button
     Then it navigates to "https://www.horizonservices.com/ways-to-save/membership-program"
     When I navigate back
+    When I click on Explore Financing button
+    Then it navigates to "https://www.horizonservices.com/ways-to-save/financing"
+    When I navigate back
     When I click on Answers to common questions Phone number button
      #Then I can verify Phone call popup
 
   Scenario: Validate other services buttons and links
     Given I navigate to "https://www.horizonservices.com"
     When I Click on Heating & Cooling
-    When I click on "Heating Repair" button in category header submenu
+    When I click on "Heating Installation" button in category header submenu
+    When I click on "Heating Repair" button
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
+    When I navigate back
     When I click on "Heating Maintenance" button
     Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
-    When I navigate back
-    When I click on "Heating Installation" button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
     When I navigate back
     When I click on "AC Maintenance" button
     Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-maintenance"
@@ -46,7 +49,7 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
   Scenario: Validate Offer at the bottom of the Page
     Given I navigate to "https://www.horizonservices.com/"
     When I Click on Heating & Cooling
-    When I click on "Heating Repair" button in category header submenu
+    When I click on "Heating Installation" button in category header submenu
     When I go to bottom of the homepage
     Then I should see two offer is displaying
     When I click on the "first" offer

@@ -17,6 +17,10 @@ public class ServicesCommon {
     private WebElement servicePhoneButton;
     @FindBy(xpath = "(//span[contains(text(), 'Explore Membership')])[1]")
     private WebElement exploreMembershipButton;
+    @FindBy(xpath = "(//span[contains(text(), 'Explore Financing')])[1]")
+    private WebElement exploreFinancingButton;
+    @FindBy(xpath = "//div[*[contains(text(), 'Answers')]]//span[@id='phoneNumber']")
+    private WebElement answersDivPhoneNumber;
 
     public ServicesCommon(WebDriver driver) {
         this.driver = driver;
@@ -52,5 +56,13 @@ public class ServicesCommon {
         );
 
         return this.driver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getAnswersDivPhoneNumber() {
+        return answersDivPhoneNumber;
+    }
+
+    public WebElement getExploreFinancingButton() {
+        return exploreFinancingButton;
     }
 }

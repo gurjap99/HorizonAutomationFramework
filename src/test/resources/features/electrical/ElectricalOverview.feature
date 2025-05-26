@@ -114,14 +114,14 @@ Feature: Horizon Services Electrical Overview Page tests
 
   Scenario: Validating Google Review on Electrical overview page
     Given I navigate to "https://www.horizonservices.com/"
-    When I Click on Plumbing
+    When I Click on Electrical
     When I click on Overview button in "Electrical" header submenu
     Then I should see Google review in the home page
 
   Scenario: Validate Image Call and Book Now buttons on Electrical overview page
 
     Given I navigate to "https://www.horizonservices.com/"
-    When I Click on Plumbing
+    When I Click on Electrical
     When I click on Overview button in "Electrical" header submenu
     When I click on Book Now button in Image on "Horizon Services electrical" Page
     Then I should see Book Online Now Window and close it

@@ -32,6 +32,11 @@ public class ServicesCommonSteps {
         Helper.clickElementUsingActions(driver, servicesCommon.getExploreMembershipButton(), Duration.ofSeconds(20));
     }
 
+    @When("I click on Explore Financing button")
+    public void iClickOnExploreFinancingButton() {
+        Helper.clickElementUsingActions(driver, servicesCommon.getExploreFinancingButton(), Duration.ofSeconds(20));
+    }
+
     @When("I navigate back")
     public void iNavigateBack() {
         driver.navigate().back();
@@ -41,5 +46,10 @@ public class ServicesCommonSteps {
     public void iClickOnButton(String service) {
         String[] servicesSplit = service.split(" ");
         servicesCommon.getOtherServiceButton(servicesSplit).click();
+    }
+
+    @When("I click on Answers to common questions Phone number button")
+    public void iClickOnAnswersToCommonQuestionsPhoneNumberButton() {
+        servicesCommon.getAnswersDivPhoneNumber().click();
     }
 }
