@@ -583,13 +583,9 @@ public class HomePageSteps {
         }
     }
 
-    @When("I click on Book Now button in {string} offer detail CTA")
-    public void iClickOnBookNowButtonInOfferDetailCTA(String offer) {
-        if (offer.equalsIgnoreCase("first")) {
-            Helper.clickElementUsingActions(driver, homePage.getFirstOfferDetailCTABookNowButton(), Duration.ofSeconds(15));
-        } else {
-            Helper.clickElementUsingActions(driver, homePage.getSecondOfferDetailCTABookNowButton(), Duration.ofSeconds(15));
-        }
+    @When("I click on Book Now button in offer detail CTA")
+    public void iClickOnBookNowButtonInOfferDetailCTA() {
+        Helper.clickElementUsingActions(driver, homePage.getOfferDetailCTABookNowButton(), Duration.ofSeconds(15));
     }
 
     @Then("I can verify the {string} Offer Detail CTA alignment at bottom of the Page")
@@ -637,7 +633,7 @@ public class HomePageSteps {
             System.out.println("'Expires' not found in the text.");
         }
 
-        Assert.assertEquals(expectedFormattedDate, result);
+        Assert.assertEquals(expectedFormattedDate, result.trim());
     }
 
     @When("I click on phone number button in {string} offer Details CTA")
@@ -669,6 +665,11 @@ public class HomePageSteps {
             System.out.println("Rating is not available.");
         }
 
+    }
+
+    @And("I click on View All Offers & Rebates button")
+    public void iClickOnViewAllOffersRebatesButton() {
+        Helper.clickElementUsingActions(driver, homePage.getOffersRebatesButton(), Duration.ofSeconds(30));
     }
 }
 

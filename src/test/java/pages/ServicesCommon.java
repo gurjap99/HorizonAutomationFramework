@@ -51,7 +51,7 @@ public class ServicesCommon {
 
         // Final XPath with dynamic h2 conditions
         String xpath = String.format(
-                "//div[contains(@class, 'sm:min-h-[7.5rem]') and ./p[%s]]",
+                "//a[div[contains(@class, 'sm:min-h-[7.5rem]') and ./p[%s]]]",
                 conditions
         );
 

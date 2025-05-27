@@ -55,7 +55,7 @@ Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
     When I click on the "first" offer
     Then I can verify the "first" Offer Detail CTA alignment at bottom of the Page
     And I verify "first" Offer expiry date in offer detail CTA
-    When I click on Book Now button in "first" offer detail CTA
+    When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
     #When I click on phone number button in "first" offer Details CTA
     #Then I can verify Phone call popup
@@ -63,7 +63,10 @@ Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
     When I click on the "second" offer
     Then I can verify the "second" Offer Detail CTA alignment at bottom of the Page
     And I verify "second" Offer expiry date in offer detail CTA
-    When I click on Book Now button in "second" offer detail CTA
+    When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
     #When I click on phone number button in "second" offer Details CTA
     #Then I can verify Phone call popup
+    Then I close first bottom offer CTA
+    And I click on View All Offers & Rebates button
+    Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
