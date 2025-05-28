@@ -45,7 +45,8 @@ public class ServicesCommonSteps {
     @When("I click on {string} button")
     public void iClickOnButton(String service) {
         String[] servicesSplit = service.split(" ");
-        servicesCommon.getOtherServiceButton(servicesSplit).click();
+        Helper.clickElementUsingActions(driver, servicesCommon.getOtherServiceButton(servicesSplit),
+                Duration.ofSeconds(20));
     }
 
     @When("I click on Answers to common questions Phone number button")
