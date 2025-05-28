@@ -1,7 +1,5 @@
 package pages;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -132,8 +130,8 @@ public class HomePage {
     private WebElement firstOfferDetailsCTAPhoneNumber;
     @FindBy(xpath = "(//div[@role= 'Close'])[9]")
     private WebElement closeFirstOfferCTAButton;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
-    private WebElement secondOfferDetailCTABookNowButton;
+    //@FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
+    //private WebElement secondOfferDetailCTABookNowButton;
     @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
     private WebElement secondOfferDetailCtaElement;
     @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[2]")
@@ -424,10 +422,6 @@ public class HomePage {
 
     public WebElement getCloseFirstOfferCTAButton() {
         return closeCTAButton;
-    }
-
-    public WebElement getSecondOfferDetailCTABookNowButton() {
-        return secondOfferDetailCTABookNowButton;
     }
 
     public WebElement getSecondOfferDetailCtaElement() {
