@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.HashMap;
@@ -128,18 +126,18 @@ public class HomePage {
     private WebElement firstOfferDetailExpiryDate;
     @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[4]")
     private WebElement secondOfferDetailExpiryDate;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[1]")
-    private WebElement firstOfferDetailCTABookNowButton;
     @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[1]")
     private WebElement firstOfferDetailsCTAPhoneNumber;
     @FindBy(xpath = "(//div[@role= 'Close'])[9]")
     private WebElement closeFirstOfferCTAButton;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
-    private WebElement secondOfferDetailCTABookNowButton;
+    //@FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
+    //private WebElement secondOfferDetailCTABookNowButton;
     @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
     private WebElement secondOfferDetailCtaElement;
     @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[2]")
     private WebElement secondOfferDetailsCTAPhoneNumber;
+    @FindBy(xpath = "//span[contains(text(), 'View') and contains(text(), 'Offers') and contains(text(), 'Rebates')][1]")
+    private WebElement offersRebatesButton;
     @FindBy(xpath = "//img[@class= 'ti-logo-fb']")
     private WebElement googleReview;
     @FindBy(xpath = "//span[@class= 'ti-rating']")
@@ -400,8 +398,18 @@ public class HomePage {
         return firstOfferDetailExpiryDate;
     }
 
-    public WebElement getFirstOfferDetailCTABookNowButton() {
-        return firstOfferDetailCTABookNowButton;
+    public WebElement getOfferDetailCTABookNowButton() {
+        String xpath = "(//a[contains(@class, 'px-4') and contains(@class, 'min-w-20') and contains(@class, " +
+                "'[&>svg]:max-w-[theme(spacing.8)]') and contains(@class, 'focus:outline-offset-2') and " +
+                "contains(@class, 'Button_button__TU74c') and contains(@class, 'Button_primary__N26tY') and " +
+                "contains(@class, 'CTA_cta-button-primary__AK5_1') and contains(@class, 'book-mid')])";
+        List<WebElement> elements = driver.findElements(By.xpath(xpath));
+        for (WebElement element : elements) {
+            if (element.isDisplayed()) {
+                return element;
+            }
+        }
+        throw new NoSuchElementException("Visible 'Book Now' CTA button not found using XPath: " + xpath);
     }
 
     public WebElement getFirstOfferDetailsCTAPhoneNumber() {
@@ -414,10 +422,6 @@ public class HomePage {
 
     public WebElement getCloseFirstOfferCTAButton() {
         return closeCTAButton;
-    }
-
-    public WebElement getSecondOfferDetailCTABookNowButton() {
-        return secondOfferDetailCTABookNowButton;
     }
 
     public WebElement getSecondOfferDetailCtaElement() {
@@ -434,5 +438,9 @@ public class HomePage {
 
     public WebElement getGoogleRating() {
         return googleRating;
+    }
+
+    public WebElement getOffersRebatesButton() {
+        return offersRebatesButton;
     }
 }

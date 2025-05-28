@@ -13,36 +13,34 @@ public class Helper {
 
     private static final Duration DEFAULT_POLLING_INTERVAL = Duration.ofMillis(500);
 
-    public static void alternateClick(WebDriver driver, WebElement element, Duration timeout) {
+    public static void alternateClick(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
         Actions actions = new Actions(driver);
         actions.moveToElement(webElement).click().perform();
     }
 
-    public static void clickElementUsingActions(WebDriver driver, WebElement element, Duration timeout) {
+    public static void clickElementUsingActions(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        //wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.elementToBeClickable(webElement)));
         Actions actions = new Actions(driver);
         actions.moveToElement(webElement).click().perform();
         System.out.println("Element is visible and clickable");
         driver.switchTo().defaultContent();
     }
 
-    public static void clickElement(WebDriver driver, WebElement element, Duration timeout) {
+    public static void clickElement(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
         System.out.println("Element is visible and clickable");
         driver.switchTo().defaultContent();
     }
 
-    public static void scrollToViewAndClickElement(WebDriver driver, WebElement element, Duration timeout) {
+    public static void scrollToViewAndClickElement(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
         // Scroll into view
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", webElement);
         // Wait until it's clickable
