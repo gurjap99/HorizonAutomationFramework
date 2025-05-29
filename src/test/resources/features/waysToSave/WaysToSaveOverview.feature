@@ -7,10 +7,10 @@ Feature: Horizon Service Ways To Save Page tests
     Then it navigates to "https://www.horizonservices.com/ways-to-save"
     When I click on Exclusive offers and Rebates
     Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
-    And I can navigate back
+    And I navigate back
     When I click on Flexible Financing
     Then it navigates to "https://www.horizonservices.com/ways-to-save/financing"
-    And I can navigate back
+    And I navigate back
     When I click on Comfort Membership
     Then it navigates to "https://www.horizonservices.com/ways-to-save/membership-program"
 

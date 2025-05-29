@@ -28,15 +28,15 @@ public class WaysToSaveSteps {
     @And("I should be able to click on each offer details link and validate CTA")
     public void iShouldBeAbleToClickOnEachOfferDetailsLinkAndValidateCTA() throws InterruptedException {
         List<WebElement> offerLinks = waysToSavePage.getOfferDetailsLinks();
+        List<WebElement> actualDateElement = waysToSavePage.getWaysToSaveOfferExpiryDate();
         for (int i = 0; i < offerLinks.size(); i++) {
             // Re-fetch the list to avoid stale element reference
             offerLinks = waysToSavePage.getOfferDetailsLinks();
             // Click the link
             offerLinks.get(i).click();
             System.out.println("Clicking on " +i+ " link");
-            List<WebElement> expiryDate = waysToSavePage.getWaysToSaveOfferExpiryDate();
-            if (i < expiryDate.size()) {
-                List<WebElement> actualDateElement = waysToSavePage.getWaysToSaveOfferExpiryDate();
+            if (i < actualDateElement.size()) {
+                actualDateElement = waysToSavePage.getWaysToSaveOfferExpiryDate();
                 LocalDate lastDayOfMonth = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
                 String formattedDate = lastDayOfMonth.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
                 String expectedFormattedDate = "Expires " + formattedDate + ".";

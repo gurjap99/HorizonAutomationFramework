@@ -667,11 +667,6 @@ public class HomePageSteps {
 
     }
 
-    @Then("I can navigate back")
-    public void iCanNavigateBack() {
-        driver.navigate().back();
-    }
-
     @And("I click on View All Offers & Rebates button")
     public void iClickOnViewAllOffersRebatesButton() {
         Helper.clickElementUsingActions(driver, homePage.getOffersRebatesButton(), Duration.ofSeconds(30));
