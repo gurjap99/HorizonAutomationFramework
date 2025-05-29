@@ -58,7 +58,11 @@ public class ServicesOverViewSteps {
 
     @Then("it navigates to {string}")
     public void itNavigatesTo(String url) {
-        Assert.assertEquals("URL does not match ", url, driver.getCurrentUrl());
+        Helper.retry(()->
+        {
+            Assert.assertEquals("URL does not match ", url, driver.getCurrentUrl());
+            return null;
+        }, Duration.ofSeconds(15));
     }
 
     @When("I click on Book Now button in Image on {string} Page")

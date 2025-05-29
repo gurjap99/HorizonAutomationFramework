@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.ServicesCommon;
 import utils.DriverFactory;
 import utils.Helper;
@@ -45,12 +46,12 @@ public class ServicesCommonSteps {
     @When("I click on {string} button")
     public void iClickOnButton(String service) {
         String[] servicesSplit = service.split(" ");
-        Helper.clickElementUsingActions(driver, servicesCommon.getOtherServiceButton(servicesSplit),
-                Duration.ofSeconds(20));
+        WebElement element = servicesCommon.getOtherServiceButton(servicesSplit);
+        Helper.clickElementUsingActions(driver, element, Duration.ofSeconds(20));
     }
 
     @When("I click on Answers to common questions Phone number button")
     public void iClickOnAnswersToCommonQuestionsPhoneNumberButton() {
-        servicesCommon.getAnswersDivPhoneNumber().click();
+        Helper.clickElement(driver, servicesCommon.getAnswersDivPhoneNumber(), Duration.ofSeconds(20));
     }
 }
