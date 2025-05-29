@@ -66,7 +66,7 @@ public class WaysToSaveSteps {
 //            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", phone);
                 driver.switchTo().defaultContent();
                 WebElement offerCTAClose = wait.until(ExpectedConditions.visibilityOf(waysToSavePage.getWaysToSaveCloseCTAButton()));
-                Thread.sleep(100);
+                Thread.sleep(30);
                 offerCTAClose.click();
                 System.out.println("Closing CTA");
             }
