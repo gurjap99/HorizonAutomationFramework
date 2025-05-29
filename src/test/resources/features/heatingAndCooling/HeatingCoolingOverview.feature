@@ -153,3 +153,31 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     Then I should see Book Online Now Window and close it
     When I click on Phone Number in Image on "Horizon Services heating and cooling" Page
     #Then I can verify Phone call popup
+
+  Scenario: Validate Maintenance Repair and Installation Services at bottom of overview page
+
+    Given I navigate to "https://www.horizonservices.com/"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Heating" in "Maintenance"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Cooling" in "Maintenance"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-maintenance"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Heating" in "Repair"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Cooling" in "Repair"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-repair"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Heating" in "Installation"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
+    When I Click on Heating & Cooling
+    And I click on Overview button in "Heating & Cooling" header submenu
+    And I click on "Cooling" in "Installation"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-installation"
