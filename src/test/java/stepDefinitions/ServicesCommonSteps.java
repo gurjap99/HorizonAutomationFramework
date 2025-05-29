@@ -47,7 +47,6 @@ public class ServicesCommonSteps {
     public void iClickOnButton(String service) {
         String[] servicesSplit = service.split(" ");
         WebElement element = servicesCommon.getOtherServiceButton(servicesSplit);
-        //Helper.scrollToViewAndClickElement(driver, element, Duration.ofSeconds(20));
         Helper.clickElementUsingActions(driver, element, Duration.ofSeconds(20));
     }
 
