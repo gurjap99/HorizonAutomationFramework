@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Data {
-    public static final String BASE_URL = "https://www.horizonservices.com/";
+    public static final String BASE_URL = "https://test.horizonservices.com/";
     public static final String ELECTRICAL_URL = BASE_URL + "electrical-services";
     public static final String PLUMBING_URL = BASE_URL + "plumbing-services";
     public static final String HEATING_COOLING_URL = BASE_URL + "heating-and-cooling-services";

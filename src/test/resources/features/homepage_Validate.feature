@@ -1,7 +1,7 @@
 Feature: Horizon Services Homepage Elements
 
   Scenario: Locate all elements on the Horizon Services homepage
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     Then I should locate all header elements
     And I should locate all hero section elements
     And I should locate all services section elements

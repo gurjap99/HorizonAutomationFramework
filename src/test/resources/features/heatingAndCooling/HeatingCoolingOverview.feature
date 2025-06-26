@@ -1,13 +1,13 @@
 Feature: Horizon Services Heating & Cooling Overview Page tests
 
   Scenario: Validate list of services in Overview of Heating & Cooling
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     Then I can validate the list of all "Heating & Cooling" services and their order
 
   Scenario: Validate Heating Maintenance of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "Heating Maintenance"
@@ -16,10 +16,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "Heating Maintenance" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "Heating Maintenance" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-maintenance"
 
   Scenario: Validate Heating Repair of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "Heating Repair"
@@ -28,10 +28,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "Heating Repair" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "Heating Repair" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-repair"
 
   Scenario: Validate Heating Installation of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "Heating Installation"
@@ -40,10 +40,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "Heating Installation" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "Heating Installation" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-installation"
 
   Scenario: Validate AC Maintenance of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "AC Maintenance"
@@ -52,10 +52,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "AC Maintenance" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "AC Maintenance" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-maintenance"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-maintenance"
 
   Scenario: Validate AC Repair of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "AC Repair"
@@ -64,10 +64,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "AC Repair" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "AC Repair" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-repair"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-repair"
 
   Scenario: Validate AC Installation of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "AC Installation"
@@ -76,10 +76,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "AC Installation" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "AC Installation" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-installation"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-installation"
 
   Scenario: Validate Ductless Mini-Splits of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "Ductless Mini-Splits"
@@ -88,10 +88,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "Ductless Mini-Splits" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "Ductless Mini-Splits" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling/ductless-mini-splits"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling/ductless-mini-splits"
 
   Scenario: Validate HVAC Accessories of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "HVAC Accessories"
@@ -100,10 +100,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "HVAC Accessories" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "HVAC Accessories" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling/hvac-accessories"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling/hvac-accessories"
 
   Scenario: Validate Indoor Air Quality of Heating & Cooling services CTA
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on "Heating & Cooling" "Indoor Air Quality"
@@ -112,10 +112,10 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #When "Indoor Air Quality" Phone number button in CTA is clicked
     #Then I can verify Phone call popup
     When I click on "Indoor Air Quality" Learn More button
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
 
   Scenario: Validating Heating & Cooling Offer available at bottom of overview page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     And I go to bottom of the homepage
@@ -137,16 +137,16 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     #Then I can verify Phone call popup
     Then I close first bottom offer CTA
     And I click on View All Offers & Rebates button
-    Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
+    Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
   Scenario: Validating Google Review on Heating & Cooling overview page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     Then I should see Google review in the home page
 
   Scenario: Validate Image Call and Book Now buttons on Heating & Cooling overview page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     When I click on Book Now button in Image on "Horizon Services heating and cooling" Page
@@ -156,28 +156,28 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
 
   Scenario: Validate Maintenance Repair and Installation Services at bottom of overview page
 
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Heating" in "Maintenance"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-maintenance"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Cooling" in "Maintenance"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-maintenance"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-maintenance"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Heating" in "Repair"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-repair"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-repair"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Cooling" in "Repair"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-repair"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-repair"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Heating" in "Installation"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-installation"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-installation"
     When I Click on Heating & Cooling
     And I click on Overview button in "Heating & Cooling" header submenu
     And I click on "Cooling" in "Installation"
-    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/ac-installation"
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-installation"
