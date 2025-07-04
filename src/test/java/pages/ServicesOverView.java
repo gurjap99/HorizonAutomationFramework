@@ -14,12 +14,16 @@ public class ServicesOverView {
     @FindBy(xpath = "//div[@data-testid='flyout-cta-list-view-container']" +
             "//div[contains(@data-testid, 'df-button')]")
     private List<WebElement> servicesListButtons;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Offers & Rebates ')]")
+    @FindBy(xpath = "//div[contains(text(), 'Explore Offers')]")
     private WebElement exclusiveOffersAndRebates;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Financing ')]")
+    @FindBy(xpath = "//div[contains(text(), 'Explore Financing')]")
     private WebElement flexibleFinancing;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Membership ')]")
+    @FindBy(xpath = "//div[contains(text(), 'Explore Membership')]")
     private WebElement comfortMembership;
+    @FindBy(xpath = "(//div[contains(@class,'sm:mt-[43px]')]//a)[1]")
+    private WebElement waysToSaveBookNowButton;
+    @FindBy(xpath = "//div[contains(@class,'sm:mt-[43px]')]//span/span[@id='phoneNumber']")
+    private WebElement waysToSavePhoneNumber;
 
     public ServicesOverView(WebDriver driver) {
         this.driver = driver;
@@ -114,4 +118,11 @@ public class ServicesOverView {
     }
 
 
+    public WebElement getWaysToSavePhoneNumber() {
+        return waysToSavePhoneNumber;
+    }
+
+    public WebElement getWaysToSaveBookNowButton() {
+        return waysToSaveBookNowButton;
+    }
 }

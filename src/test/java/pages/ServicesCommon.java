@@ -10,7 +10,7 @@ public class ServicesCommon {
     WebDriver driver;
 
     @FindBy(xpath = "(//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
-            "//span[contains(text(), 'Book Now')])[1]")
+            "//span[contains(text(), 'Book')])[1]")
     private WebElement serviceBookNowButton;
     @FindBy(xpath = "//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
             "//span[@id = 'phoneNumber']")
@@ -19,6 +19,8 @@ public class ServicesCommon {
     private WebElement exploreMembershipButton;
     @FindBy(xpath = "(//span[contains(text(), 'Explore Financing')])[1]")
     private WebElement exploreFinancingButton;
+    @FindBy(xpath = "(//span[contains(text(), 'Explore Offers & Rebates')])[1]")
+    private WebElement exploreOffersRebatesButton;
     @FindBy(xpath = "//div[*[contains(text(), 'Answers')]]//span[@id='phoneNumber']")
     private WebElement answersDivPhoneNumber;
 
@@ -54,7 +56,6 @@ public class ServicesCommon {
                 "//a[div[contains(@class, 'sm:min-h-[7.5rem]') and ./p[%s]]]",
                 conditions
         );
-
         return this.driver.findElement(By.xpath(xpath));
     }
 
@@ -64,5 +65,9 @@ public class ServicesCommon {
 
     public WebElement getExploreFinancingButton() {
         return exploreFinancingButton;
+    }
+
+    public WebElement getExploreOffersRebatesButton() {
+        return exploreOffersRebatesButton;
     }
 }

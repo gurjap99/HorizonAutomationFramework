@@ -3,12 +3,18 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class HomePage {
     WebDriver driver;
+    private WebDriverWait wait; // Declare WebDriverWait at class level for reusability
+
     // Header Elements
     @FindBy(xpath = "/html[1]/body[1]/div[5]/div[1]/div[1]/a[1]/div[1]/img[1]")
     private WebElement logo;
@@ -102,7 +108,7 @@ public class HomePage {
     private WebElement mapInputField;
     @FindBy(xpath = "//div[@aria-label='Map']")
     private WebElement map;
-    @FindBy(css = "div[class='visible opacity-100'] div[role='Close'] svg")
+    @FindBy(css = "div[class='visible opacity-100'] div[role='Close']")
     private WebElement closeCTAButton;
     @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//" +
             "span[contains(text(), 'Book Now')])[1]")
@@ -146,6 +152,8 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Increased timeout slightly
+
     }
 
     public Map<String, Object> getAllHeaderElements() {
@@ -347,6 +355,8 @@ public class HomePage {
     }
 
     public void setMapInputField(String ZipCode) {
+        mapInputField.sendKeys(Keys.CONTROL + "a");
+        mapInputField.sendKeys(Keys.DELETE);
         mapInputField.sendKeys(ZipCode);
         System.out.println("Entered Zip Code: " + ZipCode);
     }
@@ -398,18 +408,49 @@ public class HomePage {
         return firstOfferDetailExpiryDate;
     }
 
-    public WebElement getOfferDetailCTABookNowButton() {
-        String xpath = "(//a[contains(@class, 'px-4') and contains(@class, 'min-w-20') and contains(@class, " +
-                "'[&>svg]:max-w-[theme(spacing.8)]') and contains(@class, 'focus:outline-offset-2') and " +
-                "contains(@class, 'Button_button__TU74c') and contains(@class, 'Button_primary__N26tY') and " +
-                "contains(@class, 'CTA_cta-button-primary__AK5_1') and contains(@class, 'book-mid')])";
-        List<WebElement> elements = driver.findElements(By.xpath(xpath));
-        for (WebElement element : elements) {
-            if (element.isDisplayed()) {
-                return element;
+    public WebElement getActiveCTABookNowButton() {
+        // XPath to locate all potential CTA containers (based on your provided common structure)
+        // Ensure this XPath is broad enough to catch all instances on different pages
+        String commonCTAParentXPath = "//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]')" +
+                " and .//article[contains(text(),'Expires')]]";
+
+        // Relative XPath for the "Book Now" anchor within such a CTA container
+        String bookNowButtonRelativeXPath = ".//a[.//span[contains(text(),'Book')]]";
+
+        List<WebElement> allPotentialCTACardContainers = driver.findElements(By.xpath(commonCTAParentXPath));
+
+        if (allPotentialCTACardContainers.isEmpty()) {
+            throw new NoSuchElementException("No CTA card containers found on the page using XPath: " + commonCTAParentXPath);
+        }
+
+        System.out.println("Found " + allPotentialCTACardContainers.size() + " potential CTA card containers.");
+
+        for (WebElement ctaContainer : allPotentialCTACardContainers) {
+            try {
+                // Check if the container itself is visible. This is a primary filter.
+                // Use a short wait for visibility on each container.
+                WebElement visibleContainer = wait.until(ExpectedConditions.visibilityOf(ctaContainer));
+
+                // If the container is visible, try to find and wait for its "Book Now" button to be clickable.
+                WebElement bookNowButton = visibleContainer.findElement(By.xpath(bookNowButtonRelativeXPath));
+
+                // This is the most important step: wait until the specific "Book Now" button is clickable.
+                // If it's clickable, it means it's likely the active/interactive one.
+                // Use a shorter specific wait for the button itself if the container is already visible.
+                return wait.until(ExpectedConditions.elementToBeClickable(bookNowButton));
+
+            } catch (TimeoutException e) {
+                // This container or its button was not visible/clickable within the wait time.
+                // This is expected for hidden/inactive CTAs. Continue to the next.
+                System.out.println("CTA container or its 'Book Now' button not currently visible/clickable. Trying next.");
+            } catch (NoSuchElementException e) {
+                // The "Book Now" button was not found within this specific container,
+                // or the container itself became stale. Continue to the next.
+                System.out.println("No 'Book Now' button found within this CTA container, or element is stale. Trying next.");
             }
         }
-        throw new NoSuchElementException("Visible 'Book Now' CTA button not found using XPath: " + xpath);
+
+        throw new NoSuchElementException("No active or clickable 'Book Now' CTA found among the available containers.");
     }
 
     public WebElement getFirstOfferDetailsCTAPhoneNumber() {

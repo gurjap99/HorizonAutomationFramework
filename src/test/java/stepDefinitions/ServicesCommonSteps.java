@@ -38,6 +38,11 @@ public class ServicesCommonSteps {
         Helper.clickElementUsingActions(driver, servicesCommon.getExploreFinancingButton(), Duration.ofSeconds(20));
     }
 
+    @When("I click on Explore Offers and Rebates button")
+    public void iClickOnExploreOffersAndRebatesButton() {
+        Helper.clickElementUsingActions(driver, servicesCommon.getExploreOffersRebatesButton(), Duration.ofSeconds(20));
+    }
+
     @When("I navigate back")
     public void iNavigateBack() {
         driver.navigate().back();

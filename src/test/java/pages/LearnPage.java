@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,5 +27,10 @@ public class LearnPage {
 
     public WebElement getLearnNextButton() {
         return learnNextButton;
+    }
+
+    public WebElement getPageButton(String pageNo) {
+        String xpath = String.format("//a[text()='%s']", pageNo);
+        return driver.findElement(By.xpath(xpath));
     }
 }

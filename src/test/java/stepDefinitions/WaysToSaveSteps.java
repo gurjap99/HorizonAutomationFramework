@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.WaysToSavePage;
 import utils.DriverFactory;
+import utils.Helper;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -53,8 +56,10 @@ public class WaysToSaveSteps {
 
                 Assert.assertEquals(expectedFormattedDate.replace(",", ""), result);
             }
-                WebElement bookNow = waysToSavePage.getWaysToSaveOfferBookNowButton();
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", bookNow);
+                WebElement bookNow = waysToSavePage.getWaysToSaveOfferBookNowButton(i + actualDateElement.size() -
+                        offerLinks.size() + 1);
+                //((JavascriptExecutor) driver).executeScript("arguments[0].click();", bookNow);
+                Helper.clickElement(driver, bookNow, Duration.ofSeconds(15));
                 System.out.println("Clicked on Book Now Button");
                 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
                 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(waysToSavePage.getWaysToSaveBookOnlineNowFrame()));
@@ -71,6 +76,11 @@ public class WaysToSaveSteps {
                 System.out.println("Closing CTA");
             }
         }
+
+    @When("I click on call us today phone number button")
+    public void iClickOnCallUsTodayPhoneNumberButton() {
+        Helper.clickElementUsingActions(driver, waysToSavePage.getFinanceCallButton(), Duration.ofSeconds(15));
     }
+}
 
 

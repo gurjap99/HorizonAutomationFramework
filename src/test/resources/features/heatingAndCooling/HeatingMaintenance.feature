@@ -1,16 +1,16 @@
 Feature: Horizon Service Heating & Cooling Heating Maintenance Page tests
 
   Scenario: Validate Book Now, call button, explore membership button in Heating Maintenance page
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on "Heating Maintenance" button in category header submenu
-    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-maintenance"
+    Then it navigates to "https://www.horizonservices.com/heating-and-cooling-services/heating-maintenance"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
     #When I click on service page Phone number button
     #Then I can verify Phone call popup
     When I click on Explore Membership button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
+    Then it navigates to "https://www.horizonservices.com/ways-to-save/membership-program"
     When I navigate back
     When I click on Answers to common questions Phone number button
      #Then I can verify Phone call popup
@@ -44,7 +44,7 @@ Feature: Horizon Service Heating & Cooling Heating Maintenance Page tests
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
 
   Scenario: Validate Offer at the bottom of the Page
-    Given I navigate to "https://test.horizonservices.com/"
+    Given I navigate to "https://www.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on "Heating Maintenance" button in category header submenu
     When I go to bottom of the homepage
@@ -66,4 +66,4 @@ Feature: Horizon Service Heating & Cooling Heating Maintenance Page tests
     #Then I can verify Phone call popup
     Then I close first bottom offer CTA
     And I click on View All Offers & Rebates button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
+    Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
