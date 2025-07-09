@@ -8,11 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ContactUs;
 import pages.HomePage;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
-import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 import utils.DriverFactory;
 import utils.Helper;
 
@@ -29,7 +26,6 @@ public class ContactUsSteps {
     private final ContactUs contactUs;
     private final HomePage homePage;
     private final WebDriver driver;
-    private File beforeMapImage;
     private WebDriverWait wait;
 
     public ContactUsSteps() {

@@ -118,28 +118,8 @@ public class HomePage {
     private WebElement mapZipcodeInputSearchButton;
     @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//label//div)[5]")
     private WebElement mapZipcodeInputMessage;
-    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'size-full')])[1]")
-    private WebElement firstOfferAtBottom;
-    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'size-full')])[2]")
-    private WebElement secondOfferAtBottom;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')])[1]")
-    private WebElement firstOfferDetailsLink;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')])[2]")
-    private WebElement secondOfferDetailsLink;
     @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
-    private WebElement firstOfferDetailCtaElement;
-    @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[3]")
-    private WebElement firstOfferDetailExpiryDate;
-    @FindBy(xpath = "(//article[contains(@class, 'mt-5')])[4]")
-    private WebElement secondOfferDetailExpiryDate;
-    @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[1]")
-    private WebElement firstOfferDetailsCTAPhoneNumber;
-    @FindBy(xpath = "(//div[@role= 'Close'])[9]")
-    private WebElement closeFirstOfferCTAButton;
-    //@FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(text(),'Book Now')])[4]")
-    //private WebElement secondOfferDetailCTABookNowButton;
-    @FindBy(xpath = "(//div[contains(@class, 'relative') and contains(@class, 'z-10')])[9]")
-    private WebElement secondOfferDetailCtaElement;
+    private WebElement offerDetailCtaElement;
     @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[2]")
     private WebElement secondOfferDetailsCTAPhoneNumber;
     @FindBy(xpath = "//span[contains(text(), 'View') and contains(text(), 'Offers') and contains(text(), 'Rebates')][1]")
@@ -385,27 +365,31 @@ public class HomePage {
         return mapZipcodeInputMessage;
     }
 
-    public WebElement getFirstOfferAtBottom() {
-        return firstOfferAtBottom;
-    }
-    public WebElement getSecondOfferAtBottom() {
-        return secondOfferAtBottom;
+    public WebElement getOffersAtBottom(int offerNo) {
+        return driver.findElement(By.xpath(String.format("(//div[contains(@class, 'relative') and " +
+                        "contains(@class, 'size-full')])[%s]", offerNo)));
     }
 
-    public WebElement getFirstOfferDetailsLink() {
-        return firstOfferDetailsLink;
+    public WebElement getOfferDetailsLink(int offerNo) {
+        return driver.findElement(By.xpath(String.format("(//a[contains(text(), 'Offer Details')])[%s]",
+                offerNo)));
     }
 
-    public WebElement getSecondOfferDetailsLink() {
-        return secondOfferDetailsLink;
+    public WebElement getOfferDetailCtaElement() {
+        List<WebElement> offerDetailCtas = driver.findElements(By.xpath(
+                "//div[contains(@class, 'relative') and contains(@class, 'z-10')]"));
+        for(WebElement el : offerDetailCtas){
+            if(el.isDisplayed()) return el;
+        }
+        return null;
     }
 
-    public WebElement getFirstOfferDetailCtaElement() {
-        return firstOfferDetailCtaElement;
-    }
-
-    public WebElement getFirstOfferDetailExpiryDate() {
-        return firstOfferDetailExpiryDate;
+    public WebElement getOfferDetailExpiryDate() {
+        List<WebElement> bookNowButtons = driver.findElements(By.xpath("//article[contains(@class, 'mt-5')]"));
+        for(WebElement el : bookNowButtons){
+            if(el.isDisplayed()) return el;
+        }
+        return null;
     }
 
     public WebElement getActiveCTABookNowButton() {
@@ -453,24 +437,17 @@ public class HomePage {
         throw new NoSuchElementException("No active or clickable 'Book Now' CTA found among the available containers.");
     }
 
-    public WebElement getFirstOfferDetailsCTAPhoneNumber() {
-        return firstOfferDetailsCTAPhoneNumber;
+    public WebElement getFirstOfferDetailsCTAPhoneNumber(int offerNo) {
+        return driver.findElement(By.xpath(String.format("(//a[contains(text(), 'Offer Details')]/ " +
+                        "following::span[contains(@id,'phoneNumber')])[%s]", offerNo)));
     }
 
     public WebElement getSecondOfferDetailsCTAPhoneNumber() {
         return secondOfferDetailsCTAPhoneNumber;
     }
 
-    public WebElement getCloseFirstOfferCTAButton() {
+    public WebElement getCloseOfferCTAButton() {
         return closeCTAButton;
-    }
-
-    public WebElement getSecondOfferDetailCtaElement() {
-        return secondOfferDetailCtaElement;
-    }
-
-    public WebElement getSecondOfferDetailExpiryDate() {
-        return secondOfferDetailExpiryDate;
     }
 
     public WebElement getGoogleReview() {
@@ -483,5 +460,38 @@ public class HomePage {
 
     public WebElement getOffersRebatesButton() {
         return offersRebatesButton;
+    }
+
+    public WebElement getActiveBookNowButton() {
+        // XPath to locate all potential 'Book Now' buttons within relevant CTA containers
+        String bookNowButtonXPath = "//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]') and " +
+                ".//article[contains(text(),'Expires')]]//a[.//span[contains(text(),'Book')]]";
+
+        List<WebElement> bookNowButtons = driver.findElements(By.xpath(bookNowButtonXPath));
+
+        if (bookNowButtons.isEmpty()) {
+            throw new NoSuchElementException("No 'Book Now' buttons found on the page using XPath: " + bookNowButtonXPath);
+        }
+
+        System.out.println("Found " + bookNowButtons.size() + " potential 'Book Now' buttons.");
+
+        for (WebElement button : bookNowButtons) {
+            try {
+                // Check if the button is displayed and then wait for it to be clickable.
+                // This ensures we only interact with visible and active buttons.
+                if (button.isDisplayed()) {
+                    return wait.until(ExpectedConditions.elementToBeClickable(button));
+                }
+            } catch (TimeoutException e) {
+                // The button was not clickable within the wait time.
+                // This is expected for inactive buttons. Continue to the next.
+                System.out.println("Button not currently clickable. Trying next.");
+            } catch (NoSuchElementException e) {
+                // The button became stale or was not found, though this is less likely given the initial findElements.
+                System.out.println("Button element is stale or not found. Trying next.");
+            }
+        }
+
+        throw new NoSuchElementException("No active or clickable 'Book Now' button found among the available elements.");
     }
 }

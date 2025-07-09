@@ -51,22 +51,22 @@ Feature: Horizon Service Heating & Cooling Heating Installation Page tests
     When I Click on Heating & Cooling
     When I click on "Heating Installation" button in category header submenu
     When I go to bottom of the homepage
-    Then I should see two offer is displaying
-    When I click on the "first" offer
-    Then I can verify the "first" Offer Detail CTA alignment at bottom of the Page
-    And I verify "first" Offer expiry date in offer detail CTA
+    Then I should see 2 offers is displaying
+    When I click on the 1 offer
+    Then I can verify the Offer Detail CTA alignment at bottom of the Page
+    And I verify 1 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in "first" offer Details CTA
+    #When I click on phone number button in 1 offer Details CTA
     #Then I can verify Phone call popup
-    Then I close first bottom offer CTA
-    When I click on the "second" offer
-    Then I can verify the "second" Offer Detail CTA alignment at bottom of the Page
-    And I verify "second" Offer expiry date in offer detail CTA
+    Then I close bottom offer CTA
+    When I click on the 2 offer
+    Then I can verify the Offer Detail CTA alignment at bottom of the Page
+    And I verify 2 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in "second" offer Details CTA
+    #When I click on phone number button in 2 offer Details CTA
     #Then I can verify Phone call popup
-    Then I close first bottom offer CTA
+    Then I close bottom offer CTA
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
