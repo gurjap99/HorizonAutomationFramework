@@ -50,9 +50,8 @@ public class WaysToSavePage {
     }
 
     public WebElement getWaysToSaveOfferBookNowButton(int index) {
-//        String xpath = String.format("(//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]')and" +
-//                " .//article[contains(text(),'Expires')]])[%s]//a//span[contains(text(),'Book')]", index);
-        String xpath = "/html/body/div[7]/div/div[2]/div[1]/div/div[4]/div/div[2]/div[3]/div[1]/a";
+        String xpath = String.format("(//div[contains(@class, 'w-[22.625rem] sm:w-[29.5rem] flex-col" +
+                " rounded-l-lg')])[%s]//a[.//span[contains(text(),'Book')]]", index);
         return driver.findElement(By.xpath(xpath));
     }
 

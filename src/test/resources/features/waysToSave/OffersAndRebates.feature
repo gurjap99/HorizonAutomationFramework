@@ -1,6 +1,6 @@
 Feature: Horizon Service Ways To Save Offers And Rebates Page tests
 
-  Scenario: Validate Offers CTAs, other buttons on Offers And Rebates page
+  Scenario: Validate buttons on Offers And Rebates page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Ways to Save
     When I click on "Offers & Rebates" button in category header submenu
@@ -10,8 +10,12 @@ Feature: Horizon Service Ways To Save Offers And Rebates Page tests
     When I navigate back
     When I click on Explore Financing button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/financing"
-    And I should be able to click on each offer details link and validate CTA
+    When I navigate back
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/ways-to-save"
 
-
+    Scenario: Validate all offer CTAs and detail links
+      Given I navigate to "https://test.horizonservices.com"
+      When I Click on Ways to Save
+      When I click on "Offers & Rebates" button in category header submenu
+      When I should be able to click on each offer details link and validate CTA
