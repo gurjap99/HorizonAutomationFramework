@@ -38,9 +38,10 @@ public class ServicesOverViewSteps {
     }
 
     @Then("{string} CTA opens and Book now button can be clicked")
-    public void itsCTAOpensAndBookNowButtonCanBeClicked(String service) {
+    public void itsCTAOpensAndBookNowButtonCanBeClicked(String service) throws InterruptedException {
         String[] servicesSplit = service.split(" ");
-        Helper.clickElementUsingActions(driver, servicesOverView.getCtaBookNowButton(servicesSplit),
+        Thread.sleep(1200);
+        Helper.clickElement(driver, servicesOverView.getCtaBookNowButton(servicesSplit),
                 Duration.ofSeconds(15));
     }
 
@@ -58,11 +59,8 @@ public class ServicesOverViewSteps {
 
     @Then("it navigates to {string}")
     public void itNavigatesTo(String url) {
-        Helper.retry(()->
-        {
-            Assert.assertEquals("URL does not match ", url, driver.getCurrentUrl());
-            return null;
-        }, Duration.ofSeconds(15));
+        Helper.retry(()-> Assert.assertEquals("URL does not match ",
+                url, driver.getCurrentUrl()), Duration.ofSeconds(15));
     }
 
     @When("I click on Book Now button in Image on {string} Page")

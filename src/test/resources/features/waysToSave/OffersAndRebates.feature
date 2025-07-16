@@ -11,5 +11,7 @@ Feature: Horizon Service Ways To Save Offers And Rebates Page tests
     When I click on Explore Financing button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/financing"
     And I should be able to click on each offer details link and validate CTA
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/ways-to-save"
 
 

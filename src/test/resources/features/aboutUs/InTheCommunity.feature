@@ -1,14 +1,16 @@
 Feature: Horizon Services About Us In The Community Page tests
 
   Scenario: Open About Us Why horizon page and verify Book Now, Call buttons:
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
     When I click on "In the Community" button in category header submenu
-    Then it navigates to "https://www.horizonservices.com/about-us/in-the-community"
+    Then it navigates to "https://test.horizonservices.com/about-us/in-the-community"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
     #When I click on service page Phone number button
     #Then I can verify Phone call popup
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/about-us"
 
   Scenario: Open About Us Why horizon page and verify other option buttons:
     Given I navigate to "https://www.horizonservices.com"

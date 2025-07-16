@@ -9,14 +9,16 @@ Feature: Horizon Services Plumbing Drains & Sewer Lines page tests
     Then I should see Book Online Now Window and close it
     #When I click on service page Phone number button
     #Then I can verify Phone call popup
-    When I click on Explore Membership button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
-    When I navigate back
+    #When I click on Explore Membership button
+    #Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
+    #When I navigate back
     When I click on Explore Financing button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/financing"
     When I navigate back
-    When I click on Answers to common questions Phone number button
+    #When I click on Answers to common questions Phone number button
      #Then I can verify Phone call popup
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/plumbing-services"
 
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"

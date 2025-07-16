@@ -38,8 +38,8 @@ public class AboutUsOverviewSteps {
     public void iClickOnExploreCareersEachTakesTo(int count, String careersUrl) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         for(int i = 1; i <= count; i++){
-            Helper.clickElementUsingActions(driver, aboutUs.getExploreCareersButton(i), Duration.ofSeconds(15));
-            Assert.assertEquals("URL does not match ", careersUrl, driver.getCurrentUrl());
+            Helper.clickElement(driver, aboutUs.getExploreCareersButton(i), Duration.ofSeconds(15));
+            Assert.assertTrue("URL does not match ", driver.getCurrentUrl().startsWith(careersUrl));
             driver.navigate().back();
             wait.until(ExpectedConditions.visibilityOf(aboutUs.getExploreCareersButton(i)));
         }

@@ -17,3 +17,5 @@ Feature: Horizon Service Ways To Save Finance Page tests
     When I navigate back
     When I click on call us today phone number button
     #Then I can verify Phone call popup
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/ways-to-save"

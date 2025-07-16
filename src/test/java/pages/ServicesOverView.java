@@ -34,14 +34,14 @@ public class ServicesOverView {
         // Build the XPath condition for each ctaName using contains()
         StringBuilder h2Conditions = new StringBuilder();
         for (int i = 0; i < ctaNames.length; i++) {
-            h2Conditions.append(String.format("contains(., '%s')", ctaNames[i]));
+            h2Conditions.append(String.format("contains(text(), '%s')", ctaNames[i]));
             if (i < ctaNames.length - 1) {
                 h2Conditions.append(" and ");
             }
         }
         // Final XPath with dynamic h2 conditions
         String xpath = String.format(
-                "(//div[contains(@class, 'sm:w-[29.5rem]') and .//h2[%s]]//span[contains(text(),'Book Now')])[1]",
+                "//div[contains(@class, 'sm:w-[29.5rem]') and .//h2[%s]]//a[.//span[contains(text(),'Book')]]",
                 h2Conditions
         );
 

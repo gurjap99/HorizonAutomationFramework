@@ -10,3 +10,6 @@ Feature: Horizon Service Ways To Save Membership Page tests
     When I navigate back
     When I click on Explore Offers and Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
+    When I navigate back
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/ways-to-save"

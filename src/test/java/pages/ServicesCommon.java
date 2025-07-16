@@ -5,24 +5,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ServicesCommon {
     WebDriver driver;
 
-    @FindBy(xpath = "(//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
-            "//span[contains(text(), 'Book')])[1]")
+    @FindBy(xpath = "//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
+            "//a[.//span[contains(text(), 'Book')]]")
     private WebElement serviceBookNowButton;
     @FindBy(xpath = "//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
             "//span[@id = 'phoneNumber']")
     private WebElement servicePhoneButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Membership')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Membership')]]")
     private WebElement exploreMembershipButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Financing')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Financing')]]")
     private WebElement exploreFinancingButton;
     @FindBy(xpath = "(//span[contains(text(), 'Explore Offers & Rebates')])[1]")
     private WebElement exploreOffersRebatesButton;
     @FindBy(xpath = "//div[*[contains(text(), 'Answers')]]//span[@id='phoneNumber']")
     private WebElement answersDivPhoneNumber;
+    @FindBy(xpath = "//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]//a")
+    private WebElement breadCrumbButton;
 
     public ServicesCommon(WebDriver driver) {
         this.driver = driver;
@@ -69,5 +75,9 @@ public class ServicesCommon {
 
     public WebElement getExploreOffersRebatesButton() {
         return exploreOffersRebatesButton;
+    }
+
+    public WebElement getBreadCrumbButton() {
+        return breadCrumbButton;
     }
 }

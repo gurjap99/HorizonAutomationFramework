@@ -19,8 +19,9 @@ public class ServicesCommonSteps {
     }
 
     @When ("I click on service page Book Now Button")
-    public void clickOnServicePageBookNowButton() {
-        Helper.clickElementUsingActions(driver, servicesCommon.getServiceBookNowButton(), Duration.ofSeconds(20));
+    public void clickOnServicePageBookNowButton() throws InterruptedException {
+        Thread.sleep(2000);
+        Helper.clickElement(driver, servicesCommon.getServiceBookNowButton(), Duration.ofSeconds(30));
     }
 
     @When("I click on service page Phone number button")
@@ -35,7 +36,7 @@ public class ServicesCommonSteps {
 
     @When("I click on Explore Financing button")
     public void iClickOnExploreFinancingButton() {
-        Helper.clickElementUsingActions(driver, servicesCommon.getExploreFinancingButton(), Duration.ofSeconds(20));
+        Helper.clickElement(driver, servicesCommon.getExploreFinancingButton(), Duration.ofSeconds(20));
     }
 
     @When("I click on Explore Offers and Rebates button")
@@ -44,19 +45,30 @@ public class ServicesCommonSteps {
     }
 
     @When("I navigate back")
-    public void iNavigateBack() {
+    public void iNavigateBack() throws InterruptedException {
         driver.navigate().back();
+        Thread.sleep(1000);
     }
 
     @When("I click on {string} button")
-    public void iClickOnButton(String service) {
+    public void iClickOnButton(String service) throws InterruptedException {
         String[] servicesSplit = service.split(" ");
         WebElement element = servicesCommon.getOtherServiceButton(servicesSplit);
+        Helper.scrollToElement(driver, element);
+        Thread.sleep(700);
         Helper.clickElementUsingActions(driver, element, Duration.ofSeconds(20));
     }
 
     @When("I click on Answers to common questions Phone number button")
     public void iClickOnAnswersToCommonQuestionsPhoneNumberButton() {
         Helper.clickElement(driver, servicesCommon.getAnswersDivPhoneNumber(), Duration.ofSeconds(20));
+    }
+
+    @When("I click on breadcrumb button")
+    public void iClickOnBreadcrumbButton() throws InterruptedException {
+        Thread.sleep(500);
+        Helper.scrollToTopOfPage(driver);
+        Helper.clickElement(driver, servicesCommon.getBreadCrumbButton(), Duration.ofSeconds(20));
+
     }
 }

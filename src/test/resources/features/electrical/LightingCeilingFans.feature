@@ -14,6 +14,8 @@ Feature: Horizon Services Electrical Lighting & Ceiling Fans page tests
     When I navigate back
     When I click on Answers to common questions Phone number button
      #Then I can verify Phone call popup
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/electrical-services"
 
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"

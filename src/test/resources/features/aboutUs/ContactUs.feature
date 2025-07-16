@@ -1,10 +1,10 @@
 Feature: Horizon Services About Us Contact Us Page tests
 
   Scenario: Open About Us Why horizon page and verify Book Now, Call buttons, Service buttons:
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
     When I click on "Contact Us" button in category header submenu
-    Then it navigates to "https://www.horizonservices.com/about-us/contact-us"
+    Then it navigates to "https://test.horizonservices.com/about-us/contact-us"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
     #When I click on service page Phone number button
@@ -14,6 +14,9 @@ Feature: Horizon Services About Us Contact Us Page tests
     When I click on Explore Plumbing, it opens Plumbing webpage
     When I navigate back
     When I click on Explore Electrical, it opens Electrical webpage
+    When I navigate back
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/about-us"
 
   Scenario: Validate Map Zipcode Input and Book Now
     Given I navigate to "https://www.horizonservices.com"

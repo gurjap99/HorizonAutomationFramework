@@ -14,6 +14,8 @@ Feature: Horizon Service Heating & Cooling AC Repair Page tests
     When I navigate back
     When I click on Answers to common questions Phone number button
      #Then I can verify Phone call popup
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"

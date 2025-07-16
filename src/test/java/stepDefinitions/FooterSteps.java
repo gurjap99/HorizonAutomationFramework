@@ -24,8 +24,8 @@ public class FooterSteps {
     }
 
     @When("I click on Book Now button in Peace of mind is on the way bar")
-    public void iClickOnBookNowButtonInPeaceOfMindIsOnTheWayBar() {
-        Helper.clickElementUsingActions(driver, footer.getPeaceOfMindBookNowButton(), Duration.ofSeconds(30));
+    public void iClickOnBookNowButtonInPeaceOfMindIsOnTheWayBar() throws InterruptedException {
+        Helper.clickElement(driver, footer.getPeaceOfMindBookNowButton(), Duration.ofSeconds(30));
     }
 
     @When("I click on phone number button in Peace of mind is on the way bar")
@@ -94,5 +94,15 @@ public class FooterSteps {
             System.out.println("❌ Image not loaded.");
             Assert.fail("Social media button image is not loaded properly for " + altText);
         }
+    }
+
+    @When("I click on Privacy Policy Link")
+    public void iClickOnPrivacyPolicyLink() {
+        Helper.clickElement(driver, footer.getPrivacyPolicyButton(), Duration.ofSeconds(20));
+    }
+
+    @When("I click on ADA Notice Link")
+    public void iClickOnADANoticeLink() {
+        Helper.clickElement(driver, footer.getAdaNoticeButton(), Duration.ofSeconds(20));
     }
 }

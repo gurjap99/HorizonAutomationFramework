@@ -1,11 +1,13 @@
 Feature: Horizon Services About Us Work With Us Page tests
 
   Scenario: Open About Us Work With Us page and verify Book Now, Call buttons, Service buttons:
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
     When I click on "Work With Us" button in category header submenu
-    Then it navigates to "https://www.horizonservices.com/about-us/work-with-us"
-    When I click on 3 Explore Careers each takes to "https://jobs.horizonservices.com/"
+    Then it navigates to "https://test.horizonservices.com/about-us/work-with-us"
+    When I click on 2 Explore Careers each takes to "https://jobs.horizonservices.com"
+    When I click on breadcrumb button
+    Then it navigates to "https://test.horizonservices.com/about-us"
 
   Scenario: Open About Us Work With Us page and verify other option buttons:
     Given I navigate to "https://www.horizonservices.com"

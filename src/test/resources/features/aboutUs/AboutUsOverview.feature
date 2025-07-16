@@ -6,8 +6,8 @@ Feature: Horizon Services About Us Overview Page tests
     When I click on Overview button in "About Us" header submenu
     Then it navigates to "https://test.horizonservices.com/about-us"
     When I Click on About Us Overview Image Book Now Button
-    #Then I should see Book Online Now Window and close it
-    When I Click on About Us Overview Image Phone Button
+    Then I should see Book Online Now Window and close it
+    #When I Click on About Us Overview Image Phone Button
     #Then I can verify Phone call popup
     When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
     Then I navigate back

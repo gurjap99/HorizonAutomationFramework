@@ -58,13 +58,13 @@ public class HomePage {
     @FindBy(css = "svg[aria-label='Plus Sign']:nth-of-type(1)")
     private WebElement plusButton;
     // New Locators
-    @FindBy(xpath = "(//span[contains(text(),'Book Now')])[16]")
+    @FindBy(xpath = "(//a[.//span[contains(text(),'Book Now')]])[6]")
     private WebElement offerCTABookNowButton;
     @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[4]")
     private WebElement offerCTAPhoneNumberButton;
-    @FindBy(xpath = "(//span[contains(text(),'Book Now')])[31]")
+    @FindBy(xpath = "//div[./h2[contains(text(), 'For 37 years')]]//a[.//span[contains(text(), 'Book')]]")
     private WebElement imageBookNowButton;
-    @FindBy(xpath = "(//span[contains(@id,'phoneNumber')])[8]")
+    @FindBy(xpath = "//div[./h2[contains(text(), 'For 37 years')]]//a[.//span[contains(@id,'phoneNumber')]]")
     private WebElement imagePhoneNumberButton;
     @FindBy(xpath = "(//*[name()='svg']//*[local-name()='path' and @class='fill-primary'])[2]")
     private WebElement offerBannerPlusIcon;
@@ -76,11 +76,11 @@ public class HomePage {
     private WebElement bookOnlineNowFrame;
     @FindBy(css = ".a-Icon")
     private WebElement bookNowWindowCloseButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Heating & Cooling')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Heating & Cooling')]]")
     private WebElement exploreHeatingCoolingButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Electrical')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Electrical')]]")
     private WebElement exploreElectricalButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Plumbing')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Plumbing')]]")
     private WebElement explorePlumbingButton;
     @FindBy(xpath = "//p[contains(text(),'Help, my air conditioner won’t turn on!')]")
     private WebElement helpMyAirConditioner;
@@ -98,6 +98,7 @@ public class HomePage {
     private WebElement emergencyService;
     @FindBy(xpath = "((//div[contains(@class, 'sm:pl-[2.65%]')])[2]//span)[19]")
     private WebElement eyebrowZipCode;
+
     @FindBy(xpath = "(//input)[3]")
     private WebElement eyebrowZipCodeInputField;
     @FindBy(xpath = "(//span[contains(text(), 'Update')])[9]")
@@ -105,16 +106,18 @@ public class HomePage {
     @FindBy(xpath = "((//div[contains(@class, 'sm:pl-[2.65%]')])[2]//label//div)[3]")
     private WebElement eyebrowZipCodeMessage;
     @FindBy(xpath = "(//input)[4]")
-    private WebElement mapInputField;
+    public WebElement mapInputField;
     @FindBy(xpath = "//div[@aria-label='Map']")
     private WebElement map;
     @FindBy(css = "div[class='visible opacity-100'] div[role='Close']")
     private WebElement closeCTAButton;
-    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//" +
-            "span[contains(text(), 'Book Now')])[1]")
+    @FindBy(xpath = "//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2') and " +
+            ".//p[contains(text(), 'Schedule')]]//a[.//span[contains(text(), 'Book')]]")
     private WebElement mapBookNowButton;
-    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//div)[4]" +
-            "//*[contains(@data-testid, 'search-icon')]")
+//    @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//div)[4]" +
+//            "//*[contains(@data-testid, 'search-icon')]")
+    @FindBy(xpath = "//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//" +
+            "div[@data-testid='form-text-field-button']")
     private WebElement mapZipcodeInputSearchButton;
     @FindBy(xpath = "(//div[contains(@class, 'flex-col') and contains(@class, 'sm:col-start-2')]//label//div)[5]")
     private WebElement mapZipcodeInputMessage;
@@ -122,12 +125,31 @@ public class HomePage {
     private WebElement offerDetailCtaElement;
     @FindBy(xpath = "(//a[contains(text(), 'Offer Details')]/ following::span[contains(@id,'phoneNumber')])[2]")
     private WebElement secondOfferDetailsCTAPhoneNumber;
-    @FindBy(xpath = "//span[contains(text(), 'View') and contains(text(), 'Offers') and contains(text(), 'Rebates')][1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'View') and contains(text(), 'Offers') and contains(text(), 'Rebates')]]")
     private WebElement offersRebatesButton;
     @FindBy(xpath = "//img[@class= 'ti-logo-fb']")
     private WebElement googleReview;
     @FindBy(xpath = "//span[@class= 'ti-rating']")
     private WebElement googleRating;
+    @FindBy(xpath = "//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]') " +
+            "and .//h2[contains(text(),'customer care')]]")
+    private WebElement ncRegionCustomerCareCta;
+    @FindBy(xpath = "(//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]') and " +
+            ".//h2[contains(text(),'customer care')]]//a)[1]")
+    private WebElement ncRegionCustomerCareCtaCallButton1;
+    @FindBy(xpath = "(//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]') and " +
+            ".//h2[contains(text(),'customer care')]]//a)[2]")
+    private WebElement ncRegionCustomerCareCtaCallButton2;
+    @FindBy(xpath = "(//a[.//span[contains(text(), 'Use My Current Location')]])[3]")
+    private WebElement useCurrentLocButton;
+    @FindBy(id = ":r0:")
+    private WebElement customerCareModal;
+    @FindBy(xpath = "(//section[@id=':r0:']//a)[1]")
+    private WebElement customerCareModalCallButton1;
+    @FindBy(xpath = "(//section[@id=':r0:']//a)[2]")
+    private WebElement customerCareModalCallButton2;
+    @FindBy(xpath = "//section[@id=':r0:']//div[@role='Close']")
+    private WebElement closeCustomerCareModalButton;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -228,6 +250,11 @@ public class HomePage {
 
     // This method can be used to locate any element by its selector
     public WebElement getOfferCTABookNowButton() {
+        List<WebElement> ls = driver.findElements(By.xpath("//div[contains(@class,'w-[22.625rem]') " +
+                "and contains(@class,'sm:w-[29.5rem]')]//a[.//span[contains(text(),'Book')]]"));
+        for(WebElement el : ls){
+            if(el.isDisplayed()) return el;
+        }
         return offerCTABookNowButton;
     }
 
@@ -280,6 +307,12 @@ public class HomePage {
     }
 
     public WebElement getAirConditionerBookNowButton() {
+        List<WebElement> ls = driver.findElements(By.xpath("//div[contains(@class,'w-[22.625rem]')" +
+                " and contains(@class,'sm:w-[29.5rem]') and //h2[contains(text(),'No sweat')]]" +
+                "//a[.//span[contains(text(),'Book')]]"));
+        for(WebElement el : ls){
+            if(el.isDisplayed()) return el;
+        }
         return airConditionerBookNowButton;
     }
 
@@ -292,10 +325,22 @@ public class HomePage {
     }
 
     public WebElement getWaterTankBookNowButton() {
+        List<WebElement> ls = driver.findElements(By.xpath("//div[contains(@class,'w-[22.625rem]')" +
+                " and contains(@class,'sm:w-[29.5rem]') and //h2[contains(text(),'tankless')]]" +
+                "//a[.//span[contains(text(),'Book')]]"));
+        for(WebElement el : ls){
+            if(el.isDisplayed()) return el;
+        }
         return waterTankBookNowButton;
     }
 
     public WebElement getWaterTankPhoneNumberButton() {
+        List<WebElement> ls = driver.findElements(By.xpath("//div[contains(@class,'w-[22.625rem]') " +
+                "and contains(@class,'sm:w-[29.5rem]') and //h2[contains(text(),'tankless')]]" +
+                "//a[.//span[@id='phoneNumber']]"));
+        for(WebElement el : ls){
+            if(el.isDisplayed()) return el;
+        }
         return waterTankPhoneNumberButton;
     }
 
@@ -320,6 +365,10 @@ public class HomePage {
         eyebrowZipCodeInputField.sendKeys(Keys.DELETE);
         eyebrowZipCodeInputField.sendKeys(ZipCode);
         System.out.println("Entered Zip Code: " + ZipCode);
+    }
+
+    public WebElement getEyebrowZipCodeInputField() {
+        return eyebrowZipCodeInputField;
     }
 
     public WebElement getEyebrowZipCodeMessage() {
@@ -493,5 +542,37 @@ public class HomePage {
         }
 
         throw new NoSuchElementException("No active or clickable 'Book Now' button found among the available elements.");
+    }
+
+    public WebElement getNcRegionCustomerCareCta() {
+        return ncRegionCustomerCareCta;
+    }
+
+    public WebElement getNcRegionCustomerCareCtaCallButton1() {
+        return ncRegionCustomerCareCtaCallButton1;
+    }
+
+    public WebElement getNcRegionCustomerCareCtaCallButton2() {
+        return ncRegionCustomerCareCtaCallButton2;
+    }
+
+    public WebElement getUseCurrentLocButton() {
+        return useCurrentLocButton;
+    }
+
+    public WebElement getCustomerCareModal() {
+        return customerCareModal;
+    }
+
+    public WebElement getCustomerCareModalCallButton1() {
+        return customerCareModalCallButton1;
+    }
+
+    public WebElement getCustomerCareModalCallButton2() {
+        return customerCareModalCallButton2;
+    }
+
+    public WebElement getCloseCustomerCareModalButton() {
+        return closeCustomerCareModalButton;
     }
 }
