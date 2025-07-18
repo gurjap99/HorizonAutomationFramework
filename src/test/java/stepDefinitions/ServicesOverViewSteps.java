@@ -38,9 +38,10 @@ public class ServicesOverViewSteps {
     }
 
     @Then("{string} CTA opens and Book now button can be clicked")
-    public void itsCTAOpensAndBookNowButtonCanBeClicked(String service) {
+    public void itsCTAOpensAndBookNowButtonCanBeClicked(String service) throws InterruptedException {
         String[] servicesSplit = service.split(" ");
-        Helper.clickElementUsingActions(driver, servicesOverView.getCtaBookNowButton(servicesSplit),
+        Thread.sleep(1200);
+        Helper.clickElement(driver, servicesOverView.getCtaBookNowButton(servicesSplit),
                 Duration.ofSeconds(15));
     }
 
@@ -58,11 +59,8 @@ public class ServicesOverViewSteps {
 
     @Then("it navigates to {string}")
     public void itNavigatesTo(String url) {
-        Helper.retry(()->
-        {
-            Assert.assertEquals("URL does not match ", url, driver.getCurrentUrl());
-            return null;
-        }, Duration.ofSeconds(15));
+        Helper.retry(()-> Assert.assertEquals("URL does not match ",
+                url, driver.getCurrentUrl()), Duration.ofSeconds(15));
     }
 
     @When("I click on Book Now button in Image on {string} Page")
@@ -93,5 +91,17 @@ public class ServicesOverViewSteps {
     @When("I click on Comfort Membership")
     public void iClickOnComfortMembership() {
         Helper.clickElementUsingActions(driver, servicesOverView.getComfortMembership(), Duration.ofSeconds(20));
+    }
+
+    @When("I click on Schedule Today Button in PLP page Image")
+    @When("I click on Book Now button in Image on Ways To Save Overview Page")
+    public void iClickOnBookNowButtonInImageOnWaysToSaveOverviewPage() {
+        Helper.clickElementUsingActions(driver, servicesOverView.getWaysToSaveBookNowButton(), Duration.ofSeconds(20));
+    }
+
+    @When("I click on Phone Number button in PLP page Image")
+    @When("I click on Phone Number in Image on  Ways To Save Overview Page")
+    public void iClickOnPhoneNumberInImageOnWaysToSaveOverviewPage() {
+        Helper.clickElementUsingActions(driver, servicesOverView.getWaysToSavePhoneNumber(), Duration.ofSeconds(20));
     }
 }

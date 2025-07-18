@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,8 @@ public class WaysToSavePage {
     private WebElement waysToSaveOfferPhoneNumber;
     @FindBy(xpath = "//article[contains(@class, 'mt-5')]")
     private List<WebElement> waysToSaveOfferExpiryDate;
+    @FindBy(xpath = "(//div[contains(@class,'SloganBar_sloganBar__9cxuq')])[1]//span[contains(@id,'phoneNumber')]")
+    private WebElement financeCallButton;
 
     public List<WebElement> getOfferDetailsLinks() {
         return offerDetailsLinks;
@@ -46,8 +49,10 @@ public class WaysToSavePage {
         return waysToSaveCloseCTAButton;
     }
 
-    public WebElement getWaysToSaveOfferBookNowButton() {
-        return waysToSaveOfferBookNowButton;
+    public WebElement getWaysToSaveOfferBookNowButton(int index) {
+        String xpath = String.format("(//div[contains(@class, 'w-[22.625rem] sm:w-[29.5rem] flex-col" +
+                " rounded-l-lg')])[%s]//a[.//span[contains(text(),'Book')]]", index);
+        return driver.findElement(By.xpath(xpath));
     }
 
     public WebElement getWaysToSaveOfferPhoneNumber() {
@@ -56,5 +61,9 @@ public class WaysToSavePage {
 
     public List<WebElement> getWaysToSaveOfferExpiryDate() {
         return waysToSaveOfferExpiryDate;
+    }
+
+    public WebElement getFinanceCallButton() {
+        return financeCallButton;
     }
 }

@@ -48,12 +48,10 @@ public class Header {
     private WebElement waysToSaveSubMenu;
 
     @FindBy(xpath = "(//div[@class='basis-1/2'])[5]")
-    private WebElement learnSubMenu;
-
-    @FindBy(xpath = "(//div[@class='basis-1/2'])[6]")
     private WebElement aboutUsSubMenu;
 
-    @FindBy(xpath = "(//span[contains(text(),'Book Now')])[22]")
+    @FindBy(xpath = "(//div[contains(@class,'Menu_header_nav__main__YuMmj') " +
+            "and not(contains(@class, 'flex'))]//a[.//span[contains(text(), 'Book')]])[2]")
     private WebElement headerBookNowBtn;
 
     @FindBy(xpath = "//div[contains(@class, 'relative') and contains(@class, 'border-b-1')]//span[@id='phoneNumber']")
@@ -101,10 +99,6 @@ public class Header {
 
     public WebElement getWaysToSaveSubMenu() {
         return waysToSaveSubMenu;
-    }
-
-    public WebElement getLearnSubMenu() {
-        return learnSubMenu;
     }
 
     public WebElement getAboutUsSubMenu() {

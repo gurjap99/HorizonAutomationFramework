@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.function.Supplier;
 
 public class Helper {
 
@@ -23,6 +22,7 @@ public class Helper {
     public static void clickElementUsingActions(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         //wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        Helper.scrollToElement(driver, webElement);
         wait.until(ExpectedConditions.refreshed(
                 ExpectedConditions.elementToBeClickable(webElement)));
         Actions actions = new Actions(driver);
@@ -33,10 +33,20 @@ public class Helper {
 
     public static void clickElement(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        //wait.until(ExpectedConditions.elementToBeClickable(webElement));
-        wait.until(ExpectedConditions.refreshed(
-                ExpectedConditions.elementToBeClickable(webElement)));
+        scrollToElement(driver, webElement);
+        wait.until(
+                ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
+        System.out.println("Element is visible and clickable");
+        driver.switchTo().defaultContent();
+    }
+
+    public static void clickElementUsingJs(WebDriver driver, WebElement webElement, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        scrollToElement(driver, webElement);
+        wait.until(
+                ExpectedConditions.elementToBeClickable(webElement));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", webElement);
         System.out.println("Element is visible and clickable");
         driver.switchTo().defaultContent();
     }
@@ -44,26 +54,48 @@ public class Helper {
     public static void scrollToViewAndClickElement(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         // Scroll into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", webElement);
+        scrollToElement(driver, webElement);
         // Wait until it's clickable
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
         System.out.println("Element is visible and clickable");
     }
 
-    // Retry methods
-    // Retry method with optional polling interval (default 500ms)
-    public static <T> T retry(Supplier<T> action, Duration timeout) {
-        return retry(action, timeout, DEFAULT_POLLING_INTERVAL);
+    public static void scrollToElement(WebDriver driver, WebElement webElement) {
+        // Scroll into view
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: " +
+                "'smooth', block: 'center'});", webElement);
     }
 
-    public static <T> T retry(Supplier<T> action, Duration timeout, Duration pollingInterval) {
+    public static void scrollToMidOfPage(WebDriver driver){
+        // scroll to mid
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        long scrollHeight = (Long) js.executeScript("return document.body.scrollHeight;");
+        // Calculate the middle point
+        long midPoint = scrollHeight / 2;
+        // Scroll to the calculated mid-point
+        js.executeScript("window.scrollTo(0, " + midPoint + ");");
+    }
+
+    public static void scrollToTopOfPage(WebDriver driver){
+        // scroll to top
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 0);");
+    }
+
+    // In your Helper class, add this:
+    public static void retry(Runnable action, Duration timeout) {
+        retry(action, timeout, DEFAULT_POLLING_INTERVAL);
+    }
+
+    public static void retry(Runnable action, Duration timeout, Duration pollingInterval) {
         Instant endTime = Instant.now().plus(timeout);
         Throwable lastException = null;
 
         while (Instant.now().isBefore(endTime)) {
             try {
-                return action.get();
+                action.run();
+                return;
             } catch (Exception | Error e) {
                 lastException = e;
                 try {

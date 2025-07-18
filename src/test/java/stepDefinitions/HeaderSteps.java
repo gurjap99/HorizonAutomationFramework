@@ -140,21 +140,7 @@ public class HeaderSteps {
 
     @When("I click on Book Now button on header part")
     public void iClickOnBookNowButtonOnHeaderPart() {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            WebElement bookNow = wait.until(ExpectedConditions.visibilityOf(header.getHeaderBookNowBtn()));
-            if (bookNow.isDisplayed()) {
-                System.out.println("Book Now is visible on a flashed frame");
-            } else {
-                throw new AssertionError("Book Now is not visible.");
-            }
-            Actions actions = new Actions(driver);
-            actions.moveToElement(bookNow).click().perform();
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            throw new AssertionError("Failed to click Book Now: " + e.getMessage());
-        }
-
+        Helper.clickElement(driver, header.getHeaderBookNowBtn(), Duration.ofSeconds(30));
     }
 
     @When("I click on phone number from header part")
