@@ -517,7 +517,7 @@ public class HomePageSteps {
     @Then("{string} appears, {string} Zipcode gets updates properly, Map and map zipcode input disappears")
     public void appearsZipcodeGetsUpdatesProperlyMapAndMapZipcodeInputDisappears(String updateMessage, String zipcode) {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             String actualUpdateMessage = homePage.getEyebrowZipCodeMessage().getText();
             Assert.assertEquals("message does not match", updateMessage, actualUpdateMessage);
 
@@ -587,6 +587,7 @@ public class HomePageSteps {
 
     @When("I update Zipcode {string} using map zipcode input")
     public void iUpdateZipcodeUsingMapZipcodeInput(String zipcode) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         long scrollHeight = (Long) js.executeScript("return document.body.scrollHeight;");
         // Calculate the middle point
@@ -594,6 +595,7 @@ public class HomePageSteps {
         // Scroll to the calculated mid-point
         js.executeScript("window.scrollTo(0, " + midPoint + ");");
         Thread.sleep(5000);
+        wait.until(ExpectedConditions.visibilityOf(homePage.getMap()));
         homePage.setMapInputField(zipcode);
         Helper.clickElement(driver, homePage.getMapZipcodeInputSearchButton(), Duration.ofSeconds(20));
     }
@@ -732,8 +734,9 @@ public class HomePageSteps {
     }
 
     @When("I open zip code CTA and click on Use My Current Location button")
-    public void iOpenZipCodeCTAAndClickOnUseMyCurrentLocationButton() {
+    public void iOpenZipCodeCTAAndClickOnUseMyCurrentLocationButton() throws InterruptedException {
         Helper.clickElement(driver, homePage.getEyebrowZipCode(), Duration.ofSeconds(20));
+        Thread.sleep(3000);
         Helper.clickElement(driver, homePage.getUseCurrentLocButton(), Duration.ofSeconds(20));
     }
 

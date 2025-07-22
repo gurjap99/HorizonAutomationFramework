@@ -24,7 +24,8 @@ public class FooterSteps {
     }
 
     @When("I click on Book Now button in Peace of mind is on the way bar")
-    public void iClickOnBookNowButtonInPeaceOfMindIsOnTheWayBar() throws InterruptedException {
+    public void iClickOnBookNowButtonInPeaceOfMindIsOnTheWayBar() {
+        Helper.scrollToElement(driver, footer.getPeaceOfMindBookNowButton());
         Helper.clickElement(driver, footer.getPeaceOfMindBookNowButton(), Duration.ofSeconds(30));
     }
 

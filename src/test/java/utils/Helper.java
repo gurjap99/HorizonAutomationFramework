@@ -34,8 +34,7 @@ public class Helper {
     public static void clickElement(WebDriver driver, WebElement webElement, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         scrollToElement(driver, webElement);
-        wait.until(
-                ExpectedConditions.elementToBeClickable(webElement));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(webElement)));
         webElement.click();
         System.out.println("Element is visible and clickable");
         driver.switchTo().defaultContent();

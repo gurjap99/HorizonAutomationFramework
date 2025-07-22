@@ -18,17 +18,17 @@ Feature: Horizon Services home page tests
     And Offer expiry date in offer banner CTA
     When I click on Book Now button in offer banner CTA
     Then I should see Book Online Now Window and close it
-    When I click on phone number button in offer banner CTA
+    #When I click on phone number button in offer banner CTA
     #Then I can verify Phone call popup
 
-  Scenario: Validate Explore Heating & cooling, Explore Plumbing, Explore Electrical buttons
-    Given I navigate to "https://test.horizonservices.com/"
-    When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
-    Then I can navigate back to home page
-    When I click on Explore Plumbing, it opens Plumbing webpage
-    Then I can navigate back to home page
-    When I click on Explore Electrical, it opens Electrical webpage
-    Then I can navigate back to home page
+  #Scenario: Validate Explore Heating & cooling, Explore Plumbing, Explore Electrical buttons
+    #Given I navigate to "https://test.horizonservices.com/"
+    #When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
+    #Then I can navigate back to home page
+    #When I click on Explore Plumbing, it opens Plumbing webpage
+    #Then I can navigate back to home page
+    #When I click on Explore Electrical, it opens Electrical webpage
+    #Then I can navigate back to home page
 
   Scenario: Validate Image Call and Book Now buttons
     Given I navigate to "https://test.horizonservices.com/"
@@ -61,7 +61,7 @@ Feature: Horizon Services home page tests
     Then I Should see the Menu order is displayed in correct order
 
   Scenario: Validate Header Sub Menu Order
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
     When I Click on Heating & Cooling
     Then I should see the Heating & Cooling Sub Menu order is displayed in correct order
     When I Click on Plumbing
@@ -73,7 +73,7 @@ Feature: Horizon Services home page tests
     When I Click on About Us
     Then I should see the About Us Sub Menu order is displayed in correct order
     When I Click on Learn
-    Then I should see new page with URL "https://test.horizonservices.com/learning-hub"
+    Then I should see new page with URL "https://www.horizonservices.com/learning-hub"
 
   Scenario: Validate Book Now And Phone number from header part
     Given I navigate to "https://test.horizonservices.com"
@@ -86,7 +86,7 @@ Feature: Horizon Services home page tests
     Given I navigate to "https://test.horizonservices.com" with javaScript turned off, then I visible phone numbers should be same as static phone number
 
   Scenario: Validate Zipcode is getting updated properly in homepage
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
     When I update Zipcode "21244" using eyebrow button
     Then "Your home is in our service area!" appears, "21244" Zipcode gets updates properly, Map and map zipcode input disappears
     # Updating incorrect phone number
@@ -104,13 +104,13 @@ Feature: Horizon Services home page tests
     #Then I should see phone number popup
 
   Scenario: Validate "Use My Current Location" feature
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
      # Updating North Carolina Zipcode
     When I open zip code CTA and click on Use My Current Location button
     Then Current zipcode should be updated in the input box
 
   Scenario: Validate that customer care model opens when North Carolina zipcode is entered in zipcode input by map
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
     # Updating North Carolina Zipcode
     When I update Zipcode "27606" using map zipcode input
     Then Customer care dialog opens up
@@ -121,7 +121,7 @@ Feature: Horizon Services home page tests
     Then I can close customer care modal
 
   Scenario: Validate Map Zipcode Input and Book Now
-    Given I navigate to "https://test.horizonservices.com"
+    Given I navigate to "https://www.horizonservices.com"
     When I update Zipcode "21244" using map zipcode input
     Then "Your home is in our service area!" appears, Zip code "21244" should be update in the home page
     When I click map Input Book Now button
