@@ -398,6 +398,10 @@ public class HomePage {
         }
     }
 
+    public WebElement getMap(){
+        return this.map;
+    }
+
     public WebElement getCloseCTAButton() {
         return closeCTAButton;
     }
