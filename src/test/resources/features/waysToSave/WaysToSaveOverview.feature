@@ -22,7 +22,7 @@ Feature: Horizon Service Ways To Save Page tests
     When I click on Book Now button in Image on Ways To Save Overview Page
     Then I should see Book Online Now Window and close it
     When I click on Phone Number in Image on  Ways To Save Overview Page
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup
 
   Scenario: Validate Offer at the bottom of the Page
     Given I navigate to "https://www.horizonservices.com/"

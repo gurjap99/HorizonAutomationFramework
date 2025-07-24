@@ -5,7 +5,7 @@ Feature: Plumbing PLP page scenarios
     When I click on Schedule Today Button in PLP page Image
     Then I should see Book Online Now Window and close it
     When I click on Phone Number button in PLP page Image
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup
 
   Scenario: Verify page Images and Verify Schedule today and call buttons
     Given I navigate to "https://test.horizonservices.com/ready/hzn/plumbing"
@@ -14,7 +14,7 @@ Feature: Plumbing PLP page scenarios
     When I click on Book Now button by the images
     Then I should see Book Online Now Window and close it
     When I click on Phone Number button by the images
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup
 
   Scenario: Validate Offer at the bottom of the Page
 

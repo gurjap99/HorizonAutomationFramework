@@ -7,13 +7,13 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-repair"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
-    #When I click on service page Phone number button
-    #Then I can verify Phone call popup
+    When I click on service page Phone number button
+    Then I can verify Phone call popup
     When I click on Explore Membership button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
     When I navigate back
     When I click on Answers to common questions Phone number button
-     #Then I can verify Phone call popup
+     Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 
@@ -56,16 +56,16 @@ Feature: Horizon Service Heating & Cooling Heating Repair Page tests
     And I verify 1 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 1 offer Details CTA
-    #Then I can verify Phone call popup
+    When I click on phone number button in 1 offer Details CTA
+    Then I can verify Phone call popup
     Then I close bottom offer CTA
     When I click on the 2 offer
     Then I can verify the Offer Detail CTA alignment at bottom of the Page
     And I verify 2 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 2 offer Details CTA
-    #Then I can verify Phone call popup
+    When I click on phone number button in 2 offer Details CTA
+    Then I can verify Phone call popup
     Then I close bottom offer CTA
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"

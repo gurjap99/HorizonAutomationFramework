@@ -13,8 +13,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Lighting & Ceiling Fans"
     Then "Lighting & Ceiling Fans" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Lighting & Ceiling Fans" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Lighting & Ceiling Fans" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Lighting & Ceiling Fans" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/lighting-and-ceiling-fans"
 
@@ -25,8 +25,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Electrical Panels & Circuit Breakers"
     Then "Electrical Panels & Circuit Breakers" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Electrical Panels & Circuit Breakers" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Electrical Panels & Circuit Breakers" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Electrical Panels & Circuit Breakers" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electrical-panels-and-circuit-breakers"
 
@@ -37,8 +37,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Electrical Wiring"
     Then "Electrical Wiring" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Electrical Wiring" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Electrical Wiring" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Electrical Wiring" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electrical-wiring"
 
@@ -49,8 +49,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Electrical Remodeling"
     Then "Electrical Remodeling" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Electrical Remodeling" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Electrical Remodeling" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Electrical Remodeling" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electrical-remodeling"
 
@@ -61,8 +61,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Electric Vehicle Chargers"
     Then "Electric Vehicle Chargers" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Electric Vehicle Chargers" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Electric Vehicle Chargers" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Electric Vehicle Chargers" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electric-vehicle-chargers"
 
@@ -73,8 +73,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Whole-House Generators"
     Then "Whole-House Generators" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Whole-House Generators" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Whole-House Generators" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Whole-House Generators" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/whole-house-generators"
 
@@ -85,8 +85,8 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on "Electrical" "Whole-House Surge Protectors"
     Then "Whole-House Surge Protectors" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Whole-House Surge Protectors" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Whole-House Surge Protectors" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Whole-House Surge Protectors" Learn More button
     Then it navigates to "https://test.horizonservices.com/electrical-services/whole-house-surge-protectors"
 
@@ -101,17 +101,17 @@ Feature: Horizon Services Electrical Overview Page tests
     And I verify 1 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 1 offer Details CTA
-    #Then I can verify Phone call popup
+    When I click on phone number button in 1 offer Details CTA
+    Then I can verify Phone call popup
     Then I close bottom offer CTA
     When I click on the 2 offer
     Then I can verify the Offer Detail CTA alignment at bottom of the Page
     And I verify 2 Offer expiry date in offer detail CTA
     When I click on Book Now button in offer detail CTA
     Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 2 offer Details CTA
-    #Then I can verify Phone call popup
-    Then I close bottom offer CTA
+    When I click on phone number button in 2 offer Details CTA
+    When I can verify Phone call popup
+    When I close bottom offer CTA
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
@@ -129,4 +129,4 @@ Feature: Horizon Services Electrical Overview Page tests
     When I click on Book Now button in Image on "Horizon Services electrical" Page
     Then I should see Book Online Now Window and close it
     When I click on Phone Number in Image on "Horizon Services electrical" Page
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup

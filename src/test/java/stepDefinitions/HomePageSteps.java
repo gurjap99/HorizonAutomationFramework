@@ -19,6 +19,8 @@ import utils.Data;
 import utils.DriverFactory;
 import utils.Helper;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,6 +31,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.List;
 
 public class HomePageSteps {
     private final HomePage homePage;
@@ -680,7 +683,7 @@ public class HomePageSteps {
             System.out.println("'Expires' not found in the text.");
         }
 
-        //Assert.assertEquals(expectedFormattedDate, result.trim());
+        Assert.assertEquals(expectedFormattedDate, result.trim());
     }
 
     @When("I click on phone number button in {int} offer Details CTA")
@@ -778,5 +781,18 @@ public class HomePageSteps {
     @Then("I can close customer care modal")
     public void iCanCloseCustomerCareModal() {
         Helper.clickElement(driver, homePage.getCloseCustomerCareModalButton(), Duration.ofSeconds(20));
+    }
+
+    @Then("I can verify Phone call popup")
+    public void iCanVerifyPhoneCallPopup() throws AWTException {
+        Robot r = new Robot();
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
     }
 }

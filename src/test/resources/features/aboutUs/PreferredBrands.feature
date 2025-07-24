@@ -5,10 +5,10 @@ Feature: Horizon Services About Us Preferred Brands Page tests
     When I Click on About Us
     When I click on "Preferred Brands" button in category header submenu
     Then it navigates to "https://test.horizonservices.com/about-us/preferred-brands"
-    #When I click on service page Book Now Button
-    #Then I should see Book Online Now Window and close it
-    #When I click on service page Phone number button
-    #Then I can verify Phone call popup
+    When I click on service page Book Now Button
+    Then I should see Book Online Now Window and close it
+    When I click on service page Phone number button
+    Then I can verify Phone call popup
     When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
     Then I navigate back
     When I click on Explore Plumbing, it opens Plumbing webpage

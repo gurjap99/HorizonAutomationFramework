@@ -7,8 +7,8 @@ Feature: Horizon Services About Us In The Community Page tests
     Then it navigates to "https://test.horizonservices.com/about-us/in-the-community"
     When I click on service page Book Now Button
     Then I should see Book Online Now Window and close it
-    #When I click on service page Phone number button
-    #Then I can verify Phone call popup
+    When I click on service page Phone number button
+    Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/about-us"
 
