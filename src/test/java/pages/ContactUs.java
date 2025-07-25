@@ -10,7 +10,6 @@ public class ContactUs {
 
     @FindBy(xpath = "//div/*[contains(@data-testid, 'search-icon')]")
     private WebElement contactUsMapZipcodeInputSearchButton;
-//    @FindBy(xpath = "//div[contains(@aria-label, 'Map')]")
     @FindBy(id = "google-map-container")
     private WebElement map;
     @FindBy(css = "button.cursor-pointer")

@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Helper {
 
@@ -82,6 +85,13 @@ public class Helper {
         js.executeScript("window.scrollTo(0, 0);");
     }
 
+    public static void scrollToBottomOfPage(WebDriver driver){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        long scrollHeight = (Long) js.executeScript("return document.body.scrollHeight;");
+        // Scroll to the calculated mid-point
+        js.executeScript("window.scrollTo(0, " + scrollHeight + ");");
+    }
+
     // In your Helper class, add this:
     public static void retry(Runnable action, Duration timeout) {
         retry(action, timeout, DEFAULT_POLLING_INTERVAL);
@@ -107,4 +117,11 @@ public class Helper {
         }
         throw new RuntimeException("Retry failed after timeout", lastException);
     }
+
+    public static String formatExpiryDate(String isoDate) {
+        ZonedDateTime dateTime = ZonedDateTime.parse(isoDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        return dateTime.format(formatter) + ".";
+    }
+
 }

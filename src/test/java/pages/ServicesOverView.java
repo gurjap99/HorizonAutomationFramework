@@ -22,7 +22,7 @@ public class ServicesOverView {
     private WebElement comfortMembership;
     @FindBy(xpath = "(//div[contains(@class,'sm:mt-[43px]')]//a)[1]")
     private WebElement waysToSaveBookNowButton;
-    @FindBy(xpath = "//div[contains(@class,'sm:mt-[43px]')]//span/span[@id='phoneNumber']")
+    @FindBy(xpath = "//div[contains(@class,'sm:mt-[43px]')]//a[.//span[@id='phoneNumber']]")
     private WebElement waysToSavePhoneNumber;
 
     public ServicesOverView(WebDriver driver) {

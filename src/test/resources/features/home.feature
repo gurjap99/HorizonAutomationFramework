@@ -70,7 +70,7 @@ Feature: Horizon Services home page tests
     When  I click on Book Now button on header part
     Then I should see Book Online Now Window and close it
     When I click on phone number from header part
-    Then I should see phone number popup
+    Then I can verify Phone call popup
 
   Scenario: Validate visibility of static phone number in home page
     Given I navigate to "https://test.horizonservices.com" with javaScript turned off, then I visible phone numbers should be same as static phone number
@@ -117,28 +117,12 @@ Feature: Horizon Services home page tests
     When I click map Input Book Now button
     Then I should see Book Online Now Window and close it
 
-  Scenario: Validate Offer at the bottom of the Page
-    Given I navigate to "https://test.horizonservices.com/"
+  Scenario: Validate Offer at the bottom of the Home Page
+    Given I navigate to "https://www.horizonservices.com/"
     When I go to bottom of the homepage
-    Then I should see 2 offers is displaying
-    When I click on the 1 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 1 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    When I click on phone number button in 1 offer Details CTA
-    Then I can verify Phone call popup
-    Then I close bottom offer CTA
-    When I click on the 2 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 2 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    When I click on phone number button in 2 offer Details CTA
-    Then I can verify Phone call popup
-    Then I close bottom offer CTA
+    When I should be able to click on each offer details link and validate CTA
     And I click on View All Offers & Rebates button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
+    Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
 
   Scenario: Validate Google Review on homepage
     Given I navigate to "https://test.horizonservices.com/"

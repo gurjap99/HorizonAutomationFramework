@@ -109,6 +109,11 @@
             <artifactId>docker-java</artifactId>
             <version>${docker-java.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
