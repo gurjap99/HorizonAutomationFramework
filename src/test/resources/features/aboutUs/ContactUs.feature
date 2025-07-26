@@ -19,7 +19,7 @@ Feature: Horizon Services About Us Contact Us Page tests
     Then it navigates to "https://test.horizonservices.com/about-us"
 
   Scenario: Validate Map Zipcode Input and Book Now
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
     When I click on "Contact Us" button in category header submenu
     When I update Zipcode "19808" using map zipcode input in Contact Us page

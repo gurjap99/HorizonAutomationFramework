@@ -16,7 +16,7 @@ Feature: Horizon Service Ways To Save Page tests
 
 
   Scenario: Validate Image Call and Book Now buttons on Ways To Save overview page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Ways to Save
     When I click on Overview button in "Ways To Save" header submenu
     When I click on Book Now button in Image on Ways To Save Overview Page
@@ -25,7 +25,7 @@ Feature: Horizon Service Ways To Save Page tests
     Then I can verify Phone call popup
 
   Scenario: Validate Offer at the bottom of the Ways to Save Page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I Click on Ways to Save
     When I click on Overview button in "Ways To Save" header submenu
     When I go to bottom of the homepage

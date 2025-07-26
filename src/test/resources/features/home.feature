@@ -2,7 +2,7 @@ Feature: Horizon Services home page tests
 
   @Smoke
   Scenario: Validate Offer Banner Frame
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I click on offer banner
     Then I can verify the Offer Banner CTA alignment
     And Offer expiry date in offer banner CTA
@@ -84,7 +84,7 @@ Feature: Horizon Services home page tests
     Then "Sorry, your home is not in our service area." appears and update Zipcode is disabled, Map and map zipcode Input is visible
 
   Scenario: Validate Zipcode functionality is working for North Carolina region in eyebrow
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
      # Updating North Carolina Zipcode
     When I update Zipcode "27606" using eyebrow button
     Then NC region customer care contact CTA is visible
@@ -118,11 +118,11 @@ Feature: Horizon Services home page tests
     Then I should see Book Online Now Window and close it
 
   Scenario: Validate Offer at the bottom of the Home Page
-    Given I navigate to "https://www.horizonservices.com/"
+    Given I navigate to "https://test.horizonservices.com/"
     When I go to bottom of the homepage
     When I should be able to click on each offer details link and validate CTA
     And I click on View All Offers & Rebates button
-    Then it navigates to "https://www.horizonservices.com/ways-to-save/offers-and-rebates"
+    Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
   Scenario: Validate Google Review on homepage
     Given I navigate to "https://test.horizonservices.com/"
