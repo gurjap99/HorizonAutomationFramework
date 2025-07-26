@@ -7,8 +7,8 @@ Feature: Horizon Service Ways To Save Finance Page tests
     Then it navigates to "https://test.horizonservices.com/ways-to-save/financing"
     #When I click on service page Book Now Button
     #Then I should see Book Online Now Window and close it
-    #When I click on service page Phone number button
-    #Then I can verify Phone call popup
+    When I click on service page Phone number button
+    Then I can verify Phone call popup
     When I click on Explore Membership button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
     When I navigate back
@@ -16,6 +16,6 @@ Feature: Horizon Service Ways To Save Finance Page tests
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
     When I navigate back
     When I click on call us today phone number button
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/ways-to-save"

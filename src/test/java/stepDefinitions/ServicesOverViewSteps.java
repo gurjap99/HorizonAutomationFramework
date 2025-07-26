@@ -93,15 +93,16 @@ public class ServicesOverViewSteps {
         Helper.clickElementUsingActions(driver, servicesOverView.getComfortMembership(), Duration.ofSeconds(20));
     }
 
+    @When("I click on Book now button in PLP page Image")
     @When("I click on Schedule Today Button in PLP page Image")
     @When("I click on Book Now button in Image on Ways To Save Overview Page")
     public void iClickOnBookNowButtonInImageOnWaysToSaveOverviewPage() {
-        Helper.clickElementUsingActions(driver, servicesOverView.getWaysToSaveBookNowButton(), Duration.ofSeconds(20));
+        Helper.clickElement(driver, servicesOverView.getWaysToSaveBookNowButton(), Duration.ofSeconds(20));
     }
 
     @When("I click on Phone Number button in PLP page Image")
     @When("I click on Phone Number in Image on  Ways To Save Overview Page")
     public void iClickOnPhoneNumberInImageOnWaysToSaveOverviewPage() {
-        Helper.clickElementUsingActions(driver, servicesOverView.getWaysToSavePhoneNumber(), Duration.ofSeconds(20));
+        Helper.clickElement(driver, servicesOverView.getWaysToSavePhoneNumber(), Duration.ofSeconds(20));
     }
 }

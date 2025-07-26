@@ -13,8 +13,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Water Heaters"
     Then "Water Heaters" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Water Heaters" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Water Heaters" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Water Heaters" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/water-heaters"
 
@@ -25,8 +25,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Kitchen & Bathroom"
     Then "Kitchen & Bathroom" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Kitchen & Bathroom" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Kitchen & Bathroom" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Kitchen & Bathroom" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/kitchen-and-bathroom"
 
@@ -37,8 +37,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Water Lines"
     Then "Water Lines" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Water Lines" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Water Lines" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Water Lines" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/water-lines"
 
@@ -49,8 +49,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Drains & Sewer Lines"
     Then "Drains & Sewer Lines" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Drains & Sewer Lines" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Drains & Sewer Lines" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Drains & Sewer Lines" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/drains-and-sewer-lines"
 
@@ -61,8 +61,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Gas Lines"
     Then "Gas Lines" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Gas Lines" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Gas Lines" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Gas Lines" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/gas-lines"
 
@@ -73,8 +73,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Sump Pumps"
     Then "Sump Pumps" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Sump Pumps" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Sump Pumps" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Sump Pumps" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/sump-pumps"
 
@@ -85,8 +85,8 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Well Pumps"
     Then "Well Pumps" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Well Pumps" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Well Pumps" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Well Pumps" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/well-pumps"
 
@@ -97,33 +97,17 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on "Plumbing" "Water Treatment"
     Then "Water Treatment" CTA opens and Book now button can be clicked
     Then I should see Book Online Now Window and close it
-    #When "Water Treatment" Phone number button in CTA is clicked
-    #Then I can verify Phone call popup
+    When "Water Treatment" Phone number button in CTA is clicked
+    Then I can verify Phone call popup
     When I click on "Water Treatment" Learn More button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/water-treatment"
 
-  Scenario: Validating Plumbing Offer available at bottom of overview page
+  Scenario: Validating Plumbing Offer available at bottom of Plumbing overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Plumbing
     When I click on Overview button in "Plumbing" header submenu
     And I go to bottom of the homepage
-    Then I should see 2 offers is displaying
-    When I click on the 1 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 1 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 1 offer Details CTA
-    #Then I can verify Phone call popup
-    Then I close bottom offer CTA
-    When I click on the 2 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 2 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    #When I click on phone number button in 2 offer Details CTA
-    #Then I can verify Phone call popup
-    Then I close bottom offer CTA
+    When I should be able to click on each offer details link and validate CTA
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
@@ -141,4 +125,4 @@ Feature: Horizon Services Plumbing Overview Page tests
     When I click on Book Now button in Image on "Horizon Services plumbing" Page
     Then I should see Book Online Now Window and close it
     When I click on Phone Number in Image on "Horizon Services plumbing" Page
-    #Then I can verify Phone call popup
+    Then I can verify Phone call popup

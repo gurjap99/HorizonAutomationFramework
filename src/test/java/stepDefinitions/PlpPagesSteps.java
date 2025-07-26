@@ -1,6 +1,8 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.PlpPages;
 import utils.DriverFactory;
@@ -45,5 +47,12 @@ public class PlpPagesSteps {
     @When("I click on 4th Schedule Today button")
     public void iClickOnRthScheduleTodayButton() {
         Helper.clickElement(driver, plpPages.getSameDayAppointmentScheduleTodayButton3(), Duration.ofSeconds(15));
+    }
+
+    @Then("PLP google reviews are visible")
+    public void plpGoogleReviewIsVisible() {
+        Helper.scrollToBottomOfPage(driver);
+        Helper.retry(()-> Assert.assertEquals("Google reviews are not visible in PLP page",
+                2, plpPages.getGoogleRatingDivs().size()), Duration.ofSeconds(20));
     }
 }
