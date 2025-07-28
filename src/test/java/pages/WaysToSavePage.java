@@ -49,21 +49,44 @@ public class WaysToSavePage {
         return waysToSaveCloseCTAButton;
     }
 
-    public WebElement getWaysToSaveOfferBookNowButton(int index) {
-        String xpath = String.format("(//div[contains(@class, 'w-[22.625rem] sm:w-[29.5rem] flex-col" +
-                " rounded-l-lg')])[%s]//a[.//span[contains(text(),'Book')]]", index);
-        return driver.findElement(By.xpath(xpath));
+    public WebElement getWaysToSaveOfferBookNowButton(WebElement cta) {
+        return cta.findElement(By.xpath(".//a[.//span[contains(text(),'Book') " +
+                "or contains(text(),'Schedule')]]"));
     }
 
-    public WebElement getWaysToSaveOfferPhoneNumber() {
-        return waysToSaveOfferPhoneNumber;
+    public WebElement getWaysToSaveOfferPhoneNumber(WebElement cta) {
+        return cta.findElement(By.xpath(".//a[.//span[@id='phoneNumber']]"));
     }
 
-    public List<WebElement> getWaysToSaveOfferExpiryDate() {
-        return waysToSaveOfferExpiryDate;
+//    public List<WebElement> getWaysToSaveOfferExpiryDate() {
+//        return waysToSaveOfferExpiryDate;
+//    }
+
+    public WebElement offerCTAExpiryDate(WebElement cta) {
+        return cta.findElement(By.xpath(".//article[contains(@class, 'mt-5')]"));
     }
 
     public WebElement getFinanceCallButton() {
         return financeCallButton;
+    }
+
+    public WebElement getVisibleOfferCTA() {
+        List<WebElement> els = driver.findElements(By.xpath("//div[contains(@class, " +
+                "'w-[22.625rem] sm:w-[29.5rem] flex-col rounded-l-lg')]"));
+        WebElement vEl = null;
+        int count = 0;
+        // Find the first visible element
+        for (WebElement el : els) {
+            if (el.isDisplayed()) {
+                vEl = el;
+                count++;
+            }
+        }
+        System.out.println("Visible CTA count = " + count);
+        return vEl;
+    }
+
+    public WebElement getCTAOfferTitle(WebElement expiryDateEl){
+        return expiryDateEl.findElement(By.xpath(".//preceding::p[1]"));
     }
 }

@@ -5,10 +5,10 @@ Feature: Horizon Services About Us Preferred Brands Page tests
     When I Click on About Us
     When I click on "Preferred Brands" button in category header submenu
     Then it navigates to "https://test.horizonservices.com/about-us/preferred-brands"
-    #When I click on service page Book Now Button
-    #Then I should see Book Online Now Window and close it
-    #When I click on service page Phone number button
-    #Then I can verify Phone call popup
+    When I click on service page Book Now Button
+    Then I should see Book Online Now Window and close it
+    When I click on service page Phone number button
+    Then I can verify Phone call popup
     When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
     Then I navigate back
     When I click on Explore Plumbing, it opens Plumbing webpage
@@ -32,20 +32,20 @@ Feature: Horizon Services About Us Preferred Brands Page tests
     Then it navigates to "https://test.horizonservices.com/about-us"
 
   Scenario: Open About Us Preferred Brands page and verify other option buttons:
-    Given I navigate to "https://www.horizonservices.com"
+    Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
     When I click on "Preferred Brands" button in category header submenu
     When I click on "Reviews" button
-    Then it navigates to "https://www.horizonservices.com/about-us/reviews"
+    Then it navigates to "https://test.horizonservices.com/about-us/reviews"
     When I navigate back
     When I click on "In the Community" button
-    Then it navigates to "https://www.horizonservices.com/about-us/in-the-community"
+    Then it navigates to "https://test.horizonservices.com/about-us/in-the-community"
     When I navigate back
     When I click on "Why Horizon" button
-    Then it navigates to "https://www.horizonservices.com/about-us/why-horizon"
+    Then it navigates to "https://test.horizonservices.com/about-us/why-horizon"
     When I navigate back
     When I click on "Work With Us" button
-    Then it navigates to "https://www.horizonservices.com/about-us/work-with-us"
+    Then it navigates to "https://test.horizonservices.com/about-us/work-with-us"
     When I navigate back
     When I click on "Contact Us" button
-    Then it navigates to "https://www.horizonservices.com/about-us/contact-us"
+    Then it navigates to "https://test.horizonservices.com/about-us/contact-us"

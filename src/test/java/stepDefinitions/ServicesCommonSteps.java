@@ -36,6 +36,7 @@ public class ServicesCommonSteps {
 
     @When("I click on Explore Financing button")
     public void iClickOnExploreFinancingButton() {
+        Helper.scrollToElement(driver, servicesCommon.getExploreFinancingButton());
         Helper.clickElement(driver, servicesCommon.getExploreFinancingButton(), Duration.ofSeconds(20));
     }
 

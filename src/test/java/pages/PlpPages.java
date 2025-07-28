@@ -23,6 +23,8 @@ public class PlpPages {
     private WebElement bookNowButtonByImages;
     @FindBy(xpath = "//div[contains(@data-testid,'two-column-right')]//a[.//span[contains(@id,'phoneNumber')]]")
     private WebElement phoneButtonByImages;
+    @FindBy(xpath = "//div[contains(@class, 'ti-no-profile-img')]//div[contains(@class, 'source-Google')]")
+    private List<WebElement> googleRatingDivs;
 
     public PlpPages(WebDriver driver) {
         this.driver = driver;
@@ -84,5 +86,9 @@ public class PlpPages {
 
     public WebElement getSameDayAppointmentScheduleTodayButton3() {
         return sameDayAppointmentScheduleTodayButton3;
+    }
+
+    public List<WebElement> getGoogleRatingDivs() {
+        return googleRatingDivs;
     }
 }
