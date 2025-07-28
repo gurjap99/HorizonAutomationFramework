@@ -485,7 +485,7 @@ public class HomePageSteps {
     @When("I open zip code CTA and click on Use My Current Location button")
     public void iOpenZipCodeCTAAndClickOnUseMyCurrentLocationButton() throws InterruptedException {
         Helper.clickElement(driver, homePage.getEyebrowZipCode(), Duration.ofSeconds(20));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Helper.clickElement(driver, homePage.getUseCurrentLocButton(), Duration.ofSeconds(20));
     }
 

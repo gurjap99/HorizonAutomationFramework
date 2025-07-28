@@ -42,27 +42,11 @@ Feature: Horizon Services Electrical Electric Vehicle Chargers page tests
     When I click on "Electrical Remodeling" button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electrical-remodeling"
 
-  Scenario: Validate Offer at the bottom of the Page
+  Scenario: Validate Offer at the bottom of the Electrical Vehicle Chargers Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Electrical
     When I click on "Electric Vehicle Chargers" button in category header submenu
     When I go to bottom of the homepage
-    Then I should see 2 offers is displaying
-    When I click on the 1 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 1 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    When I click on phone number button in 1 offer Details CTA
-    Then I can verify Phone call popup
-    Then I close bottom offer CTA
-    When I click on the 2 offer
-    Then I can verify the Offer Detail CTA alignment at bottom of the Page
-    And I verify 2 Offer expiry date in offer detail CTA
-    When I click on Book Now button in offer detail CTA
-    Then I should see Book Online Now Window and close it
-    When I click on phone number button in 2 offer Details CTA
-    Then I can verify Phone call popup
-    Then I close bottom offer CTA
+    When I should be able to click on each offer details link and validate CTA
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"

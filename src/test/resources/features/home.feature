@@ -95,7 +95,6 @@ Feature: Horizon Services home page tests
 
   Scenario: Validate "Use My Current Location" feature
     Given I navigate to "https://test.horizonservices.com"
-     # Updating North Carolina Zipcode
     When I open zip code CTA and click on Use My Current Location button
     Then Current zipcode should be updated in the input box
 

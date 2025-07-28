@@ -134,7 +134,8 @@ public class HomePage {
     @FindBy(xpath = "(//div[contains(@class,'w-[22.625rem]') and contains(@class,'sm:w-[29.5rem]') and " +
             ".//h2[contains(text(),'customer care')]]//a)[2]")
     private WebElement ncRegionCustomerCareCtaCallButton2;
-    @FindBy(xpath = "(//a[.//span[contains(text(), 'Use My Current Location')]])[3]")
+    @FindBy(xpath = "(//a[.//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', " +
+            "'abcdefghijklmnopqrstuvwxyz'), 'use my current location')]])[3]")
     private WebElement useCurrentLocButton;
     @FindBy(id = ":r0:")
     private WebElement customerCareModal;
