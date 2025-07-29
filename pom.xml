@@ -22,6 +22,8 @@
         <messages.version>27.2.0</messages.version>
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
         <junit.platform.version>1.10.2</junit.platform.version>
+        <maven.build.timestamp.format>yyyyMMdd_HHmmss</maven.build.timestamp.format>
+        <allure.timestamp>${maven.build.timestamp}</allure.timestamp>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -119,6 +121,22 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.5.0</version> <executions>
+                <execution>
+                    <id>timestamp-property</id>
+                    <phase>initialize</phase> <goals>
+                    <goal>timestamp-property</goal>
+                </goals>
+                    <configuration>
+                        <name>allure.timestamp</name> <pattern>yyyyMMdd_HHmmss</pattern> <locale>en_US</locale>
+                    </configuration>
+                </execution>
+            </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
@@ -129,7 +147,7 @@
                     </includes>
                     <argLine> -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar </argLine>
                     <systemPropertyVariables>
-                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                        <allure.results.directory>${project.build.directory}/allure-results_${allure.timestamp}</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
@@ -176,8 +194,8 @@
                 <version>${allure.maven.version}</version>
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
-                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+                    <resultsDirectory>${project.build.directory}/allure-results_${allure.timestamp}</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/allure-report_${allure.timestamp}</reportDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -195,13 +213,6 @@
                 <version>3.3.1</version>
                 <configuration>
                     <filesets>
-                        <fileset>
-                            <directory>${project.build.directory}/allure-results</directory>
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                            <followSymlinks>false</followSymlinks>
-                        </fileset>
                     </filesets>
                 </configuration>
             </plugin>

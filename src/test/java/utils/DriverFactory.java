@@ -17,6 +17,11 @@ public class DriverFactory {
 
         ChromeOptions options = new ChromeOptions();
 
+//        //code to run in background
+//        options.addArguments("--headless=new"); // or "--headless" for older versions
+//        options.addArguments("--disable-gpu");
+//        options.addArguments("--window-size=1920,1080");
+
         // Clear cache by disabling it
         options.addArguments("--disable-application-cache");
         options.addArguments("--disk-cache-size=0");
