@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -68,6 +69,7 @@ public class ApiUtil {
     }
 
     private static String fetchAccessToken() {
+        RestAssured.useRelaxedHTTPSValidation();
         Response response = given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("grant_type", "client_credentials")
