@@ -1,5 +1,6 @@
 Feature: Horizon Services Plumbing Well Pumps page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Well Pumps page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Plumbing
@@ -20,6 +21,7 @@ Feature: Horizon Services Plumbing Well Pumps page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/plumbing-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Plumbing
@@ -45,6 +47,7 @@ Feature: Horizon Services Plumbing Well Pumps page tests
     When I click on "Sump Pumps" button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/sump-pumps"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Well Pumps Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Plumbing

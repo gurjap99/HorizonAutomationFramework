@@ -1,5 +1,6 @@
 Feature: Horizon Service Heating & Cooling AC Maintenance Page tests
-  
+
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in AC Maintenance page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -45,6 +46,7 @@ Feature: Horizon Service Heating & Cooling AC Maintenance Page tests
     When I click on "Indoor Air Quality" button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the AC Maintenance Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling

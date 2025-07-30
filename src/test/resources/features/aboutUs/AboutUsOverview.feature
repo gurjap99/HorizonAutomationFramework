@@ -1,5 +1,6 @@
 Feature: Horizon Services About Us Overview Page tests
 
+  @Regression
   Scenario: Open About Us Overview page and verify Book Now, Call buttons and Services buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
@@ -15,6 +16,7 @@ Feature: Horizon Services About Us Overview Page tests
     When I navigate back
     When I click on Explore Electrical, it opens Electrical webpage
 
+  @Smoke
   Scenario: Open About Us Overview page and verify About Us bottom option links:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us

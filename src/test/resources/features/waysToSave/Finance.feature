@@ -1,5 +1,6 @@
 Feature: Horizon Service Ways To Save Finance Page tests
 
+  @Regression
   Scenario: Validate call button, other buttons in Finance page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Ways to Save

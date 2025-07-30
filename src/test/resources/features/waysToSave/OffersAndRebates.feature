@@ -1,5 +1,6 @@
 Feature: Horizon Service Ways To Save Offers And Rebates Page tests
 
+  @Smoke
   Scenario: Validate buttons on Offers And Rebates page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Ways to Save
@@ -14,6 +15,7 @@ Feature: Horizon Service Ways To Save Offers And Rebates Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/ways-to-save"
 
+    @Smoke
     Scenario: Validate all offer CTAs and detail links in Offers and Rebates page
       Given I navigate to "https://test.horizonservices.com"
       When I Click on Ways to Save

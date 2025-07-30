@@ -1,5 +1,6 @@
 Feature: Horizon Services About Us Contact Us Page tests
 
+  @Regression
   Scenario: Open About Us Why horizon page and verify Book Now, Call buttons, Service buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
@@ -18,6 +19,7 @@ Feature: Horizon Services About Us Contact Us Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/about-us"
 
+  @Regression
   Scenario: Validate Map Zipcode Input and Book Now
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us

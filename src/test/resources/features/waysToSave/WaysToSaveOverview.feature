@@ -1,5 +1,6 @@
 Feature: Horizon Service Ways To Save Page tests
 
+  @Smoke
   Scenario: Validate Exclusive offers and Rebates, Flexible Financing, Comfort Membership in Ways To Save overview page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Ways to Save
@@ -15,6 +16,7 @@ Feature: Horizon Service Ways To Save Page tests
     Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
 
 
+  @Regression
   Scenario: Validate Image Call and Book Now buttons on Ways To Save overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Ways to Save

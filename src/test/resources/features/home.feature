@@ -1,6 +1,6 @@
 Feature: Horizon Services home page tests
 
-  @Smoke
+  @Regression
   Scenario: Validate Offer Banner Frame
     Given I navigate to "https://test.horizonservices.com/"
     When I click on offer banner
@@ -11,6 +11,7 @@ Feature: Horizon Services home page tests
     When I click on phone number button in offer banner CTA
     Then I can verify Phone call popup
 
+  @Smoke
   Scenario: Validate Explore Heating & cooling, Explore Plumbing, Explore Electrical buttons
     Given I navigate to "https://test.horizonservices.com/"
     When I click on Explore Heating & Cooling, it opens Heating & Cooling webpage
@@ -20,6 +21,7 @@ Feature: Horizon Services home page tests
     When I click on Explore Electrical, it opens Electrical webpage
     Then I can navigate back to home page
 
+  @Regression
   Scenario: Validate Image Call and Book Now buttons
     Given I navigate to "https://test.horizonservices.com/"
     When I click on Book Now button in Image on home screen
@@ -27,6 +29,7 @@ Feature: Horizon Services home page tests
     When I click on phone number button in in Image on home screen
     Then I can verify Phone call popup
 
+  @Regression
   Scenario: Validate Help, my air conditioner won’t turn on! CTA
     Given I navigate to "https://test.horizonservices.com"
     When Click on Help my air conditioner won’t turn on! option
@@ -34,22 +37,26 @@ Feature: Horizon Services home page tests
     Then I should see Book Online Now Window and close it
     And I should see and click on phone number on flashed air conditioner frame
 
+  @Regression
   Scenario: Validate Do you install tankless water heaters? CTA
     Given I navigate to "https://test.horizonservices.com"
     When Click on Do you install tankless water heaters option
     Then I should see and click on Book Now button on flashed water tank frame
     And I should see and click on phone number on flashed water tank frame
 
+  @Regression
   Scenario: Validate Help, I need 24/7 emergency service! CTA
     Given I navigate to "https://test.horizonservices.com"
     When Click on emergency service option
     Then I should see Book Online Now Window and close it
 
+  @Smoke
   Scenario: Validate Header Menu Order
     Given I navigate to "https://test.horizonservices.com"
     When I get the Menu list
     Then I Should see the Menu order is displayed in correct order
 
+  @Smoke
   Scenario: Validate Header Sub Menu Order
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -65,6 +72,7 @@ Feature: Horizon Services home page tests
     When I Click on Learn
     Then I should see new page with URL "https://test.horizonservices.com/learning-hub"
 
+  @Regression
   Scenario: Validate Book Now And Phone number from header part
     Given I navigate to "https://test.horizonservices.com"
     When  I click on Book Now button on header part
@@ -72,9 +80,11 @@ Feature: Horizon Services home page tests
     When I click on phone number from header part
     Then I can verify Phone call popup
 
+  @Regression
   Scenario: Validate visibility of static phone number in home page
     Given I navigate to "https://test.horizonservices.com" with javaScript turned off, then I visible phone numbers should be same as static phone number
 
+  @Regression
   Scenario: Validate Zipcode is getting updated properly in homepage
     Given I navigate to "https://test.horizonservices.com"
     When I update Zipcode "21244" using eyebrow button
@@ -83,6 +93,7 @@ Feature: Horizon Services home page tests
     When I update Zipcode "12345" using eyebrow button
     Then "Sorry, your home is not in our service area." appears and update Zipcode is disabled, Map and map zipcode Input is visible
 
+  @Regression
   Scenario: Validate Zipcode functionality is working for North Carolina region in eyebrow
     Given I navigate to "https://test.horizonservices.com"
      # Updating North Carolina Zipcode
@@ -93,11 +104,13 @@ Feature: Horizon Services home page tests
     When I click on second call button in customer care contact CTA
     Then I can verify Phone call popup
 
+  @Regression
   Scenario: Validate "Use My Current Location" feature
     Given I navigate to "https://test.horizonservices.com"
     When I open zip code CTA and click on Use My Current Location button
     Then Current zipcode should be updated in the input box
 
+  @Regression
   Scenario: Validate that customer care model opens when North Carolina zipcode is entered in zipcode input by map
     Given I navigate to "https://test.horizonservices.com"
     # Updating North Carolina Zipcode
@@ -109,6 +122,7 @@ Feature: Horizon Services home page tests
     Then I can verify Phone call popup
     Then I can close customer care modal
 
+  @Regression
   Scenario: Validate Map Zipcode Input and Book Now
     Given I navigate to "https://test.horizonservices.com"
     When I update Zipcode "21244" using map zipcode input
@@ -116,6 +130,7 @@ Feature: Horizon Services home page tests
     When I click map Input Book Now button
     Then I should see Book Online Now Window and close it
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Home Page
     Given I navigate to "https://test.horizonservices.com/"
     When I go to bottom of the homepage
@@ -123,10 +138,12 @@ Feature: Horizon Services home page tests
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
+  @Smoke
   Scenario: Validate Google Review on homepage
     Given I navigate to "https://test.horizonservices.com/"
     Then I should see Google review in the home page
 
+  @Regression
   # Footer tests
   Scenario: Validate "Peace of mind is on the way" call and book now buttons
     Given I navigate to "https://test.horizonservices.com/"
@@ -135,6 +152,7 @@ Feature: Horizon Services home page tests
     When I click on phone number button in Peace of mind is on the way bar
     Then I can verify Phone call popup
 
+  @Smoke
   Scenario: Verify footer Privacy Policy and ADA Notice links
     Given I navigate to "https://test.horizonservices.com/"
     When I click on Privacy Policy Link
@@ -142,6 +160,7 @@ Feature: Horizon Services home page tests
     When I click on ADA Notice Link
     Then it navigates to "https://test.horizonservices.com/ada-notice"
 
+  @Smoke
   Scenario: Validate footer elements, their order and links
     Given I navigate to "https://test.horizonservices.com/"
     Then I should see the footer menu list in correct order
