@@ -1,5 +1,6 @@
 Feature: Horizon Services Electrical Electric Vehicle Chargers page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Electric Vehicle Chargers page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Electrical
@@ -20,6 +21,7 @@ Feature: Horizon Services Electrical Electric Vehicle Chargers page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/electrical-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Electrical
@@ -42,6 +44,7 @@ Feature: Horizon Services Electrical Electric Vehicle Chargers page tests
     When I click on "Electrical Remodeling" button
     Then it navigates to "https://test.horizonservices.com/electrical-services/electrical-remodeling"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Electrical Vehicle Chargers Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Electrical

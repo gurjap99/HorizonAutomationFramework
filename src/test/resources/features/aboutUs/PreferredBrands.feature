@@ -1,5 +1,6 @@
 Feature: Horizon Services About Us Preferred Brands Page tests
 
+  @Regression
   Scenario: Open About Us Preferred Brands page and verify Book Now, Call buttons, Service buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
@@ -15,6 +16,7 @@ Feature: Horizon Services About Us Preferred Brands Page tests
     When I navigate back
     When I click on Explore Electrical, it opens Electrical webpage
 
+  @Smoke
   Scenario: Open About Us Preferred Brands page and verify Offers&Rebates, Financing, Membership buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
@@ -31,6 +33,7 @@ Feature: Horizon Services About Us Preferred Brands Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/about-us"
 
+  @Smoke
   Scenario: Open About Us Preferred Brands page and verify other option buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us

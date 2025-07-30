@@ -1,5 +1,6 @@
 Feature: Learn More HVAC PLP page scenarios
 
+  @Regression
   Scenario: Navigate to Learn More HVAC PLP page and Verify Book Now and call buttons in image, Google review, Explore Financing
     Given I navigate to "https://test.horizonservices.com/learn-more/hvac"
     When I click on Book now button in PLP page Image
@@ -10,6 +11,7 @@ Feature: Learn More HVAC PLP page scenarios
     When I click on Explore Financing button
     Then I navigate to "https://test.horizonservices.com/ways-to-save/financing"
 
+  @Smoke
   Scenario: Validate Maintenance, Repair, Installation Heating and Cooling links in Learn More HVAC PLP
     Given I navigate to "https://test.horizonservices.com/learn-more/hvac"
     When I click on "Heating" in "Maintenance"
@@ -31,6 +33,7 @@ Feature: Learn More HVAC PLP page scenarios
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-installation"
 
 
+  @Smoke
   Scenario: Validate all bottom CTAs and detail links in Learn More HVAC PLP
     Given I navigate to "https://test.horizonservices.com/learn-more/hvac"
     When I should be able to click on each offer details link and validate CTA

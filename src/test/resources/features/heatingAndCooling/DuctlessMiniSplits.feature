@@ -1,5 +1,6 @@
 Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Ductless Mini-Splits page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -20,6 +21,7 @@ Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -48,6 +50,7 @@ Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
     When I click on "Indoor Air Quality" button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Ductless Mini Splits Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling

@@ -1,5 +1,6 @@
 Feature: Horizon Services Learns Page tests
 
+  @Smoke
   Scenario: Validate list of all learning hub in Learn Page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Learn
