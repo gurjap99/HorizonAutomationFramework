@@ -1,5 +1,6 @@
 Feature: Horizon Service Ways To Save Membership Page tests
 
+  @Smoke
   Scenario: Validate buttons and links in Membership page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Ways to Save

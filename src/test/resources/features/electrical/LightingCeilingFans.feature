@@ -1,5 +1,6 @@
 Feature: Horizon Services Electrical Lighting & Ceiling Fans page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Lighting & Ceiling Fans page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Electrical
@@ -17,6 +18,7 @@ Feature: Horizon Services Electrical Lighting & Ceiling Fans page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/electrical-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Electrical
@@ -39,6 +41,7 @@ Feature: Horizon Services Electrical Lighting & Ceiling Fans page tests
     When I click on "Whole-House Generators" button
     Then it navigates to "https://test.horizonservices.com/electrical-services/whole-house-generators"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Lighting and Ceiling Fans Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Electrical

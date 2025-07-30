@@ -1,11 +1,13 @@
 Feature: Horizon Services Heating & Cooling Overview Page tests
 
+  @Smoke
   Scenario: Validate list of services in Overview of Heating & Cooling
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     Then I can validate the list of all "Heating & Cooling" services and their order
 
+  @Regression
   Scenario: Validate Heating Maintenance of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -18,6 +20,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "Heating Maintenance" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-maintenance"
 
+  @Regression
   Scenario: Validate Heating Repair of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -30,6 +33,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "Heating Repair" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-repair"
 
+  @Regression
   Scenario: Validate Heating Installation of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -42,6 +46,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "Heating Installation" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/heating-installation"
 
+  @Regression
   Scenario: Validate AC Maintenance of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -54,6 +59,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "AC Maintenance" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-maintenance"
 
+  @Regression
   Scenario: Validate AC Repair of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -66,6 +72,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "AC Repair" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-repair"
 
+  @Regression
   Scenario: Validate AC Installation of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -78,6 +85,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "AC Installation" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/ac-installation"
 
+  @Regression
   Scenario: Validate Ductless Mini-Splits of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -90,6 +98,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "Ductless Mini-Splits" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling/ductless-mini-splits"
 
+  @Regression
   Scenario: Validate HVAC Accessories of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -102,6 +111,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "HVAC Accessories" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling/hvac-accessories"
 
+  @Regression
   Scenario: Validate Indoor Air Quality of Heating & Cooling services CTA
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -114,6 +124,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on "Indoor Air Quality" Learn More button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services/indoor-air-quality"
 
+  @Smoke
   Scenario: Validating Heating & Cooling Offer available at bottom of overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
@@ -123,12 +134,14 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     And I click on View All Offers & Rebates button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/offers-and-rebates"
 
+  @Smoke
   Scenario: Validating Google Review on Heating & Cooling overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
     When I click on Overview button in "Heating & Cooling" header submenu
     Then I should see Google review in the home page
 
+  @Regression
   Scenario: Validate Image Call and Book Now buttons on Heating & Cooling overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling
@@ -138,6 +151,7 @@ Feature: Horizon Services Heating & Cooling Overview Page tests
     When I click on Phone Number in Image on "Horizon Services heating and cooling" Page
     Then I can verify Phone call popup
 
+  @Smoke
   Scenario: Validate Maintenance Repair and Installation Services at bottom of overview page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling

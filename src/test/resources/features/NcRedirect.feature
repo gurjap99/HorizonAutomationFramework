@@ -1,5 +1,6 @@
 Feature: Validate the links containing "/nc/" redirect to "https://dillingnc.com/horizon/"
 
+  @Smoke
   Scenario: Validate the links containing "/nc/" redirect to "https://dillingnc.com/horizon/"
     When I navigate to "https://test.horizonservices.com/nc/learn-more/hvac"
     Then it navigates to link starting with "https://dillingnc.com/horizon/"
