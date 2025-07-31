@@ -50,4 +50,12 @@ Example:
 
 allure serve target/allure-results_20250729_115345
 
+4. In order to execute parallelly for chrome, edge, firefox, for Scenarios with a particular tag use following command:
+
+.\run-parallel-allure.bat
+
+Currently it is set up to execute for @Smoke tag and for all 3 browsers.
+This setting can be changed by editing "run-parallel-allure.bat" file.
+
+
 This command requires the Allure command-line tool to be installed and accessible in your system's PATH. It will process the specified results and open the Allure HTML report in your default web browser.

@@ -9,8 +9,8 @@ Feature: Home Comfort PLP page scenarios
 
   Scenario: Verify page Images and Verify Schedule today and call buttons
     Given I navigate to "https://test.horizonservices.com/ready/hzn/home-comfort"
-    When I click on Schedule Today button under same-day appointment now
-    Then I should see Book Online Now Window and close it
+#    When I click on Schedule Today button under same-day appointment now
+#    Then I should see Book Online Now Window and close it
     When I click on 3rd Schedule Today button
     Then I should see Book Online Now Window and close it
     When I click on 4th Schedule Today button

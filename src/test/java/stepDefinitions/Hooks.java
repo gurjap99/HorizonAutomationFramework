@@ -3,17 +3,16 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
+import utils.BrowserFactory;
 import utils.DriverFactory;
 
 public class Hooks {
 
     @Before
     public void setUp() {
-        WebDriver driver = DriverFactory.initializeDriver();
+        String browser = System.getProperty("browser", "edge");
+        WebDriver driver = BrowserFactory.createInstance(browser);
         DriverFactory.setDriver(driver);
-
-        // Clear cookies
-        driver.manage().deleteAllCookies();
     }
 
     @After

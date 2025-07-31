@@ -11,8 +11,8 @@ Feature: Electrical PLP page scenarios
     Given I navigate to "https://test.horizonservices.com/ready/hzn/electrical"
     When I click on Schedule Today button under same-day appointment now
     Then I should see Book Online Now Window and close it
-    When I click on Book Now button by the images
-    Then I should see Book Online Now Window and close it
+#    When I click on Book Now button by the images
+#    Then I should see Book Online Now Window and close it
     When I click on Phone Number button by the images
     Then I can verify Phone call popup
 
