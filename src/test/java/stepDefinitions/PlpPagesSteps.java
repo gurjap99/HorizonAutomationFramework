@@ -20,7 +20,7 @@ public class PlpPagesSteps {
     }
     @When("I click on Schedule Today button under same-day appointment now")
     public void iClickOnScheduleTodayButtonUnderSameDayAppointment() {
-        Helper.clickElementUsingActions(driver, plpPages.getSameDayAppointmentScheduleTodayButton(),
+        Helper.clickElement(driver, plpPages.getSameDayAppointmentScheduleTodayButton(),
                 Duration.ofSeconds(20));
     }
 

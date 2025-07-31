@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -66,7 +67,7 @@ public class HomePageSteps {
             url = iNavigateToWithVercelBypass(url);
         }
         driver.get(url);
-        //driver.manage().window().setSize(new Dimension(1512, 712));
+//        driver.manage().window().setSize(new Dimension(1980, 1080));
         driver.manage().window().maximize();
     }
 
