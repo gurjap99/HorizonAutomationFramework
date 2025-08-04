@@ -30,7 +30,7 @@ public class WaysToSavePage {
     private WebElement waysToSaveOfferPhoneNumber;
     @FindBy(xpath = "//article[contains(@class, 'mt-5')]")
     private List<WebElement> waysToSaveOfferExpiryDate;
-    @FindBy(xpath = "(//div[contains(@class,'SloganBar_sloganBar__9cxuq')])[1]//span[contains(@id,'phoneNumber')]")
+    @FindBy(xpath = "//div[contains(@class,'SloganBar_sloganBar__9cxuq') and .//h1]//a[.//span[contains(@id,'phoneNumber')]]")
     private WebElement financeCallButton;
 
     public List<WebElement> getOfferDetailsLinks() {

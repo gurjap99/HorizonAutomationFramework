@@ -17,13 +17,13 @@ public class ServicesCommon {
             "//a[.//span[contains(text(), 'Book')]]")
     private WebElement serviceBookNowButton;
     @FindBy(xpath = "//div[contains(@class, 'sm:py-[6.25rem]') and contains(@class, 'bg-background_color_1')]" +
-            "//span[@id = 'phoneNumber']")
+            "//a[.//span[@id = 'phoneNumber']]")
     private WebElement servicePhoneButton;
     @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Membership')]]")
     private WebElement exploreMembershipButton;
     @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Financing')]]")
     private WebElement exploreFinancingButton;
-    @FindBy(xpath = "(//span[contains(text(), 'Explore Offers & Rebates')])[1]")
+    @FindBy(xpath = "//a[.//span[contains(text(), 'Explore Offers')]]")
     private WebElement exploreOffersRebatesButton;
     @FindBy(xpath = "//div[*[contains(text(), 'Answers')]]//span[@id='phoneNumber']")
     private WebElement answersDivPhoneNumber;

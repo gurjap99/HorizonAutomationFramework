@@ -14,11 +14,11 @@ public class ServicesOverView {
     @FindBy(xpath = "//div[@data-testid='flyout-cta-list-view-container']" +
             "//div[contains(@data-testid, 'df-button')]")
     private List<WebElement> servicesListButtons;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Offers')]")
+    @FindBy(xpath = "//a[.//div[contains(text(), 'Explore Offers')]]")
     private WebElement exclusiveOffersAndRebates;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Financing')]")
+    @FindBy(xpath = "//a[.//div[contains(text(), 'Explore Financing')]]")
     private WebElement flexibleFinancing;
-    @FindBy(xpath = "//div[contains(text(), 'Explore Membership')]")
+    @FindBy(xpath = "//a[.//div[contains(text(), 'Explore Membership')]]")
     private WebElement comfortMembership;
     @FindBy(xpath = "(//div[contains(@class,'sm:mt-[43px]')]//a)[1]")
     private WebElement waysToSaveBookNowButton;
@@ -60,7 +60,7 @@ public class ServicesOverView {
 
         // Final XPath with dynamic h2 conditions
         String xpath = String.format(
-                "//div[contains(@class, 'sm:w-[29.5rem]') and .//h2[%s]]//span[@id='phoneNumber']",
+                "//div[contains(@class, 'sm:w-[29.5rem]') and .//h2[%s]]//a[.//span[@id='phoneNumber']]",
                 h2Conditions
         );
 
@@ -91,12 +91,14 @@ public class ServicesOverView {
     }
 
     public WebElement getOverviewImgBookNowButton(String page) {
-        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(text(),'Book Now')])[1]", page);
+        String xpathExpression = String.format("//div[contains(@class, 'h-[44.1875rem]') and .//img[@alt='%s']]" +
+                "//a[.//span[contains(text(), 'Book')]]", page);
         return driver.findElement(By.xpath(xpathExpression));
     }
 
     public WebElement getOverviewImgPhoneNumber(String page) {
-        String xpathExpression = String.format("(//img[@alt='%s']/ following::span[contains(@id,'phoneNumber')])[1]", page);
+        String xpathExpression = String.format("//div[contains(@class, 'h-[44.1875rem]') and .//img[@alt='%s']]" +
+                "//a[.//span[contains(@id,'phoneNumber')]]", page);
         return driver.findElement(By.xpath(xpathExpression));
     }
 

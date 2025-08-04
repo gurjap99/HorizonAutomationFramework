@@ -118,7 +118,6 @@ Feature: Horizon Services Plumbing Overview Page tests
     Then I should see Google review in the home page
 
   Scenario: Validate Image Call and Book Now buttons on Plumbing overview page
-
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Plumbing
     When I click on Overview button in "Plumbing" header submenu

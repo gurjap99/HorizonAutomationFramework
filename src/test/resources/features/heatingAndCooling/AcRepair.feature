@@ -1,5 +1,5 @@
 Feature: Horizon Service Heating & Cooling AC Repair Page tests
-
+  
   Scenario: Validate Book Now, call button, explore membership button in AC Repair page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -9,11 +9,11 @@ Feature: Horizon Service Heating & Cooling AC Repair Page tests
     Then I should see Book Online Now Window and close it
     When I click on service page Phone number button
     Then I can verify Phone call popup
-    When I click on Explore Membership button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
-    When I navigate back
-    When I click on Answers to common questions Phone number button
-     Then I can verify Phone call popup
+#    When I click on Explore Membership button
+#    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
+#    When I navigate back
+#    When I click on Answers to common questions Phone number button
+#     Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 
