@@ -1,5 +1,5 @@
 Feature: Horizon Service Heating & Cooling AC Maintenance Page tests
-  @Retest
+  
   Scenario: Validate Book Now, call button, explore membership button in AC Maintenance page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
