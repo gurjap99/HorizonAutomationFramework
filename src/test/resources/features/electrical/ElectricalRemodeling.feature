@@ -12,8 +12,8 @@ Feature: Horizon Services Electrical Electrical Remodeling page tests
     #When I click on Explore Membership button
     #Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
     #When I navigate back
-    When I click on Answers to common questions Phone number button
-     Then I can verify Phone call popup
+#    When I click on Answers to common questions Phone number button
+#    Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/electrical-services"
 

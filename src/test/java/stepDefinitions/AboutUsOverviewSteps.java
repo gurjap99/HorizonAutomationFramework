@@ -31,7 +31,7 @@ public class AboutUsOverviewSteps {
 
     @When("I click on option {string}")
     public void iClickOnOption(String option) {
-        Helper.clickElementUsingActions(driver, aboutUs.getAboutUsOptionButton(option), Duration.ofSeconds(15));
+        Helper.clickElement(driver, aboutUs.getAboutUsOptionButton(option), Duration.ofSeconds(15));
     }
 
     @When("I click on {int} Explore Careers each takes to {string}")

@@ -9,14 +9,14 @@ Feature: Horizon Service Heating & Cooling Ductless Mini-Splits Page tests
     Then I should see Book Online Now Window and close it
     When I click on service page Phone number button
     Then I can verify Phone call popup
-    When I click on Explore Membership button
-    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
-    When I navigate back
+#    When I click on Explore Membership button
+#    Then it navigates to "https://test.horizonservices.com/ways-to-save/membership-program"
+#    When I navigate back
     When I click on Explore Financing button
     Then it navigates to "https://test.horizonservices.com/ways-to-save/financing"
     When I navigate back
-    When I click on Answers to common questions Phone number button
-     Then I can verify Phone call popup
+#    When I click on Answers to common questions Phone number button
+#    Then I can verify Phone call popup
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 

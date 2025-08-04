@@ -70,7 +70,8 @@ public class ApiUtil {
 
     private static String fetchAccessToken() {
         RestAssured.useRelaxedHTTPSValidation();
-        Response response = given()
+
+                    Response response = given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("grant_type", "client_credentials")
                 .formParam("client_id", CLIENT_ID)

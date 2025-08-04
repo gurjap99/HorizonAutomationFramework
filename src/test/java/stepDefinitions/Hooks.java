@@ -10,7 +10,7 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        String browser = System.getProperty("browser", "edge");
+        String browser = System.getProperty("browser", "chrome");
         WebDriver driver = BrowserFactory.createInstance(browser);
         DriverFactory.setDriver(driver);
     }

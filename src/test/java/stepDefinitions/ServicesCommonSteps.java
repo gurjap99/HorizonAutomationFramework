@@ -21,12 +21,13 @@ public class ServicesCommonSteps {
     @When ("I click on service page Book Now Button")
     public void clickOnServicePageBookNowButton() throws InterruptedException {
         Thread.sleep(2000);
+        Helper.scrollToElement(driver, servicesCommon.getServiceBookNowButton());
         Helper.clickElement(driver, servicesCommon.getServiceBookNowButton(), Duration.ofSeconds(30));
     }
 
     @When("I click on service page Phone number button")
     public void iClickOnServicePagePhoneNumberButton() {
-        servicesCommon.getServicePhoneButton().click();
+        Helper.clickElement(driver, servicesCommon.getServicePhoneButton(), Duration.ofSeconds(20));
     }
 
     @When("I click on Explore Membership button")
@@ -42,7 +43,7 @@ public class ServicesCommonSteps {
 
     @When("I click on Explore Offers and Rebates button")
     public void iClickOnExploreOffersAndRebatesButton() {
-        Helper.clickElementUsingActions(driver, servicesCommon.getExploreOffersRebatesButton(), Duration.ofSeconds(20));
+        Helper.clickElement(driver, servicesCommon.getExploreOffersRebatesButton(), Duration.ofSeconds(20));
     }
 
     @When("I navigate back")
