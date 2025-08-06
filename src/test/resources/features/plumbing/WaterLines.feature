@@ -1,5 +1,6 @@
 Feature: Horizon Services Plumbing Water Lines page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Water Lines page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Plumbing
@@ -20,6 +21,7 @@ Feature: Horizon Services Plumbing Water Lines page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/plumbing-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Plumbing
@@ -45,6 +47,7 @@ Feature: Horizon Services Plumbing Water Lines page tests
     When I click on "Well Pumps" button
     Then it navigates to "https://test.horizonservices.com/plumbing-services/well-pumps"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Water Lines Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Plumbing

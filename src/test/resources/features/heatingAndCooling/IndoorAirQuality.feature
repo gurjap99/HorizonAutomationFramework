@@ -1,5 +1,6 @@
 Feature: Horizon Service Heating & Cooling Indoor Air Quality Page tests
 
+  @Regression
   Scenario: Validate Book Now, call button, explore membership button in Indoor Air Quality page
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -20,6 +21,7 @@ Feature: Horizon Service Heating & Cooling Indoor Air Quality Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling-services"
 
+  @Smoke
   Scenario: Validate other services buttons and links
     Given I navigate to "https://test.horizonservices.com"
     When I Click on Heating & Cooling
@@ -48,6 +50,7 @@ Feature: Horizon Service Heating & Cooling Indoor Air Quality Page tests
     When I click on "Ductless Mini-Splits" button
     Then it navigates to "https://test.horizonservices.com/heating-and-cooling/ductless-mini-splits"
 
+  @Smoke
   Scenario: Validate Offer at the bottom of the Indoor Air Quality Page
     Given I navigate to "https://test.horizonservices.com/"
     When I Click on Heating & Cooling

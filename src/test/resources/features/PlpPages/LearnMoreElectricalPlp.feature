@@ -1,5 +1,6 @@
 Feature: Learn More Electrical PLP page scenarios
 
+  @Regression
   Scenario: Navigate to Learn More Electrical PLP page and Verify Book Now and call buttons in image, Google review, Explore Financing
     Given I navigate to "https://test.horizonservices.com/learn-more/electrical"
     When I click on Book now button in PLP page Image
@@ -10,6 +11,7 @@ Feature: Learn More Electrical PLP page scenarios
     When I click on Explore Financing button
     Then I navigate to "https://test.horizonservices.com/ways-to-save/financing"
 
+  @Smoke
   Scenario: Validate all bottom CTAs and detail links in Learn More Electrical PLP
     Given I navigate to "https://test.horizonservices.com/learn-more/electrical"
     When I should be able to click on each offer details link and validate CTA

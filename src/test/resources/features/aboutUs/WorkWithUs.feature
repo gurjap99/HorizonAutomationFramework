@@ -1,5 +1,6 @@
 Feature: Horizon Services About Us Work With Us Page tests
 
+  @Regression
   Scenario: Open About Us Work With Us page and verify Book Now, Call buttons, Service buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
@@ -9,6 +10,7 @@ Feature: Horizon Services About Us Work With Us Page tests
     When I click on breadcrumb button
     Then it navigates to "https://test.horizonservices.com/about-us"
 
+  @Smoke
   Scenario: Open About Us Work With Us page and verify other option buttons:
     Given I navigate to "https://test.horizonservices.com"
     When I Click on About Us
